@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WAD_Assignment
 {
-    public partial class Listing : System.Web.UI.Page
+    public partial class Gallery : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
