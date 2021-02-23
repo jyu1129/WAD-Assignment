@@ -77,6 +77,7 @@
     <Content Include="Gallery.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PurchaseHistory.aspx" />
+    <Content Include="Queries\Generator.sql" />
     <Content Include="Queries\Rename Table.sql" />
     <Content Include="Register.aspx" />
     <Content Include="SellArt.aspx" />
