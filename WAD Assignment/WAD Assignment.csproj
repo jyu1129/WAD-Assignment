@@ -76,6 +76,7 @@
     <Content Include="BuyArt.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="PurchaseHistory.aspx" />
+    <Content Include="Queries\Rename Table.sql" />
     <Content Include="SellArt.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="tempImg\880433.jpg" />
