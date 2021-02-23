@@ -16,7 +16,7 @@
         <div>
             CART<br />
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="Expr1" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="gvCart1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="Expr1" DataSourceID="SqlDataSource1" Height="133px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="407px">
                 <Columns>
                     <asp:BoundField DataField="Expr1" HeaderText="Expr1" InsertVisible="False" ReadOnly="True" SortExpression="Expr1" />
                     <asp:BoundField DataField="ArtName" HeaderText="ArtName" SortExpression="ArtName" />
@@ -27,7 +27,10 @@
                     <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" />
                 </Columns>
             </asp:GridView>
+            <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Arts.ArtId AS Expr1, Arts.ArtName, Arts.ArtUrl, Arts.Price, Cart.Quantity, Cart.TotalPrice, Cart.CustomerId FROM Cart INNER JOIN Arts ON Cart.ArtId = Arts.ArtId"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+            <br />
         </div>
     </form>
 </body>
