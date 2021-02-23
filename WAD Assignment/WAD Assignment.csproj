@@ -74,6 +74,7 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="BuyArt.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PurchaseHistory.aspx" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="BuyArt.aspx.designer.cs">
       <DependentUpon>BuyArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>

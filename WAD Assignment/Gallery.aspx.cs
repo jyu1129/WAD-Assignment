@@ -13,5 +13,11 @@ namespace WAD_Assignment
         {
 
         }
+
+        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
