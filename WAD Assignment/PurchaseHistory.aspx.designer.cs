@@ -10,7 +10,7 @@
 
 namespace WAD_Assignment
 {
-    public partial class PurchaseHistory
+    public partial class PurchaseHistory1
     {
 
         /// <summary>
