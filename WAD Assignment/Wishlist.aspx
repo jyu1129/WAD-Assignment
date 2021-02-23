@@ -19,9 +19,9 @@
             <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField HeaderText="ID" />
-                    <asp:BoundField HeaderText="Art Name" />
-                    <asp:ImageField HeaderText="Art Image">
+                    <asp:BoundField HeaderText="Art ID" DataField="ArtId" />
+                    <asp:BoundField HeaderText="Name" />
+                    <asp:ImageField HeaderText="Image">
                     </asp:ImageField>
                     <asp:BoundField HeaderText="Price" />
                     <asp:CommandField ButtonType="Image" ShowDeleteButton="True" />
