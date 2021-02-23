@@ -24,66 +24,66 @@ namespace WAD_Assignment
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// hlBuyArt control.
+        /// hlBuyArt0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlBuyArt;
+        protected global::System.Web.UI.WebControls.HyperLink hlBuyArt0;
 
         /// <summary>
-        /// hlSellArt control.
+        /// hlSellArt0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSellArt;
+        protected global::System.Web.UI.WebControls.HyperLink hlSellArt0;
 
         /// <summary>
-        /// hlMyOrders control.
+        /// hlMyOrders0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMyOrders;
+        protected global::System.Web.UI.WebControls.HyperLink hlMyOrders0;
 
         /// <summary>
-        /// hlGallery control.
+        /// hlGallery0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlGallery;
+        protected global::System.Web.UI.WebControls.HyperLink hlGallery0;
 
         /// <summary>
-        /// lblGallery control.
+        /// lblGallery0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGallery;
+        protected global::System.Web.UI.WebControls.Label lblGallery0;
 
         /// <summary>
-        /// btnEditGalleryName control.
+        /// btnEditGalleryName0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditGalleryName;
+        protected global::System.Web.UI.WebControls.Button btnEditGalleryName0;
 
         /// <summary>
-        /// ListView1 control.
+        /// ListView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
+        protected global::System.Web.UI.WebControls.ListView ListView2;
     }
 }
