@@ -14,7 +14,7 @@
             <asp:ListView ID="ListView1" runat="server" DataKeyNames="ArtId" DataSourceID="SqlDataSource1" GroupItemCount="3">
                 <AlternatingItemTemplate>
                     <td runat="server" style="background-color: #FAFAD2;color: #284775;">
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="100px" Width="150px"/>
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="200px" Width="300px"/>
                         <br />
                     </td>
                 </AlternatingItemTemplate>
@@ -55,7 +55,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <td runat="server" style="background-color: #FFFBD6;color: #333333;">
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="100px" Width="150px" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="200px" Width="300px" />
                         <br />
                     </td>
                 </ItemTemplate>
@@ -84,7 +84,7 @@
                 </LayoutTemplate>
                 <SelectedItemTemplate>
                     <td runat="server" style="background-color: #FFCC66;font-weight: bold;color: #000080;">
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="100px" Width="150px" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="200px" Width="300px" />
                         <br />
                     </td>
                 </SelectedItemTemplate>
