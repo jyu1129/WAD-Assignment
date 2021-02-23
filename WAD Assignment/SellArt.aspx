@@ -29,6 +29,8 @@
             <br />
             <asp:HyperLink ID="hlMyOrders" runat="server">My Orders</asp:HyperLink>
             <br />
+            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
+            <br />
             <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
@@ -59,6 +61,7 @@
                 </asp:DropDownList>
                 <br />
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [categories]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
                 <br />
                 <asp:Button ID="btnSubmitArt" runat="server" Text="Submit" />
                 &nbsp;<asp:Button ID="btnCancelArt" runat="server" Text="Cancel" />

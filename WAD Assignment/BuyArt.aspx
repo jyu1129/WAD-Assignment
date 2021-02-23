@@ -17,6 +17,8 @@
             <br />
             <asp:HyperLink ID="hlMyOrders" runat="server">My Orders</asp:HyperLink>
             <br />
+            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
+            <br />
             <br />
             <asp:Image ID="Image1" runat="server" Height="500px" ImageUrl="~/tempImg/880433.jpg" />
             <br />
