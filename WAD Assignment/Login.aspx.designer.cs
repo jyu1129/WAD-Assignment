@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WAD_Assignment.Chin_Yew
+namespace WAD_Assignment
 {
 
 
