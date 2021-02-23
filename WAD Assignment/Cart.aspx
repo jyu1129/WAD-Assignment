@@ -29,7 +29,6 @@
             </asp:GridView>
             <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Arts.ArtId AS Expr1, Arts.ArtName, Arts.ArtUrl, Arts.Price, Cart.Quantity, Cart.TotalPrice, Cart.CustomerId FROM Cart INNER JOIN Arts ON Cart.ArtId = Arts.ArtId"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
             <br />
         </div>
     </form>
