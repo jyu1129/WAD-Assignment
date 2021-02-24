@@ -35,11 +35,11 @@
         }
         .auto-style18 {
             height: 22px;
-            width: 292px;
+            width: 436px;
         }
         .auto-style19 {
             height: 23px;
-            width: 292px;
+            width: 436px;
         }
         .auto-style20 {
             width: 135px;
@@ -47,7 +47,10 @@
         }
         .auto-style21 {
             height: 21px;
-            width: 292px;
+            width: 436px;
+        }
+        .auto-style22 {
+            width: 100%;
         }
     </style>
 </head>
@@ -65,20 +68,27 @@
             </tr>
             <tr>
                 <td class="auto-style7">
-                    <table style="width:100%;">
+                    <table class="auto-style22">
                         <tr>
                             <td class="auto-style12">First Name</td>
                             <td class="auto-style18">:
                     <asp:TextBox ID="txtFirstName" runat="server" required="required"></asp:TextBox>
                             </td>
-                            <td class="auto-style12">Last Name</td>
-                            <td class="auto-style14">:
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style9">Last Name</td>
+                            <td class="auto-style19">:
                     <asp:TextBox ID="txtLastName" runat="server" required="required"></asp:TextBox>
                             </td>
+                            <td class="auto-style9">&nbsp;</td>
+                            <td class="auto-style6">&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style9">Email</td>
                             <td class="auto-style19">: <asp:TextBox ID="txtEmail" runat="server" Width="170px" required="required" type="email"></asp:TextBox>
+                            &nbsp;<asp:Label ID="lblEmailExist" runat="server" ForeColor="Red"></asp:Label>
                             </td>
                             <td class="auto-style9"></td>
                             <td class="auto-style6">&nbsp;</td>
@@ -103,11 +113,11 @@
                             <td class="auto-style9">User Type</td>
                             <td class="auto-style19">:
                     <asp:DropDownList ID="ddlUserType" runat="server" Height="17px" Width="128px">
-                        <asp:ListItem>Please Select</asp:ListItem>
+                        <asp:ListItem Text="Please Select" Selected="True"></asp:ListItem>
                         <asp:ListItem>Artist</asp:ListItem>
-                        <asp:ListItem>Buyer</asp:ListItem>
+                        <asp:ListItem>Customer</asp:ListItem>
                     </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please select user type" ControlToValidate="ddlUserType" InitialValue="0"></asp:RequiredFieldValidator>
+                                &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required" ControlToValidate="ddlUserType" InitialValue="Please Select" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                             <td class="auto-style9">&nbsp;</td>
                             <td class="auto-style6">&nbsp;</td>
