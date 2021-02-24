@@ -31,25 +31,7 @@ namespace WAD_Assignment
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //create database connection
-            con = new SqlConnection(strCon);
-            //open database
-            con.Open();
-
-            //get from
-            int CustomerId = 123;
-            int ArtId = 1;
-            int Quantity = 1;                     
-            int TotalPrice = 2500;
-
-            //INSERT database record
-            string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity, TotalPrice) VALUES("+CustomerId+","+ArtId+","+Quantity+","+TotalPrice+")";
-            //create sqlcommand
-            SqlCommand cmdInsert = new SqlCommand(strInsert, con);
-            //temporary store record retrived by command object
-            SqlDataReader dtrSelect = cmdInsert.ExecuteReader();
-            //close connection
-            con.Close();
+           
         }
     }
 }
