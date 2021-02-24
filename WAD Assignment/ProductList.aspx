@@ -22,9 +22,11 @@
 
     <form id="form1" runat="server">
         <div>
-            <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
-                <ItemTemplate>
+            <asp:Label ID="lblAddToCartMsg" runat="server"></asp:Label>
+            <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnItemCommand="dtProduct_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+                <ItemTemplate> 
                     <table>
+                        <asp:Label ID="ArtIdLabel" runat="server" Text='<%# Eval("ArtId") %>' Visible="false"/>                         
                         <tr>
                             <td>
                                 ArtName:
@@ -50,7 +52,7 @@
                         </tr>      
                         <tr>
                             <td>
-                                <asp:Button ID="Button1" runat="server" Text="Add To Cart" OnClick="OnClick_AddToCard" />
+                                <asp:Button ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart"  />
                             </td>
                         </tr>  
                         <tr>
@@ -63,6 +65,10 @@
 <br />
                 </ItemTemplate>
             </asp:DataList>
+
+
+
+            <br />
 
 
 
