@@ -11,7 +11,8 @@ namespace WAD_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            gvWishlist.DataBind();
+            lblWishCount.Text = gvWishlist.Rows.Count.ToString();
         }
     }
 }
