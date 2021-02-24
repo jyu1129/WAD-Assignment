@@ -16,6 +16,16 @@
         <div>
             CART<br />
             <br />
+            <asp:HyperLink ID="hlBuyArt" runat="server" NavigateUrl="~/Shop.aspx">Buy Art</asp:HyperLink>
+            <br />
+            <asp:HyperLink ID="hlSellArt" runat="server" NavigateUrl="~/SellArt.aspx">Sell Art</asp:HyperLink>
+            <br />
+            <asp:HyperLink ID="hlMyOrders" runat="server">My Orders</asp:HyperLink>
+            <br />
+            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>\
+            <br />
+            <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
+            <br />
             <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="CartId" DataSourceID="SqlDataSource1" Height="133px" Width="407px" >
                 <Columns>
                     
