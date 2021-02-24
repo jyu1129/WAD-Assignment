@@ -24,13 +24,22 @@ namespace WAD_Assignment
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtUsername control.
+        /// txtFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+
+        /// <summary>
+        /// txtLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
         /// txtEmail control.
@@ -60,6 +69,15 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPw;
 
         /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+
+        /// <summary>
         /// ddlUserType control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,15 @@ namespace WAD_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUserType;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// chkBoxAccept control.
@@ -78,13 +105,22 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.CheckBox chkBoxAccept;
 
         /// <summary>
-        /// HyperLink2 control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
 
         /// <summary>
         /// btnRegister control.

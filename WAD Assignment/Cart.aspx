@@ -16,8 +16,11 @@
         <div>
             CART<br />
             <br />
-            <asp:GridView ID="gvCart1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="Expr1" DataSourceID="SqlDataSource1" Height="133px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="407px">
+            <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="CartId" DataSourceID="SqlDataSource1" Height="133px" Width="407px" >
                 <Columns>
+                    
+                   
+                    
                     <asp:BoundField DataField="Expr1" HeaderText="Expr1" InsertVisible="False" ReadOnly="True" SortExpression="Expr1" />
                     <asp:BoundField DataField="ArtName" HeaderText="ArtName" SortExpression="ArtName" />
                     <asp:BoundField DataField="ArtUrl" HeaderText="ArtUrl" SortExpression="ArtUrl" />
@@ -25,11 +28,17 @@
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                     <asp:BoundField DataField="TotalPrice" HeaderText="TotalPrice" SortExpression="TotalPrice" />
                     <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" />
+                    <asp:CommandField ShowDeleteButton="True" />
+
                 </Columns>
             </asp:GridView>
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Arts.ArtId AS Expr1, Arts.ArtName, Arts.ArtUrl, Arts.Price, Cart.Quantity, Cart.TotalPrice, Cart.CustomerId FROM Cart INNER JOIN Arts ON Cart.ArtId = Arts.ArtId"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" DeleteCommand="DELETE FROM Cart WHERE CartId = @CartId
+" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Arts.ArtId AS Expr1, Arts.ArtName, Arts.ArtUrl, Arts.Price, Cart.Quantity, Cart.TotalPrice, Cart.CustomerId, Cart.CartId FROM Cart INNER JOIN Arts ON Cart.ArtId = Arts.ArtId">
+                <DeleteParameters>
+                    <asp:Parameter Name="CartId" />
+                </DeleteParameters>
+            </asp:SqlDataSource>
             <br />
         </div>
     </form>
