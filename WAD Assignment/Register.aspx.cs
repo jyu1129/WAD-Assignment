@@ -43,7 +43,7 @@ namespace WAD_Assignment
             email.Close();
             con.Close();
 
-            if(emailExist == false)
+            if (emailExist == false)
             {
                 con2 = new SqlConnection(strCon2);
                 con2.Open();
