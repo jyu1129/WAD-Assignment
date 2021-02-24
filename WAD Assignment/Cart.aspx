@@ -28,19 +28,37 @@
             <br />
             <br />
 
-            <asp:GridView ID="gvCart" OnRowDeleting="gvCart_RowDeleting" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="CartId" DataSourceID="SqlDataSource1" Height="133px" Width="407px" GridLines="None" CellPadding="20" >
+            <asp:GridView ID="gvCart" OnRowDeleted="gvCart_RowDeleted" OnRowDeleting="gvCart_RowDeleting" DataSourceID="SqlDataSource1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="CartId" Height="133px" Width="407px" GridLines="None" CellPadding="20" >
                 <Columns >  
                     <asp:TemplateField HeaderText="No.">
                         <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:ImageField DataImageUrlField="ArtUrl" HeaderText="Product" SortExpression="ArtUrl" ControlStyle-Height="100" ControlStyle-Width="100"></asp:ImageField>
-                    <asp:BoundField DataField="ArtName" HeaderText="" SortExpression="ArtName" ItemStyle-Wrap="False" />
-                    <asp:BoundField DataField="Price" HeaderText="Unit Price" SortExpression="Price" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" />
+                    <asp:ImageField DataImageUrlField="ArtUrl" HeaderText="Product" SortExpression="ArtUrl" ControlStyle-Height="100" ControlStyle-Width="100">
+<ControlStyle Height="100px" Width="100px"></ControlStyle>
+                    </asp:ImageField>
+                    <asp:BoundField DataField="ArtName" HeaderText="" SortExpression="ArtName" ItemStyle-Wrap="False" >
+<ItemStyle Wrap="False"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Price" HeaderText="Unit Price" SortExpression="Price" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" >
+<HeaderStyle Wrap="False"></HeaderStyle>
+
+<ItemStyle Wrap="False"></ItemStyle>
+                    </asp:BoundField>
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                    <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" SortExpression="TotalPrice" ItemStyle-Wrap="False" FooterStyle-Wrap="False" HeaderStyle-Wrap="False" />
-                    <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" HeaderStyle-Wrap="False" ItemStyle-Wrap="False" />
+                    <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" SortExpression="TotalPrice" ItemStyle-Wrap="False" FooterStyle-Wrap="False" HeaderStyle-Wrap="False" >
+<FooterStyle Wrap="False"></FooterStyle>
+
+<HeaderStyle Wrap="False"></HeaderStyle>
+
+<ItemStyle Wrap="False"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" HeaderStyle-Wrap="False" ItemStyle-Wrap="False" Visible="False" >
+<HeaderStyle Wrap="False"></HeaderStyle>
+
+<ItemStyle Wrap="False"></ItemStyle>
+                    </asp:BoundField>
                     <asp:CommandField HeaderText="Action" ShowDeleteButton="True" />
                 </Columns>
             </asp:GridView>

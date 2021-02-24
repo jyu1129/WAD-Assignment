@@ -13,35 +13,54 @@ namespace WAD_Assignment
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        double subTotal = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
 
+            getSubTotal();
+        }
 
         protected void gvCart_RowDeleting(Object sender, GridViewDeleteEventArgs e)
         {
+            
+        }
+
+        protected void gvCart_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            getSubTotal();
+        }
+
+        protected void getSubTotal()
+        {
+            gvCart.DataBind();
             con = new SqlConnection(strCon);
             con.Open();
 
             int rowCount = gvCart.Rows.Count;
-            lblTotalItem.Text = rowCount.ToString();
 
-            string CustomerId = "123";
-            String strSelect = "SELECT SUM(C.Quantity * A.Price) AS SubTotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE C.CustomerId = " + CustomerId;
+            if (rowCount > 0)
+            {
+                string CustomerId = "123";
+                String strSelect = "SELECT SUM(C.Quantity * A.Price) AS SubTotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE C.CustomerId = " + CustomerId;
 
-            //create set command
-            SqlCommand cmdSelect2 = new SqlCommand(strSelect, con);
+                //create set command
+                SqlCommand cmdSelect2 = new SqlCommand(strSelect, con);
 
-            //because OrderIDSales is double
-            double subTotal = Convert.ToDouble(cmdSelect2.ExecuteScalar());
+                //because OrderIDSales is double
+                subTotal = Convert.ToDouble(cmdSelect2.ExecuteScalar());
 
-            gvCart.DataBind();
+                lblSubTotal.Text = subTotal.ToString();
+                lblTotalItem.Text = gvCart.Rows.Count.ToString();
+            }
+            else
+            {
+                subTotal = 0;
+                lblSubTotal.Text = subTotal.ToString();
+                lblTotalItem.Text = gvCart.Rows.Count.ToString();
+            }
 
-            lblSubTotal.Text = subTotal.ToString();
             con.Close();
-
-            
         }
     }
 }
