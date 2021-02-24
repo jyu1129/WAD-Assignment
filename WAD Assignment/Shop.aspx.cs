@@ -39,11 +39,8 @@ namespace WAD_Assignment
             //get from
             int CustomerId = 123;
             int ArtId = 1;
-            int Quantity = 1;
-
-            
+            int Quantity = 1;                     
             int TotalPrice = 2500;
-
 
             //INSERT database record
             string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity, TotalPrice) VALUES("+CustomerId+","+ArtId+","+Quantity+","+TotalPrice+")";
