@@ -23,7 +23,7 @@
             <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:FileUpload ID="imgUpload" runat="server"  />
+                    <asp:FileUpload ID="imgUpload" runat="server" accept=".jpg, .jpeg" />
                     &nbsp;<asp:Button ID="btnImgUpload" runat="server" OnClick="btnImgUpload_Click" Text="Upload" />
                     <br />
                     <br />

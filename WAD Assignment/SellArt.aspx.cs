@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Net;
+using System.Web.UI;
 using System.Xml.Linq;
 
 namespace WAD_Assignment
@@ -21,8 +22,8 @@ namespace WAD_Assignment
         {
             if (imgUpload.HasFile)
             {
-                imgUpload.SaveAs(MapPath("~/tempImg/" + imgUpload.FileName));
-                uploadedImg.ImageUrl = "~/tempImg/" + imgUpload.FileName;
+                imgUpload.SaveAs(MapPath("~/arts/" + imgUpload.FileName));
+                uploadedImg.ImageUrl = "~/arts/" + imgUpload.FileName;
             }
         }
 
@@ -30,7 +31,10 @@ namespace WAD_Assignment
         {
             con = new SqlConnection(strCon);
             con.Open();
-            imgUpload.SaveAs(MapPath(uploadedImg.ImageUrl));
+            if (Directory.Exists(MapPath("~/tempImg/" + imgUpload.FileName)))
+            {
+                DeleteDirectory(MapPath("~/tempImg/" + imgUpload.FileName));
+            }
             string artName = txtArtTitle.Text.ToString();
             string artDescription = txtDescription.Text.ToString();
             string artCategory = txtArtCat.Text.ToString();
@@ -50,12 +54,33 @@ namespace WAD_Assignment
             if(cmdAdd.ExecuteNonQuery() > 0)
             {
                 Response.Write("Record is Added!");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record is Added!')", true);
             }
             else
             {
                 Response.Write("Error! Record not added!");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error! Record not added!')", true);
             }
             con.Close();
+        }
+
+        public static void DeleteDirectory(string target_dir)
+        {
+            string[] files = Directory.GetFiles(target_dir);
+            string[] dirs = Directory.GetDirectories(target_dir);
+
+            foreach (string file in files)
+            {
+                File.SetAttributes(file, FileAttributes.Normal);
+                File.Delete(file);
+            }
+
+            foreach (string dir in dirs)
+            {
+                DeleteDirectory(dir);
+            }
+
+            Directory.Delete(target_dir, false);
         }
     }
 }

@@ -16,40 +16,51 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void OnClick_AddToCard(object sender, EventArgs e)
         {
             
 
-            //create database connection
-            con = new SqlConnection(strCon);
-            //open database
-            con.Open();
-
-            //get from
-            int CustomerId = 123;
             
-            var rowColumn = Convert.ToInt32(((Button)sender).CommandArgument);
-
-            int ArtId = 1;
-            int Quantity = 1;
-            int TotalPrice = 1;
-
-            //INSERT database record
-            string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity, TotalPrice) VALUES(" + CustomerId + "," + ArtId + "," + Quantity + "," + TotalPrice + ")";
-            //create sqlcommand
-            SqlCommand cmdInsert = new SqlCommand(strInsert, con);
-            //temporary store record retrived by command object
-            SqlDataReader dtrSelect = cmdInsert.ExecuteReader();
-            //close connection
-            con.Close();
         }
+
+        protected void dtProduct_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if(e.CommandName == "AddToCart")
+            {
+
+                //create database connection
+                con = new SqlConnection(strCon);
+                //open database
+                con.Open();
+                //get from
+                int CustomerId = 123;
+                //To Get Art Id from the of the item from datalist
+                Label TotalPrice = e.Item.FindControl("PriceLabel") as Label;
+                Label ArtId = e.Item.FindControl("ArtIdLabel") as Label;
+                int Quantity = 1;
+                //INSERT database record
+                string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity, TotalPrice) VALUES(" + CustomerId + "," + ArtId.Text.ToString() + "," + Quantity + "," + TotalPrice.Text.ToString() + ")";
+                //create sqlcommand
+                SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+                //temporary store record retrived by command object
+                SqlDataReader dtrSelect = cmdInsert.ExecuteReader();
+                //display success
+                ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('CART ADDED!');</script>");
+                //close connection
+                con.Close();
+
+            }
+
+
+        }
+
     }
 }
