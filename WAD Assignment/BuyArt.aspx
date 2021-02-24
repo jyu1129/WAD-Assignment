@@ -20,7 +20,7 @@
             <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
             <br />
             <br />
-            <asp:Image ID="Image1" runat="server" Height="500px" ImageUrl="~/tempImg/880433.jpg" />
+            <asp:Image ID="Image1" runat="server" Height="148px" ImageUrl="~/tempImg/880433.jpg" Width="171px" />
             <br />
             <br />
             <asp:Label ID="lblArtTitle" runat="server" Text="Artwork Title"></asp:Label>
