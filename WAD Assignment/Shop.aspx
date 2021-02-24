@@ -20,13 +20,21 @@
             <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
 &nbsp;<br />
             <br />
+            <br />
+            <br />
 &nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl="~/tempImg/880433.jpg" />
 &nbsp;<asp:ImageButton ID="ImageButton2" runat="server" Height="300px" ImageUrl="~/tempImg/880433.jpg" />
+            <br />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add To Cart" Width="105px" />
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Cart]"></asp:SqlDataSource>
+            <br />
             <br />
             <asp:ImageButton ID="ImageButton3" runat="server" Height="300px" ImageUrl="~/tempImg/880433.jpg" />
 &nbsp;<asp:ImageButton ID="ImageButton4" runat="server" Height="300px" ImageUrl="~/tempImg/880433.jpg" />
             <br />
+            <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [img] FROM [images]"></asp:SqlDataSource>
+            <br />
         </div>
     </form>
 </body>

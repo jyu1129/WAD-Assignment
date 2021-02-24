@@ -5,18 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style2 {
-            width: 500px;
-            height: 200px;
-        }
-
-        .auto-style3 {
-            width: 500px;
-            height: 100px;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -51,22 +40,28 @@
             <br />
             <br />
             <strong>Description<br />
-                <textarea id="txtDescription" class="auto-style2" name="S1"></textarea><br />
+                <asp:TextBox ID="txtDescription" TextMode="MultiLine" Width="500px" runat="server"></asp:TextBox>
+            <br />
                 <br />
-                Keywords<br />
-                <textarea id="txtKeywords" class="auto-style3" cols="20" name="S2"></textarea><br />
-                <br />
-                Categories<br />
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="category" DataValueField="Id">
-                </asp:DropDownList>
-                <br />
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [categories]"></asp:SqlDataSource>
+                Category<br />
+                <asp:TextBox ID="txtArtCat" runat="server" Width="500px"></asp:TextBox>
+            <br />
+            <br />
+            Price<br />
+            $
+            <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            Stock<br />
+            <asp:TextBox ID="txtStock" runat="server" Width="100px" type ="number" ></asp:TextBox>
+            <br />
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
                 <br />
-                <asp:Button ID="btnSubmitArt" runat="server" Text="Submit" />
+                <asp:Button ID="btnSubmitArt" runat="server" Text="Submit" OnClick="btnSubmitArt_Click" />
                 &nbsp;<asp:Button ID="btnCancelArt" runat="server" Text="Cancel" />
             </strong>
         </div>
     </form>
+
 </body>
 </html>
