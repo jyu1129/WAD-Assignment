@@ -64,6 +64,8 @@
                     <asp:Parameter Name="CartId" />
                 </DeleteParameters>
             </asp:SqlDataSource>
+        <br />
+        <br />
     </form>
 </body>
 </html>

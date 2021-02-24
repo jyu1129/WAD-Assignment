@@ -58,6 +58,29 @@ namespace WAD_Assignment
 
             }
 
+            else if (e.CommandName == "AddToWishlist")
+            {
+                DateTime date = new DateTime();
+                string d = date.ToString();
+                //create database connection
+                con = new SqlConnection(strCon);
+                //open database
+                con.Open();
+                //get from
+                int CustomerId = 123;
+                //To Get Art Id from the of the item from datalist
+                Label ArtId = e.Item.FindControl("ArtIdLabel") as Label;
+                //INSERT database record 
+                string strInsert2 = "INSERT INTO Wishlists(CustomerId, AddedDate, ArtId) VALUES(" + CustomerId + "," + "GETDATE()" + "," + ArtId.Text.ToString() + ")";
+                //create sqlcommand
+                SqlCommand cmdInsert2 = new SqlCommand(strInsert2, con);
+                //temporary store record retrived by command object
+                SqlDataReader dtrSelect = cmdInsert2.ExecuteReader();
+                //display success
+                ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('WISHLIST ADDED!');</script>");
+                //close connection
+                con.Close();
+            }
 
         }
 

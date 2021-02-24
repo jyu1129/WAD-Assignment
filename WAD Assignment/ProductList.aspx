@@ -57,7 +57,7 @@
                         </tr>  
                         <tr>
                             <td>
-                                <asp:Button ID="Button2" runat="server" Text="Add To WishList"  />
+                                <asp:Button ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList"  />
                             </td>
                         </tr>  
                     </table>

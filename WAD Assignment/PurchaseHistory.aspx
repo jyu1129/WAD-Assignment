@@ -26,7 +26,7 @@
                 item(s).</div>
             <br />
             <br />
-            <asp:GridView ID="gvWishlist" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" BorderStyle="Solid" PageSize="5">
+            <asp:GridView ID="gvPurchaseHistory" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" BorderStyle="Solid" PageSize="5">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField HeaderText="OrderId" DataField="OrderId" SortExpression="OrderId" >
@@ -35,7 +35,8 @@
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                     <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
                     <asp:BoundField DataField="ArtName" HeaderText="ArtName" SortExpression="ArtName" />
-                    <asp:BoundField DataField="ArtUrl" HeaderText="ArtUrl" SortExpression="ArtUrl" />
+                    <asp:ImageField DataImageUrlField="ArtUrl" HeaderText="Art">
+                    </asp:ImageField>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

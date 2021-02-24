@@ -95,6 +95,7 @@
     <Content Include="SellArt.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="tempImg\880433.jpg" />
+    <Content Include="temporary.aspx" />
     <Content Include="test.html" />
     <Content Include="Web.config" />
     <Content Include="Wishlist.aspx" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="Shop.aspx.designer.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="temporary.aspx.cs">
+      <DependentUpon>temporary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="temporary.aspx.designer.cs">
+      <DependentUpon>temporary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
