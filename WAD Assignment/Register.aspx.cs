@@ -11,9 +11,13 @@ namespace WAD_Assignment
 {
     public partial class Register : System.Web.UI.Page
     {
-        //Create Connection
+        //Create Connection1
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+        //Create Connection2
+        SqlConnection com;
+        string strCom = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,23 +29,44 @@ namespace WAD_Assignment
             con = new SqlConnection(strCon);
             con.Open();
 
+            bool emailExist = false;
+            string selectedEmail = txtEmail.Text.ToString();
+            //Check email duplication
+            string strSelect = "SELECT * FROM(SELECT Email FROM Artists UNION SELECT Email FROM Customers) AS E WHERE E.Email = '" + selectedEmail + "' ";
+            SqlCommand command = new SqlCommand(strSelect, con);
+            SqlDataReader email = command.ExecuteReader();
+            if(email.HasRows)
+            {
+                emailExist = true;
+                lblEmailExist.Text = "Email address already exists";
+            }
+            email.Close();
+            con.Close();
+
+            if(emailExist == false)
+            {
+                com = new SqlConnection(strCom);
+                com.Open();
+                //Store registration details into database
+                if (ddlUserType.SelectedValue.Equals("Artist"))
+                {
+                    string strIns = "Insert into [Artists](FirstName, LastName, Email, Password) values('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPw.Text + "')";
+                    SqlCommand command2 = new SqlCommand(strIns, com);
+                    command2.ExecuteNonQuery();
+                    com.Close();
+                }
+                else if (ddlUserType.SelectedValue.Equals("Customer"))
+                {
+                    string strIns = "Insert into [Customers](FirstName, LastName, Email, Password) values('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPw.Text + "')";
+                    SqlCommand command2 = new SqlCommand(strIns, com);
+                    command2.ExecuteNonQuery();
+                    com.Close();
+                }
+
+            }
 
 
-            //Store registration details into database
-            if (ddlUserType.SelectedValue.Equals("Artist"))
-            {
-                string strIns = "Insert into [Artists](FirstName, LastName, Email, Password) values('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPw.Text + "')";
-                SqlCommand cmdIns = new SqlCommand(strIns, con);
-                cmdIns.ExecuteNonQuery();
-                con.Close();
-            }
-            else if(ddlUserType.SelectedValue.Equals("Customer"))
-            {
-                string strIns = "Insert into [Customers](FirstName, LastName, Email, Password) values('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPw.Text + "')";
-                SqlCommand cmdIns = new SqlCommand(strIns, con);
-                cmdIns.ExecuteNonQuery();
-                con.Close();
-            }
+            
         }
 
         
