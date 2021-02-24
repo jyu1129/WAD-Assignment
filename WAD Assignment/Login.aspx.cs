@@ -17,7 +17,10 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (Session["user"] != null)
+            //{
+            //    Response.Redirect("Homepage.aspx");
+            //}
         }
 
         protected void btnLogIn_Click(object sender, EventArgs e)
@@ -39,6 +42,7 @@ namespace WAD_Assignment
 
             if(temp == 1)
             {
+                Session["user"] = selectedEmail;
                 Response.Redirect("Homepage.aspx");
             }
             else

@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Page.master.cs" Inherits="WAD_Assignment.Page" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style2 {
+            height: 23px;
+        }
+        .auto-style4 {
+            height: 27px;
+            width: 956px;
+        }
+        .auto-style6 {
+            height: 31px;
+        }
+        .auto-style7 {
+            width: 100%;
+        }
+        .auto-style8 {
+            height: 27px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <table class="auto-style7">
+                    <tr>
+                        <td class="auto-style2" colspan="2">SHOP NAME</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4"></td>
+                        <td class="auto-style8">Welcome,
+                            <asp:Label ID="lblName" runat="server"></asp:Label>
+&nbsp;<asp:Button ID="btnLog" runat="server" OnClick="btnLog_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style6" colspan="2">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
