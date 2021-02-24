@@ -56,9 +56,10 @@
             <asp:TextBox ID="txtStock" runat="server" Width="100px" type ="number" ></asp:TextBox>
             <br />
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
-                <br />
-                <asp:Button ID="btnSubmitArt" runat="server" Text="Submit" OnClick="btnSubmitArt_Click" />
-                &nbsp;<asp:Button ID="btnCancelArt" runat="server" Text="Cancel" />
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
+            <br />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+                &nbsp;<asp:Button ID="btnCancelArt" runat="server" Text="Cancel" OnClick="btnCancelArt_Click" PostBackUrl="~/Gallery.aspx" />
             </strong>
         </div>
     </form>

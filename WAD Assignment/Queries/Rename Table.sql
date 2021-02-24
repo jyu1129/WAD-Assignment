@@ -1,4 +1,1 @@
-﻿USE [D:\Users\Justin Yu\source\repos\WAD Assignment\WAD Assignment\App_Data\Database.mdf]
-GO
-EXEC sp_rename 'Images', 'Arts'
-GO
+﻿UPDATE ARTS SET ArtUrl = 'haha', Category = 'haha', ArtName = 'haha', Price = 123.0, Stock = 1, Description = 'haha' WHERE ArtId = 8

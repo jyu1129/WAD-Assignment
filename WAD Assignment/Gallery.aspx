@@ -10,85 +10,41 @@
     <form id="form1" runat="server">
         <div>
             <br />
+            User ID<br />
             <br />
-            <asp:ListView ID="ListView1" runat="server" DataKeyNames="ArtId" DataSourceID="SqlDataSource1" GroupItemCount="4">
-                <AlternatingItemTemplate>
-                    <td runat="server" style="background-color: #FAFAD2;color: #284775;">
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="200px" Width="300px" CommandName="ArtUrl"/>
-                        <br />
-                    </td>
-                </AlternatingItemTemplate>
-                <EditItemTemplate>
-                    <td runat="server" style="background-color: #FFCC66;color: #000080;">ArtUrl:
-                        <asp:TextBox ID="ArtUrlTextBox" runat="server" Text='<%# Bind("ArtUrl") %>' />
-                        <br />ArtId:
-                        <asp:Label ID="ArtIdLabel1" runat="server" Text='<%# Eval("ArtId") %>' />
-                        <br />
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                        <br />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                        <br /></td>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
-                    <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                        <tr>
-                            <td>No data was returned.</td>
-                        </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <EmptyItemTemplate>
-<td runat="server" />
-                </EmptyItemTemplate>
-                <GroupTemplate>
-                    <tr id="itemPlaceholderContainer" runat="server">
-                        <td id="itemPlaceholder" runat="server"></td>
-                    </tr>
-                </GroupTemplate>
-                <InsertItemTemplate>
-                    <td runat="server" style="">ArtUrl:
-                        <asp:TextBox ID="ArtUrlTextBox" runat="server" Text='<%# Bind("ArtUrl") %>' />
-                        <br />
-                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                        <br />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                        <br /></td>
-                </InsertItemTemplate>
+            <asp:HyperLink ID="hlPublishArt" runat="server" OnClick="hlPublishArt_Click" Font-Bold="False" Font-Underline="True" ForeColor="#0033CC">Publish your art!</asp:HyperLink>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <hr />
+            <asp:DataList ID="DataList1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="auto-style1" DataKeyField="ArtId" DataSourceID="SqlDataSource1" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" GridLines="Both" HorizontalAlign="Center" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns="3" RepeatDirection="Horizontal">
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="White" />
                 <ItemTemplate>
-                    <td runat="server" style="background-color: #FFFBD6;color: #333333;">
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="200px" Width="300px" CommandName="ArtUrl" ImageAlign="NotSet" />
-                        <br />
-                    </td>
+                    <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument='<%# Eval("ArtId") %>' Height="400px" ImageUrl='<%# Eval("ArtUrl") %>' OnClick="ImageButton1_Click" Width="500px" />
+                    <br />
                 </ItemTemplate>
-                <LayoutTemplate>
-                    <table runat="server">
-                        <tr runat="server">
-                            <td runat="server">
-                                <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                    <tr id="groupPlaceholder" runat="server">
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr runat="server">
-                            <td runat="server" style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
-                                <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                                    <Fields>
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                    </Fields>
-                                </asp:DataPager>
-                            </td>
-                        </tr>
-                    </table>
-                </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <td runat="server" style="background-color: #FFCC66;font-weight: bold;color: #000080;">
-                        <asp:ImageButton id="ImageButton1" runat="server" ImageUrl='<%# Eval("ArtUrl") %>' Height="200px" Width="300px" CommandName="ArtUrl" />
-                        <br />
-                    </td>
-                </SelectedItemTemplate>
-            </asp:ListView>
+                <SelectedItemStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            </asp:DataList>
+            <br />
             <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [ArtUrl], [ArtId] FROM [Arts]"></asp:SqlDataSource>
         </div>

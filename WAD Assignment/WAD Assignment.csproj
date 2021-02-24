@@ -93,7 +93,6 @@
     <Content Include="Register.aspx" />
     <Content Include="SellArt.aspx" />
     <Content Include="Shop.aspx" />
-    <Content Include="tempImg\880433.jpg" />
     <Content Include="test.html" />
     <Content Include="Web.config" />
     <Content Include="Wishlist.aspx" />
