@@ -43,11 +43,10 @@ namespace WAD_Assignment
                 //get from
                 int CustomerId = 123;
                 //To Get Art Id from the of the item from datalist
-                Label TotalPrice = e.Item.FindControl("PriceLabel") as Label;
                 Label ArtId = e.Item.FindControl("ArtIdLabel") as Label;
                 int Quantity = 1;
                 //INSERT database record
-                string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity, TotalPrice) VALUES(" + CustomerId + "," + ArtId.Text.ToString() + "," + Quantity + "," + TotalPrice.Text.ToString() + ")";
+                string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + CustomerId + "," + ArtId.Text.ToString() + "," + Quantity +")";
                 //create sqlcommand
                 SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                 //temporary store record retrived by command object
