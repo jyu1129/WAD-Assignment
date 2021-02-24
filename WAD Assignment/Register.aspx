@@ -56,7 +56,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <table style="width:100%;">
+        <table class="auto-style22">
             <tr>
                 <td>SHOP NAME</td>
             </tr>
@@ -82,8 +82,8 @@
                             <td class="auto-style19">:
                     <asp:TextBox ID="txtLastName" runat="server" required="required"></asp:TextBox>
                             </td>
-                            <td class="auto-style9">&nbsp;</td>
-                            <td class="auto-style6">&nbsp;</td>
+                            <td class="auto-style9"></td>
+                            <td class="auto-style6"></td>
                         </tr>
                         <tr>
                             <td class="auto-style9">Email</td>
@@ -96,6 +96,7 @@
                         <tr>
                             <td class="auto-style9">Password</td>
                             <td class="auto-style19">: <asp:TextBox ID="txtPw" runat="server" required="required" TextMode="Password"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtPw"  ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
                             <td class="auto-style9"></td>
                             <td class="auto-style6"></td>
