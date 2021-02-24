@@ -33,13 +33,13 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.Label lblPurchaseCount;
 
         /// <summary>
-        /// gvWishlist control.
+        /// gvPurchaseHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvWishlist;
+        protected global::System.Web.UI.WebControls.GridView gvPurchaseHistory;
 
         /// <summary>
         /// SqlDataSource1 control.

@@ -16,8 +16,8 @@ namespace WAD_Assignment
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         //Create Connection2
-        SqlConnection com;
-        string strCom = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        SqlConnection con2;
+        string strCon2 = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,26 +43,26 @@ namespace WAD_Assignment
             email.Close();
             con.Close();
 
-            if(emailExist == false)
+            if (emailExist == false)
             {
-                com = new SqlConnection(strCom);
-                com.Open();
+                con2 = new SqlConnection(strCon2);
+                con2.Open();
                 //Store registration details into database
                 if (ddlUserType.SelectedValue.Equals("Artist"))
                 {
                     string strIns = "Insert into [Artists](FirstName, LastName, Email, Password) values('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPw.Text + "')";
-                    SqlCommand command2 = new SqlCommand(strIns, com);
+                    SqlCommand command2 = new SqlCommand(strIns, con2);
                     command2.ExecuteNonQuery();
-                    com.Close();
+                    con2.Close();
                 }
                 else if (ddlUserType.SelectedValue.Equals("Customer"))
                 {
                     string strIns = "Insert into [Customers](FirstName, LastName, Email, Password) values('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPw.Text + "')";
-                    SqlCommand command2 = new SqlCommand(strIns, com);
+                    SqlCommand command2 = new SqlCommand(strIns, con2);
                     command2.ExecuteNonQuery();
-                    com.Close();
+                    con2.Close();
                 }
-
+                Response.Redirect("Login.aspx");
             }
 
 
