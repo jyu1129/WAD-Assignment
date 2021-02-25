@@ -47,7 +47,7 @@ namespace WAD_Assignment
 
         public void showData()
         {
-            string firstName="", lastName="",userID="",role="";
+            string firstName="", lastName="";
             string strSelectArt = "SELECT * FROM Artists WHERE Email = '" + Session["user"] + "'";
             string strSelectCust = "SELECT * FROM Customers WHERE Email = '" + Session["user"] + "'";
             SqlCommand command = new SqlCommand(strSelectArt, con);
@@ -58,8 +58,8 @@ namespace WAD_Assignment
                 {
                     firstName = dr["FirstName"].ToString();
                     lastName = dr["lastName"].ToString();
-                    userID = dr["ArtistId"].ToString();
-                    role = "Artist";
+                    Session["userID"] = int.Parse(dr["ArtistId"].ToString());
+                    Session["role"] = "Artist";
                 }
             }
             dr.Close();
@@ -74,16 +74,16 @@ namespace WAD_Assignment
                 {
                     firstName = dr2["FirstName"].ToString();
                     lastName = dr2["lastName"].ToString();
-                    userID = dr2["CustomerId"].ToString();
-                    role = "Customer";
+                    Session["userID"] = int.Parse(dr2["CustomerId"].ToString());
+                    Session["role"] = "Customer";
                 }
             }
             dr2.Close();
             con2.Close();
 
             lblName.Text = $" {firstName} {lastName}";
-            lbluserId.Text = userID;
-            lblRole.Text = role;
+            lbluserId.Text = Session["userID"].ToString();
+            lblRole.Text = (string)Session["role"];
 
 
         }

@@ -109,7 +109,7 @@ namespace WAD_Assignment
             string artCategory = txtArtCat.Text.ToString();
             decimal artPrice = Convert.ToDecimal(txtPrice.Text.ToString());
             int artStock = int.Parse(txtStock.Text.ToString());
-            int artistId = Session["user"]
+            int artistId = (int)Session["userID"];
 
             string insert;
             if ((bool)Session["edit"])
