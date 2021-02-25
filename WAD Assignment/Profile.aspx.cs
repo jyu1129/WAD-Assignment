@@ -83,7 +83,10 @@ namespace WAD_Assignment
             txtEmail.Text = email;
             txtPhone.Text = phoneNum;
             txtAddress.Text = address;
-            ddlCountry.SelectedValue = ddlCountry.Items.FindByText(country).Value;
+            if (country != "")
+            {
+                ddlCountry.SelectedValue = ddlCountry.Items.FindByText(country).Value;
+            }
 
             txtFirstName.Enabled = false;
             txtLastName.Enabled = false;

@@ -13,7 +13,7 @@
         }
         .auto-style4 {
             height: 27px;
-            width: 873px;
+            width: 687px;
         }
         .auto-style6 {
             height: 31px;
@@ -38,7 +38,11 @@
                         <td class="auto-style4"></td>
                         <td class="auto-style8">Welcome,
                             <asp:Label ID="lblName" runat="server"></asp:Label>
-&nbsp;&nbsp;<asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="My Profile" />
+&nbsp;
+                            <asp:Label ID="lblRole" runat="server"></asp:Label>
+&nbsp;ID:
+                            <asp:Label ID="lbluserId" runat="server"></asp:Label>
+                            &nbsp;<asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="My Profile" />
                             <asp:Button ID="btnLog" runat="server" OnClick="btnLog_Click" />
                         </td>
                     </tr>
