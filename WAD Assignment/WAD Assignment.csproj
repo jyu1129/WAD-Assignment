@@ -74,13 +74,6 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
-    <Content Include="arts\9EkDB8o.jpeg" />
-    <Content Include="arts\aW1R6E6.jpg" />
-    <Content Include="arts\H1TxYBi.jpg" />
-    <Content Include="arts\izWUEq3.jpg" />
-    <Content Include="arts\nNHwTBj.jpg" />
-    <Content Include="arts\p6wUOCY.jpg" />
-    <Content Include="arts\XXJBqll.jpg" />
     <Content Include="BuyArt.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Gallery.aspx" />
