@@ -21,6 +21,10 @@
             <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
             <br />
             <br />
+            <br />
+                    <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit Mode" Visible="False"/>
+            <br />
+            <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:FileUpload ID="imgUpload" runat="server" accept=".jpg, .jpeg" />
@@ -36,7 +40,7 @@
             <br />
             <br />
             <strong>Artwork Title</strong><br />
-            <asp:TextBox ID="txtArtTitle" runat="server" Width="500px"></asp:TextBox>
+            <asp:TextBox ID="txtArtTitle" runat="server" Width="500px" OnTextChanged="txtArtTitle_TextChanged"></asp:TextBox>
             <br />
             <br />
             <strong>Description<br />

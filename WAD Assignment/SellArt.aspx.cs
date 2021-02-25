@@ -19,10 +19,9 @@ namespace WAD_Assignment
             con = new SqlConnection(strCon);
             con.Open();
             //(bool)Session["edit"]
-            if ((bool)Session["edit"])
+            if (!(bool)Session["edit"] && !(bool)Session["create"])
             {
                 string artId = Session["artId"].ToString();
-
                 string strSelect = "SELECT ArtUrl FROM Arts WHERE ArtId = " + artId;
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
                 uploadedImg.ImageUrl = cmdSelect.ExecuteScalar().ToString();
@@ -41,6 +40,14 @@ namespace WAD_Assignment
                 strSelect = "SELECT Stock FROM Arts WHERE ArtId = " + artId;
                 cmdSelect = new SqlCommand(strSelect, con);
                 txtStock.Text = cmdSelect.ExecuteScalar().ToString();
+                btnImgUpload.Enabled = false;
+                txtArtTitle.Attributes.Add("readonly", "readonly");
+                txtDescription.Attributes.Add("readonly", "readonly");
+                txtPrice.Attributes.Add("readonly", "readonly");
+                txtArtCat.Attributes.Add("readonly", "readonly");
+                txtStock.Attributes.Add("readonly", "readonly");
+                Button1.Enabled = false;
+                btnEdit.Visible = true;
             }
             else
             {
@@ -79,29 +86,17 @@ namespace WAD_Assignment
 
         protected void btnCancelArt_Click(object sender, EventArgs e)
         {
-            if ((bool)Session["edit"])
-            {
-                uploadedImg.ImageUrl = "";
-                txtArtTitle.Text = "";
-                txtDescription.Text = "";
-                txtArtCat.Text = "";
-                txtPrice.Text = "";
-                txtStock.Text = "";
-            }
-            else
-            {
-                if (Directory.Exists(MapPath(uploadedImg.ImageUrl)))
-                {
-                    DeleteDirectory(MapPath(uploadedImg.ImageUrl));
-                }
-
-                uploadedImg.ImageUrl = "";
-                txtArtTitle.Text = "";
-                txtDescription.Text = "";
-                txtArtCat.Text = "";
-                txtPrice.Text = "";
-                txtStock.Text = "";
-            }
+            uploadedImg.ImageUrl = "";
+            txtArtTitle.Text = "";
+            txtArtTitle.Attributes.Remove("placeholder");
+            txtDescription.Text = "";
+            txtDescription.Attributes.Remove("placeholder");
+            txtArtCat.Text = "";
+            txtArtCat.Attributes.Remove("placeholder");
+            txtPrice.Text = "";
+            txtPrice.Attributes.Remove("placeholder");
+            txtStock.Text = "";
+            txtStock.Attributes.Remove("placeholder");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -145,7 +140,19 @@ namespace WAD_Assignment
                 {
                     Response.Write("Record is Updated!");
                     Session["edit"] = false;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record is Updated!')", true);                  
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record is Updated!')", true);
+                    uploadedImg.ImageUrl = "";
+                    txtArtTitle.Text = "";
+                    txtArtTitle.Attributes.Remove("placeholder");
+                    txtDescription.Text = "";
+                    txtDescription.Attributes.Remove("placeholder");
+                    txtArtCat.Text = "";
+                    txtArtCat.Attributes.Remove("placeholder");
+                    txtPrice.Text = "";
+                    txtPrice.Attributes.Remove("placeholder");
+                    txtStock.Text = "";
+                    txtStock.Attributes.Remove("placeholder");
+                    Server.Transfer("Gallery.aspx", true);
                 }
                 else
                 {
@@ -158,6 +165,7 @@ namespace WAD_Assignment
                 if ((bool)Session["edit"])
                 {
                     Response.Write("Error! Record not Updated!");
+                    Session["edit"] = false;
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error! Record not Updated!')", true);
                 }
                 else
@@ -167,6 +175,51 @@ namespace WAD_Assignment
                 }
             }
             con.Close();
+        }
+
+        protected void txtArtTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            con = new SqlConnection(strCon);
+            con.Open();
+            string artId = Session["artId"].ToString();
+            string strSelect = "SELECT ArtUrl FROM Arts WHERE ArtId = " + artId;
+            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+            uploadedImg.ImageUrl = cmdSelect.ExecuteScalar().ToString();
+            strSelect = "SELECT ArtName FROM Arts WHERE ArtId = " + artId;
+            cmdSelect = new SqlCommand(strSelect, con);
+            txtArtTitle.Text = "";
+            txtArtTitle.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
+            strSelect = "SELECT Description FROM Arts WHERE ArtId = " + artId;
+            cmdSelect = new SqlCommand(strSelect, con);
+            txtDescription.Text = "";
+            txtDescription.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
+            strSelect = "SELECT Price FROM Arts WHERE ArtId = " + artId;
+            cmdSelect = new SqlCommand(strSelect, con);
+            txtPrice.Text = "";
+            txtPrice.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
+            strSelect = "SELECT Category FROM Arts WHERE ArtId = " + artId;
+            cmdSelect = new SqlCommand(strSelect, con);
+            txtArtCat.Text = "";
+            txtArtCat.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
+            strSelect = "SELECT Stock FROM Arts WHERE ArtId = " + artId;
+            cmdSelect = new SqlCommand(strSelect, con);
+            txtStock.Text = "";
+            txtStock.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
+            btnImgUpload.Enabled = true;
+            txtArtTitle.Attributes.Remove("readonly");
+            txtDescription.Attributes.Remove("readonly");
+            txtPrice.Attributes.Remove("readonly");
+            txtArtCat.Attributes.Remove("readonly");
+            txtStock.Attributes.Remove("readonly");
+            Button1.Enabled = true;
+            Session["edit"] = true;
+            con.Close();
+            //Server.Transfer("SellArt.aspx", true);
         }
     }
 }

@@ -22,16 +22,6 @@ namespace WAD_Assignment
 
         }
 
-        protected void hlPublishArt_Click(object sender, EventArgs e)
-        {
-            Session["artId"] = -1;
-            Session["edit"] = false;
-            if (!IsPostBack)
-            {
-                Server.Transfer("SellArt.aspx", true);
-            }
-        }
-
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -43,7 +33,16 @@ namespace WAD_Assignment
             object commandArg = ib.CommandArgument;
 
             Session["artId"] = int.Parse(commandArg.ToString());
-            Session["edit"] = true;
+            Session["edit"] = false;
+            Session["create"] = false;
+            Server.Transfer("SellArt.aspx", true);
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session["artId"] = -1;
+            Session["edit"] = false;
+            Session["create"] = true;
             Server.Transfer("SellArt.aspx", true);
         }
     }
