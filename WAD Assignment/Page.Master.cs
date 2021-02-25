@@ -27,6 +27,7 @@ namespace WAD_Assignment
             {
                 lblName.Text = "Guest";
                 btnLog.Text = "Log in";
+                btnProfile.Visible = false;
 
             }
             else
@@ -39,6 +40,7 @@ namespace WAD_Assignment
 
                 showData();
                 btnLog.Text = "Log out";
+                btnProfile.Visible = true;
 
             }
         }
@@ -95,6 +97,11 @@ namespace WAD_Assignment
 
 
             }
+        }
+
+        protected void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profile.aspx");
         }
     }
 }

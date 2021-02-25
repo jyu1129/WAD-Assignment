@@ -34,13 +34,13 @@ namespace WAD_Assignment
             //Check email duplication
             string strSelect = "SELECT * FROM(SELECT Email FROM Artists UNION SELECT Email FROM Customers) AS E WHERE E.Email = '" + selectedEmail + "' ";
             SqlCommand command = new SqlCommand(strSelect, con);
-            SqlDataReader email = command.ExecuteReader();
-            if(email.HasRows)
+            SqlDataReader drEmail = command.ExecuteReader();
+            if(drEmail.HasRows)
             {
                 emailExist = true;
                 lblEmailExist.Text = "Email address already exists";
             }
-            email.Close();
+            drEmail.Close();
             con.Close();
 
             if (emailExist == false)
