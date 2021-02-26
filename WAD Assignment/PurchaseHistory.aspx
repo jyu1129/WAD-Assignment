@@ -7,10 +7,7 @@
                 PURCHASE HISTORY
             </div>
             <div style="font-family: Bahnschrift; text-align: center;">
-                <br />
-                You have purchased
-            <asp:Label ID="lblPurchaseCount" runat="server" Font-Bold="True"></asp:Label>
-                item(s).</div>
+                </div>
             <br />
             <br />
             <asp:GridView ID="gvPurchaseHistory" runat="server" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" PageSize="5" AllowSorting="True" HorizontalAlign="Center" Width="879px">
@@ -38,7 +35,7 @@
                 <HeaderStyle Font-Names="Bahnschrift" />
             </asp:GridView>
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT OrderDetails.OrderId, OrderDetails.UnitPrice, OrderDetails.Quantity, Orders.OrderDate, Arts.ArtName, Arts.ArtUrl FROM Orders INNER JOIN OrderDetails ON Orders.OrderId = OrderDetails.OrderId INNER JOIN Arts ON Orders.ArtId = Arts.ArtId AND OrderDetails.ArtId = Arts.ArtId WHERE (Orders.CustomerId = @CustomerId)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT OrderDetails.OrderId, OrderDetails.UnitPrice, OrderDetails.Quantity, Arts.ArtName, Arts.ArtUrl, Orders.OrderDate FROM OrderDetails INNER JOIN Arts ON OrderDetails.ArtId = Arts.ArtId INNER JOIN Orders ON OrderDetails.OrderId = Orders.OrderId WHERE (Orders.CustomerId = @CustomerId)">
                 <SelectParameters>
                     <asp:SessionParameter Name="CustomerId" SessionField="userID" />
                 </SelectParameters>

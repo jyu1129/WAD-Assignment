@@ -11,7 +11,8 @@ namespace WAD_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblPurchaseCount.Text = gvPurchaseHistory.Rows.Count.ToString();
+            //gvPurchaseHistory.DataBind();
+            //lblPurchaseCount.Text = gvPurchaseHistory.Rows.Count.ToString();
         }
     }
 }
