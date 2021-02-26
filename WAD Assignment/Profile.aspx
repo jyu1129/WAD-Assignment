@@ -3,11 +3,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
     <script>
-        document.getElementById("gallery").classList.add("active");
+        document.getElementById("gallery").classList.remove("active");
         document.getElementById("home").classList.remove("active");
         document.getElementById("products").classList.remove("active");
-        document.getElementById("profile").classList.remove("active");
+        document.getElementById("profile").classList.add("active");
         document.getElementById("cart").classList.remove("active");
+        document.getElementById("purchasehistory").classList.remove("active");
+        document.getElementById("wishlist").classList.remove("active");
     </script>
 
     <style type="text/css">

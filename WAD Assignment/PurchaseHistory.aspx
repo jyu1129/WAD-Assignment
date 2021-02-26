@@ -1,6 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="WAD_Assignment.PurchaseHistory1" MasterPageFile="~/Page.Master"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
+    <script>
+        document.getElementById("gallery").classList.remove("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.remove("active");
+        document.getElementById("profile").classList.remove("active");
+        document.getElementById("cart").classList.remove("active");
+        document.getElementById("purchasehistory").classList.add("active");
+        document.getElementById("wishlist").classList.remove("active");
+    </script>
         <div>
             <div style="font-weight: bold; font-size: 40px; font-family: Bahnschrift; color: #000000; text-align: center">
                 <br />

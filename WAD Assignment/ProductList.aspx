@@ -1,6 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.ProductList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
+    <script>
+        document.getElementById("gallery").classList.remove("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.add("active");
+        document.getElementById("profile").classList.remove("active");
+        document.getElementById("cart").classList.remove("active");
+        document.getElementById("purchasehistory").classList.remove("active");
+        document.getElementById("wishlist").classList.remove("active");
+    </script>
             <br />
             <asp:HyperLink ID="hlBuyArt" runat="server" NavigateUrl="~/Shop.aspx">Buy Art</asp:HyperLink>
             <br />
