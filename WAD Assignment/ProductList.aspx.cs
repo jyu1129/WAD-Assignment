@@ -76,8 +76,6 @@ namespace WAD_Assignment
 
                 else if (e.CommandName == "AddToWishlist")
                 {
-                    DateTime date = new DateTime();
-                    string d = date.ToString();
                     //create database connection
                     con = new SqlConnection(strCon);
                     //open database
