@@ -5,7 +5,7 @@
 
     <script>
         document.getElementById("gallery").classList.add("active");
-        document.getElementById("home").classList.remove("active");
+        document.getElementById("home").classList.add("active");
         document.getElementById("products").classList.remove("active");
         document.getElementById("profile").classList.remove("active");
         document.getElementById("cart").classList.remove("active");

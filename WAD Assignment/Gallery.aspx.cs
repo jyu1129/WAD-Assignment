@@ -19,8 +19,8 @@ namespace WAD_Assignment
             lblGalleryTotal.Text = DataList1.Items.Count.ToString();
 
             string userId = Session["userID"].ToString();
-            string strSelect = "SELECT * FROM Arts WHERE ArtId = " + artId;
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+            //string strSelect = "SELECT * FROM Arts WHERE ArtId = " + artId;
+            //SqlCommand cmdSelect = new SqlCommand(strSelect, con);
         }
 
         protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
