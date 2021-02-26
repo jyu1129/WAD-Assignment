@@ -57,7 +57,7 @@ namespace WAD_Assignment
                 while (dr.Read())
                 {
                     firstName = dr["FirstName"].ToString();
-                    lastName = dr["lastName"].ToString();
+                    lastName = dr["LastName"].ToString();
                     Session["userID"] = int.Parse(dr["ArtistId"].ToString());
                     Session["role"] = "Artist";
                 }
@@ -73,7 +73,7 @@ namespace WAD_Assignment
                 while (dr2.Read())
                 {
                     firstName = dr2["FirstName"].ToString();
-                    lastName = dr2["lastName"].ToString();
+                    lastName = dr2["LastName"].ToString();
                     Session["userID"] = int.Parse(dr2["CustomerId"].ToString());
                     Session["role"] = "Customer";
                 }
