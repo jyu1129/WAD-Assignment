@@ -44,7 +44,7 @@ namespace WAD_Assignment
             if (rowCount > 0)
             {
 
-                String strSelect = "SELECT SUM(C.Quantity * A.Price) AS SubTotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE C.CustomerId = " + Session["userID"];
+                string strSelect = "SELECT SUM(C.Quantity * A.Price) AS SubTotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE C.CustomerId = " + Session["userID"];
 
                 //create set command
                 SqlCommand cmdSelect2 = new SqlCommand(strSelect, con);
