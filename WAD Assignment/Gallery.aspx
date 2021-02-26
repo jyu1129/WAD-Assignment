@@ -13,15 +13,16 @@
         <br />
         &nbsp;Welcome to your gallery!<br />
         <br />
-        There are a total of
+        &nbsp;There are a total of
         <asp:Label ID="lblGalleryTotal" runat="server"></asp:Label>
 &nbsp;art(s) in your gallery.<br />
-        You&#39;ve sold
+        &nbsp;You&#39;ve sold
         <asp:Label ID="lblTotalArtSold" runat="server"></asp:Label>
 &nbsp;art(s) for a total amount of RM<asp:Label ID="lblTotalProfit" runat="server"></asp:Label>
         .&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <hr />
+        &nbsp;
         <asp:Button ID="Button1" runat="server" BackColor="White" BorderStyle="Dotted" Font-Bold="True" Height="250px" OnClick="Button1_Click" Text="Publish your art!" Width="250px" />
         <asp:DataList ID="DataList1" runat="server" BackColor="#CCCCCC" BorderColor="White" BorderStyle="Solid" BorderWidth="3px" CellPadding="10" CellSpacing="50" CssClass="auto-style1" DataKeyField="ArtId" DataSourceID="SqlDataSource1" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" HorizontalAlign="Center" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns="5" RepeatDirection="Horizontal">
             <FooterStyle BackColor="#CCCCCC" />
