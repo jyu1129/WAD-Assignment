@@ -22,24 +22,23 @@ namespace WAD_Assignment
             if (!(bool)Session["edit"] && !(bool)Session["create"])
             {
                 string artId = Session["artId"].ToString();
-                string strSelect = "SELECT ArtUrl FROM Arts WHERE ArtId = " + artId;
+                string strSelect = "SELECT * FROM Arts WHERE ArtId = " + artId;
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-                uploadedImg.ImageUrl = cmdSelect.ExecuteScalar().ToString();
-                strSelect = "SELECT ArtName FROM Arts WHERE ArtId = " + artId;
-                cmdSelect = new SqlCommand(strSelect, con);
-                txtArtTitle.Text = cmdSelect.ExecuteScalar().ToString();
-                strSelect = "SELECT Description FROM Arts WHERE ArtId = " + artId;
-                cmdSelect = new SqlCommand(strSelect, con);
-                txtDescription.Text = cmdSelect.ExecuteScalar().ToString();
-                strSelect = "SELECT Price FROM Arts WHERE ArtId = " + artId;
-                cmdSelect = new SqlCommand(strSelect, con);
-                txtPrice.Text = cmdSelect.ExecuteScalar().ToString();
-                strSelect = "SELECT Category FROM Arts WHERE ArtId = " + artId;
-                cmdSelect = new SqlCommand(strSelect, con);
-                txtArtCat.Text = cmdSelect.ExecuteScalar().ToString();
-                strSelect = "SELECT Stock FROM Arts WHERE ArtId = " + artId;
-                cmdSelect = new SqlCommand(strSelect, con);
-                txtStock.Text = cmdSelect.ExecuteScalar().ToString();
+                SqlDataReader dtr = cmdSelect.ExecuteReader();
+                if (dtr.HasRows)
+                {
+                    while (dtr.Read())
+                    {
+                        uploadedImg.ImageUrl = dtr["ArtUrl"].ToString();
+                        txtArtTitle.Text = dtr["ArtName"].ToString();
+                        txtDescription.Text = dtr["Description"].ToString();
+                        txtPrice.Text = dtr["Price"].ToString();
+                        txtArtCat.Text = dtr["Category"].ToString();
+                        txtStock.Text = dtr["Stock"].ToString();
+                    }
+                }
+                dtr.Close();
+
                 btnImgUpload.Enabled = false;
                 txtArtTitle.Attributes.Add("readonly", "readonly");
                 txtDescription.Attributes.Add("readonly", "readonly");
@@ -47,7 +46,10 @@ namespace WAD_Assignment
                 txtArtCat.Attributes.Add("readonly", "readonly");
                 txtStock.Attributes.Add("readonly", "readonly");
                 Button1.Enabled = false;
-                btnEdit.Visible = true;
+                if (Session["role"].Equals("Artist"))
+                {
+                    btnEdit.Visible = true;
+                }
             }
             else
             {
@@ -134,7 +136,7 @@ namespace WAD_Assignment
             cmdAdd.Parameters.AddWithValue("@Price", artPrice);
             cmdAdd.Parameters.AddWithValue("@Stock", artStock);
             cmdAdd.Parameters.AddWithValue("@Description", artDescription);
-            cmdAdd.Parameters.AddWithValue("@ArtistId", 81);
+            cmdAdd.Parameters.AddWithValue("@ArtistId", artistId);
 
             if (cmdAdd.ExecuteNonQuery() > 0)
             {
@@ -160,6 +162,7 @@ namespace WAD_Assignment
                 {
                     Response.Write("Record is Added!");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record is Added!')", true);
+                    Server.Transfer("Gallery.aspx", true);
                 }
             }
             else
@@ -189,29 +192,28 @@ namespace WAD_Assignment
             con = new SqlConnection(strCon);
             con.Open();
             string artId = Session["artId"].ToString();
-            string strSelect = "SELECT ArtUrl FROM Arts WHERE ArtId = " + artId;
+            string strSelect = "SELECT * FROM Arts WHERE ArtId = " + artId;
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-            uploadedImg.ImageUrl = cmdSelect.ExecuteScalar().ToString();
-            strSelect = "SELECT ArtName FROM Arts WHERE ArtId = " + artId;
-            cmdSelect = new SqlCommand(strSelect, con);
-            txtArtTitle.Text = "";
-            txtArtTitle.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
-            strSelect = "SELECT Description FROM Arts WHERE ArtId = " + artId;
-            cmdSelect = new SqlCommand(strSelect, con);
-            txtDescription.Text = "";
-            txtDescription.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
-            strSelect = "SELECT Price FROM Arts WHERE ArtId = " + artId;
-            cmdSelect = new SqlCommand(strSelect, con);
-            txtPrice.Text = "";
-            txtPrice.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
-            strSelect = "SELECT Category FROM Arts WHERE ArtId = " + artId;
-            cmdSelect = new SqlCommand(strSelect, con);
-            txtArtCat.Text = "";
-            txtArtCat.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
-            strSelect = "SELECT Stock FROM Arts WHERE ArtId = " + artId;
-            cmdSelect = new SqlCommand(strSelect, con);
-            txtStock.Text = "";
-            txtStock.Attributes.Add("placeholder", cmdSelect.ExecuteScalar().ToString());
+            SqlDataReader dtr = cmdSelect.ExecuteReader();
+            if (dtr.HasRows)
+            {
+                while (dtr.Read())
+                {
+                    uploadedImg.ImageUrl = dtr["ArtUrl"].ToString();
+                    txtArtTitle.Text = "";
+                    txtArtTitle.Attributes.Add("placeholder", dtr["ArtName"].ToString());
+                    txtDescription.Text = "";
+                    txtDescription.Attributes.Add("placeholder", dtr["Description"].ToString());
+                    txtPrice.Text = "";
+                    txtPrice.Attributes.Add("placeholder", dtr["Price"].ToString());
+                    txtArtCat.Text = "";
+                    txtArtCat.Attributes.Add("placeholder", dtr["Category"].ToString());
+                    txtStock.Text = "";
+                    txtStock.Attributes.Add("placeholder", dtr["Stock"].ToString());
+                }
+            }
+            dtr.Close();
+
             btnImgUpload.Enabled = true;
             txtArtTitle.Attributes.Remove("readonly");
             txtDescription.Attributes.Remove("readonly");
