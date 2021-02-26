@@ -59,7 +59,7 @@
                     <asp:Label ID="lblRole" runat="server"></asp:Label>
                     <asp:Label ID="lblId" runat="server" Text="ID:"></asp:Label>
                     <asp:Label ID="lbluserId" runat="server"></asp:Label>
-                    <asp:Button class="btn btn-outline-secondary" ID="btnLog" runat="server" OnClick="btnLog_Click" UseSubmitBehavior="false"/>
+                    <asp:Button class="btn btn-outline-secondary" ID="btnLog" runat="server" OnClick="btnLog_Click" UseSubmitBehavior="false" CausesValidation="false"/>
                     </span>
                 </nav>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">

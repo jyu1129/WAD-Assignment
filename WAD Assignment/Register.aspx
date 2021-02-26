@@ -28,28 +28,24 @@
             width: 144px;
             height: 50px;
         }
-        .auto-style27 {
-            height: 50px;
-            width: 436px;
-        }
         .auto-style29 {
             height: 50px;
         }
         .auto-style31 {
-            width: 662px;
-            height: 50px;
-        }
+        width: 406px;
+        height: 50px;
+    }
         .auto-style32 {
-            height: 50px;
-            width: 421px;
-        }
+        width: 535px;
+        height: 50px;
+    }
     </style>
 
 
         <table class="auto-style22">
             <tr>
                 <td>SHOP NAME<br />
-                    <div  style="align-items:center; text-align:center;">
+                    <div  style="align-items:center; text-align:center; font-size:20px;">
                         REGISTER A NEW USER ACCOUNT</div>
                 </td>
             </tr>
@@ -62,7 +58,6 @@
                             <td class="auto-style32">
                     <asp:TextBox ID="txtFirstName" runat="server" required="required" Width="200px"></asp:TextBox>
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         <tr>
                             <td class="auto-style31"></td>
@@ -70,7 +65,6 @@
                             <td class="auto-style32">
                     <asp:TextBox ID="txtLastName" runat="server" required="required" Width="200px"></asp:TextBox>
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         <tr>
                             <td class="auto-style31"></td>
@@ -78,7 +72,6 @@
                             <td class="auto-style32"> <asp:TextBox ID="txtEmail" runat="server" Width="200px" required="required" type="email"></asp:TextBox>
                             &nbsp;<asp:Label ID="lblEmailExist" runat="server" ForeColor="Red"></asp:Label>
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         <tr>
                             <td class="auto-style31"></td>
@@ -86,7 +79,6 @@
                             <td class="auto-style32"> <asp:TextBox ID="txtPw" runat="server" required="required" TextMode="Password" Width="200px"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtPw"  ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         <tr>
                             <td class="auto-style31"></td>
@@ -95,7 +87,6 @@
                     <asp:TextBox ID="txtConfirmPw" runat="server" required="required" TextMode="Password" Width="200px" ></asp:TextBox>
                             &nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPw" ControlToValidate="txtConfirmPw" ErrorMessage="Not Matched" ForeColor="Red"></asp:CompareValidator>
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         <tr>
                             <td class="auto-style31"></td>
@@ -108,7 +99,6 @@
                     </asp:DropDownList>
                                 &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required" ControlToValidate="ddlUserType" InitialValue="Please Select" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         <tr>
                             <td class="auto-style31"></td>
@@ -119,7 +109,6 @@
                 <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="You must accept to the Terms & Conditions to register an account" ClientValidationFunction = "ValidateCheckBox" ForeColor="Red"></asp:CustomValidator>
                         <br />
                             </td>
-                            <td class="auto-style27"></td>
                         </tr>
                         </table>
                     <div  style="align-items:center; text-align:center;">
