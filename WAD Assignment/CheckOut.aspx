@@ -61,12 +61,12 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Name:</td>
-                    <td class="auto-style1">
+                    <td class="auto-style4">Name:</td>
+                    <td class="auto-style5">
                         <asp:TextBox ID="txtName" runat="server" Width="442px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style6"></td>
+                    <td class="auto-style7"></td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Address:</td>
@@ -86,7 +86,7 @@
                 <tr>
                     <td class="auto-style2">Postal:</td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="txtPostal" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:TextBox ID="txtPostal" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>

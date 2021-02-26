@@ -71,18 +71,12 @@ namespace WAD_Assignment
             else
             {
                 DateTime dateTime = DateTime.Now;
-                string dateTimeNow = dateTime.ToString();
-                String courier = ddlCourier.SelectedItem.Text.ToString();
-                string shipName = txtName.Text;
-                string ShipAddress = txtAddress.Text;
-                string ShipCity = txtCity.Text;
-                string ShipState = txtState.Text;
-                string ShipPostalCode = txtPostal.Text;
-                string ShipCountry = txtCountry.Text;
-                string whatevever = "wjatever";
-                object objUserid = Session["userID"];
-                int userid = (int)objUserid;
-
+                int year = Convert.ToInt32(dateTime.Year.ToString());
+                int month = Convert.ToInt32(dateTime.Month.ToString());
+                int day = Convert.ToInt32(dateTime.Day.ToString());
+                int hour = Convert.ToInt32(dateTime.Hour.ToString());
+                int min = Convert.ToInt32(dateTime.Minute.ToString());
+                int sec = Convert.ToInt32(dateTime.Second.ToString());
 
                 con = new SqlConnection(strCon);
                 con.Open();
@@ -91,26 +85,46 @@ namespace WAD_Assignment
                 //string strSelectDate = "GETDATE()";
                 //SqlCommand cmdGetDate = new SqlCommand(strSelectDate, con);
                 //string dateTimeNow = (string)cmdGetDate.ExecuteScalar();
-
-
                 //To Place an order
-                string strInsertOrders = "INSERT INTO Orders(CustomerId, OrderDate, Courier, ShipName, ShipAddress, ShipCity," +
-                    " ShipState, ShipPostalCode, ShipCountry) " +
-                    "VALUES(" + userid + "," + whatevever + "," + courier + "," + shipName + "," + ShipAddress + "," + ShipCity + "," + ShipState + "," + ShipPostalCode + "," + ShipCountry + ")";
-                SqlCommand cmdSelect1 = new SqlCommand(strInsertOrders, con);
-                //temporary store record retrived by command object
-                SqlDataReader dtrSelect = cmdSelect1.ExecuteReader();
 
-                //SELECT TOP 1 * FROM Table ORDER BY ID DESC
+                int userID = Convert.ToInt32(Session["userID"]);
+
+                string strInsertOrders = "INSERT INTO Orders(CustomerId, OrderDate, Courier, ShipName, ShipAddress, ShipCity, ShipState, ShipPostalCode, ShipCountry)" +
+                    "VALUES(@CustomerId,@OrderDate,@Courier,@ShipName,@ShipAddress,@ShipCity,@ShipState,@ShipPostalCode,@ShipCountry)";
+                SqlCommand cmdSelect1 = new SqlCommand(strInsertOrders, con);
+                cmdSelect1.Parameters.AddWithValue("@CustomerId", userID.ToString());
+                cmdSelect1.Parameters.AddWithValue("@OrderDate", dateTime.ToString());
+                cmdSelect1.Parameters.AddWithValue("@Courier", ddlCourier.SelectedItem.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipName", txtName.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipAddress", txtAddress.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipCity",txtCity.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipState",txtState.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipPostalCode", txtPostal.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipCountry", txtCountry.Text);
+
+                cmdSelect1.ExecuteNonQuery();
 
                 //SELECT OrderId from customerID  --> get order id           
-                string strSelectOrderId = "SELECT O.OrderId FROM Customers AS C INNER JOIN Orders AS O ON C.CustomerId = O.CustomerId WHERE C.CustomerId = " + Session["userID"] + " AND O.OrderDate = " + dateTimeNow;
+                string strSelectOrderId = "SELECT O.OrderId FROM Customers AS C INNER JOIN Orders AS O ON C.CustomerId = O.CustomerId WHERE(C.CustomerId = " + userID.ToString() + ") AND(YEAR(O.OrderDate) = " + year.ToString() + ") AND(MONTH(O.OrderDate) = " + month.ToString() + ") AND(DAY(O.OrderDate) = " + day.ToString() + ") AND({ fn HOUR(O.OrderDate) } = " + hour.ToString() + ") AND({ fn MINUTE(O.OrderDate) } = " + min.ToString() + ") AND({fn SECOND(O.OrderDate)} = " + sec.ToString() + ")";
                 SqlCommand cmdSelect2 = new SqlCommand(strSelectOrderId, con);
-                string orderId = (string)cmdSelect2.ExecuteScalar();
-                Response.Write(orderId);
+                int orderId = (int)cmdSelect2.ExecuteScalar();
 
-                //SELECT ArtId from cart  --> get art id 
-                con.Close();
+
+                //SAVE RECORDS INTO ORDER DETAIL
+                for (int i =0; i< GridView2.Rows.Count; i++)
+                {
+
+                    int artId = 
+
+                    string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
+                    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";
+                }
+
+                
+
+
+
+                con.Close();                
             }
         }
     }
