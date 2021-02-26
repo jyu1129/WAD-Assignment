@@ -16,15 +16,13 @@
 
                 </Columns>
             </asp:GridView>
-            Merchandise Subtotal (<asp:Label ID="Label1" runat="server"></asp:Label>&nbsp;items) :
-            <asp:Label ID="Label2" runat="server"></asp:Label>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FirstName, LastName, Phone, Address, Country, Email FROM Customers WHERE (CustomerId = @CustomerId)">
                 <SelectParameters>
                     <asp:SessionParameter Name="CustomerId" SessionField="UserID" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
-            <asp:GridView ID="GridView2" ShowFooter="True" runat="server" AutoGenerateColumns="False" DataKeyNames="CartId" DataSourceID="SqlDataSource2">
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="CartId" DataSourceID="SqlDataSource2">
                 <Columns>
                     <asp:TemplateField HeaderText="No.">
                         <ItemTemplate>
@@ -40,6 +38,8 @@
             </asp:GridView>
             Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
             <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
+            <br />
+            <br />
             <br />
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT C.CartId, A.ArtUrl, A.ArtName, A.Price, C.Quantity, A.Price * C.Quantity AS ItemSubtotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE (C.CustomerId = @CustomerId)">
                 <SelectParameters>

@@ -17,17 +17,20 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getTotalPayment();
+        }
+
+        protected void getTotalPayment()
+        {
             double TotalPayment = 0;
             for (int i = 0; i < GridView2.Rows.Count; i++)
             {
                 TotalPayment += Convert.ToDouble(GridView2.Rows[i].Cells[5].Text);
             }
 
-
+            lblSubTotal.Text = TotalPayment.ToString();
+            lblTotalItem.Text = GridView2.Rows.Count.ToString();
         }
-        protected void bindData()
-        {
 
-        }
     }
 }
