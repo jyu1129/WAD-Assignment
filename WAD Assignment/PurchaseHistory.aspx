@@ -10,7 +10,7 @@
                 </div>
             <br />
             <br />
-            <asp:GridView ID="gvPurchaseHistory" runat="server" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" PageSize="5" AllowSorting="True" HorizontalAlign="Center" Width="879px">
+            <asp:GridView ID="gvPurchaseHistory" runat="server" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" PageSize="5" AllowSorting="True" HorizontalAlign="Center" Width="879px" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
                 <Columns>
                     <asp:BoundField HeaderText="Order ID" DataField="OrderId" SortExpression="OrderId" >
                     <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
@@ -32,7 +32,15 @@
                     <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
                     </asp:BoundField>
                 </Columns>
-                <HeaderStyle Font-Names="Bahnschrift" />
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle Font-Names="Bahnschrift" BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                <RowStyle BackColor="White" />
+                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#808080" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
             <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT OrderDetails.OrderId, OrderDetails.UnitPrice, OrderDetails.Quantity, Arts.ArtName, Arts.ArtUrl, Orders.OrderDate FROM OrderDetails INNER JOIN Arts ON OrderDetails.ArtId = Arts.ArtId INNER JOIN Orders ON OrderDetails.OrderId = Orders.OrderId WHERE (Orders.CustomerId = @CustomerId)">
