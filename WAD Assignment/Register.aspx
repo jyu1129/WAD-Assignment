@@ -44,8 +44,8 @@
 
         <table class="auto-style22">
             <tr>
-                <td>SHOP NAME<br />
-                    <div  style="align-items:center; text-align:center; font-size:20px;">
+                <td>
+                    <div  style="align-items:center; text-align:center; font-size:40px; font-weight: bold;">
                         REGISTER A NEW USER ACCOUNT</div>
                 </td>
             </tr>

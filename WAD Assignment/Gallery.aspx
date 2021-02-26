@@ -8,6 +8,8 @@
         document.getElementById("products").classList.remove("active");
         document.getElementById("profile").classList.remove("active");
         document.getElementById("cart").classList.remove("active");
+        document.getElementById("purchasehistory").classList.remove("active");
+        document.getElementById("wishlist").classList.remove("active");
     </script>
     <div>
         <br />
@@ -15,11 +17,10 @@
         <br />
         &nbsp;There are a total of
         <asp:Label ID="lblGalleryTotal" runat="server"></asp:Label>
-&nbsp;art(s) in your gallery.<br />
+        art(s) in your gallery.<br />
         &nbsp;You&#39;ve sold
         <asp:Label ID="lblTotalArtSold" runat="server"></asp:Label>
-&nbsp;art(s) for a total amount of RM<asp:Label ID="lblTotalProfit" runat="server"></asp:Label>
-        .&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;art(s).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <hr />
         &nbsp;

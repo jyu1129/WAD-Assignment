@@ -61,6 +61,8 @@ namespace WAD_Assignment
             {
                 imgUpload.SaveAs(MapPath("~/arts/" + imgUpload.FileName));
                 uploadedImg.ImageUrl = "~/arts/" + imgUpload.FileName;
+                txtArtUrl.Text = "~/arts/" + imgUpload.FileName;
+                txtArtUrl.Visible = true;
             }
         }
 
@@ -270,6 +272,7 @@ namespace WAD_Assignment
             validTxtTitle.Enabled = false;
             validTxtDescription.Enabled = false;
             Session["edit"] = true;
+            spinner.Visible = true;
             con.Close();
             //Server.Transfer("SellArt.aspx", true);
         }

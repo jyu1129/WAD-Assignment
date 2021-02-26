@@ -1,6 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Wishlist.aspx.cs" Inherits="WAD_Assignment.Wishlist" MasterPageFile="~/Page.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+    <script>
+        document.getElementById("gallery").classList.remove("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.remove("active");
+        document.getElementById("profile").classList.remove("active");
+        document.getElementById("cart").classList.remove("active");
+        document.getElementById("purchasehistory").classList.remove("active");
+        document.getElementById("wishlist").classList.add("active");
+    </script>
+
     <div>
         <div style="font-weight: bold; font-size: 40px; font-family: Bahnschrift; color: #000000; text-align: center">
             <br />
@@ -15,7 +25,7 @@
         </div>
         
         <br />
-        <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False" DataKeyNames="WishListid" PageSize="5" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" Width="955px" HorizontalAlign="Center">
+        <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False" DataKeyNames="WishListid" PageSize="5" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" Width="955px" HorizontalAlign="Center" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
             <Columns>
                 <asp:BoundField DataField="ArtId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ArtId">
                     <ItemStyle HorizontalAlign="Center" Font-Names="Bahnschrift" />
@@ -57,7 +67,15 @@
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
             </Columns>
-            <HeaderStyle Font-Names="Bahnschrift" />
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle Font-Names="Bahnschrift" BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM WishLists WHERE WishListid = @WishListid" SelectCommand="SELECT Wishlists.WishListid, Wishlists.AddedDate, Arts.ArtName, Arts.Price, Arts.ArtUrl, Wishlists.ArtId, Arts.Category, Arts.Stock FROM Wishlists INNER JOIN Arts ON Wishlists.ArtId = Arts.ArtId WHERE (Wishlists.CustomerId = @CustomerId)">

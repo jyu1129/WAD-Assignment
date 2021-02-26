@@ -1,20 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.ProductList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
-    SHOP NAME<br />
-            <br />
-            <asp:HyperLink ID="hlBuyArt" runat="server" NavigateUrl="~/Shop.aspx">Buy Art</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlSellArt" runat="server" NavigateUrl="~/SellArt.aspx">Sell Art</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlMyOrders" runat="server">My Orders</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
 
         <div>
             <asp:Label ID="lblAddToCartMsg" runat="server"></asp:Label>
+            <div style="font-size: 40px; font-weight: bold; text-align: center">
+                PRODUCT LIST
+            </div>
             <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnItemCommand="dtProduct_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" SelectedItemStyle-Wrap="False" AlternatingItemStyle-Wrap="False">
 <AlternatingItemStyle Wrap="False"></AlternatingItemStyle>
 
@@ -26,7 +18,7 @@
                         <asp:Label ID="ArtIdLabel" runat="server" Text='<%# Eval("ArtId") %>' Visible="false"/>                         
                         <tr>
                             <td>
-                                <asp:ImageButton ID="ArtUrlLabel" CommandArgument='<% #Eval("ArtId") %>' CommandName="viewdetail" runat="server" height="100" Width="100" ImageUrl='<%# Eval("ArtUrl") %>'/>
+                                <asp:ImageButton ID="ArtUrlLabel" CommandArgument='<% #Eval("ArtId") %>' CommandName="viewdetail" runat="server" height="120px" Width="150px" ImageUrl='<%# Eval("ArtUrl") %>'/>
                             </td>
                         </tr>
                         <tr>
