@@ -25,8 +25,6 @@ namespace WAD_Assignment
             con = new SqlConnection(strCon);
             //open database
             con.Open();
-            //get from
-            int CustomerId = 123;
             //To Get Art Id from the of the item from gridview
             ImageButton ib = sender as ImageButton;
             object commandArg = ib.CommandArgument;
@@ -34,7 +32,7 @@ namespace WAD_Assignment
 
             int Quantity = 1;
             //INSERT database record
-            string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + CustomerId + "," + ArtId + "," + Quantity + ")";
+            string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + Session["userID"]  + "," + ArtId + "," + Quantity + ")";
             //create sqlcommand
             SqlCommand cmdInsert = new SqlCommand(strInsert, con);
             //temporary store record retrived by command object
