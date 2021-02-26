@@ -80,6 +80,8 @@
                                 <td class="auto-style1">Email:</td>
                                 <td class="auto-style2">:
                                     <asp:TextBox ID="txtEmail" runat="server" Width="176px"></asp:TextBox>
+                                    <br />
+                                    <asp:Label ID="lblEmail" runat="server" ForeColor="Red"></asp:Label>
                                 </td>
                                 <td class="auto-style12">New Password</td>
                                 <td>:
