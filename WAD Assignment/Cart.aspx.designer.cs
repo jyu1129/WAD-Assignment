@@ -15,42 +15,6 @@ namespace WAD_Assignment
     {
 
         /// <summary>
-        /// hlBuyArt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlBuyArt;
-
-        /// <summary>
-        /// hlMyOrders control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMyOrders;
-
-        /// <summary>
-        /// hlGallery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlGallery;
-
-        /// <summary>
-        /// hlCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCart;
-
-        /// <summary>
         /// gvCart control.
         /// </summary>
         /// <remarks>

@@ -2,7 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
         <div>
-            <strong>Product Details</strong>
+            <div style="font-size: 40px; font-weight: bold; text-align: center">
+                PRODUCT DETAILS
+            </div>
             <br />
             <br />
             <asp:DataList ID="dtProductDetail" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" OnItemCommand="dtProductDetail_ItemCommand" OnSelectedIndexChanged="dtProductDetail_SelectedIndexChanged">
