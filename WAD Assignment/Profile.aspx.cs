@@ -20,6 +20,8 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
             con = new SqlConnection(strCon);
             con.Open();
 
@@ -87,6 +89,7 @@ namespace WAD_Assignment
             {
                 ddlCountry.SelectedValue = ddlCountry.Items.FindByText(country).Value;
             }
+            txtPw.Text = currentPw;
 
 
             txtFirstName.Enabled = false;
@@ -95,7 +98,9 @@ namespace WAD_Assignment
             txtPhone.Enabled = false;
             txtAddress.Enabled = false;
             ddlCountry.Enabled = false;
-
+            txtPw.Enabled = false;
+            txtNewPw.Enabled = false;
+            txtConfirmNewPw.Enabled = false;
 
 
         }
@@ -127,7 +132,7 @@ namespace WAD_Assignment
                     ddlCountry.Enabled = true;
 
                     btnUpdate.Text = "Save";
-                    lblError.Text = "";
+                    lblUpdate.Text = "";
                     lblEmail.Text = "";
                     break;
             }
@@ -148,7 +153,6 @@ namespace WAD_Assignment
             country = ddlCountry.SelectedValue.ToString();
 
             //Check Email
-            //bool emailExist = false;
             string strSelect = "SELECT * FROM(SELECT Email FROM Artists UNION SELECT Email FROM Customers) AS E WHERE E.Email = '" + email + "' ";
             SqlCommand command = new SqlCommand(strSelect, con);
             SqlDataReader drEmail = command.ExecuteReader();
@@ -163,6 +167,7 @@ namespace WAD_Assignment
                 {
                     //Email Remains Unchanged
                     email = (string)Session["user"];
+                    lblEmail.ForeColor = System.Drawing.Color.Red;
                     lblEmail.Text = "Email not updated as it is already exist";
                 }
                 txtEmail.Text = email;
@@ -171,35 +176,85 @@ namespace WAD_Assignment
             drEmail.Close();
             con.Close();
 
-
-            string role = Session["role"].ToString(); 
-            if (role == "Artist")
-            {
-                con.Open();
-                //Update details into database
-                string strUpdate = "UPDATE Artists SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
-                                       "WHERE Email = '" + Session["user"] + "'";
-                SqlCommand command3 = new SqlCommand(strUpdate, con);
-                command3.ExecuteReader();
-                con.Close();
-                lblError.Text = "Updated successfully!";
-            }
-            else
-            {
-                con2.Open();
-                //Update details into database
-                string strUpdate2 = "UPDATE Customers SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
-                                    "WHERE Email = '" + Session["user"] + "'";
-                SqlCommand command4 = new SqlCommand(strUpdate2, con2);
-                command4.ExecuteReader();
-                con.Close();
-                lblError.Text = "Updated successfully!";
-             }
+            con.Open();
+            //Update details into database
+            string strUpdate = "UPDATE "+ Session["role"] + " SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
+                               "WHERE Email = '" + Session["user"] + "'";
+            SqlCommand command3 = new SqlCommand(strUpdate, con);
+            command3.ExecuteNonQuery();
+            con.Close();
+            lblUpdate.ForeColor = System.Drawing.Color.Black;
+            lblUpdate.Text = "Updated successfully!";
 
             //Update email in Session
             Session["user"] = email;
             
 
+        }
+
+        protected void btnChange_Click(object sender, EventArgs e)
+        {
+            Button btnName = sender as Button;
+            switch (btnName.Text)
+            {
+                case "Save":
+                    //code
+                    saveChanges_Pw();
+                    txtPw.Text = "";
+                    txtNewPw.Text = "";
+                    txtConfirmNewPw.Text = "";
+                    txtPw.Enabled = false;
+                    txtNewPw.Enabled = false;
+                    txtConfirmNewPw.Enabled = false;
+                    btnChange.Text = "Change";
+                    break;
+
+                case "Change":
+                    //code
+                    txtPw.Enabled = true;
+                    txtNewPw.Enabled = true;
+                    txtConfirmNewPw.Enabled = true;
+                    btnChange.Text = "Save";
+                    lblChange.Text = "";
+                    break;
+            }
+        }
+
+        public void saveChanges_Pw()
+        {
+            //New changes edit by user
+            string currentPw, newPw, confirmNewPw;
+
+            currentPw = txtPw.Text.ToString();
+            newPw = txtNewPw.Text.ToString();
+            confirmNewPw = txtConfirmNewPw.Text.ToString();
+
+            //Check Current Password Match
+            string strSelect = "SELECT * " +
+                               "FROM(SELECT Password, Email FROM Artists UNION SELECT Password, Email FROM Customers) AS P " +
+                               "WHERE P.Password = '" + currentPw + "' AND P.Email = '" + Session["user"] + "'";
+            SqlCommand command = new SqlCommand(strSelect, con);
+            SqlDataReader drPassword = command.ExecuteReader();
+            if (drPassword.HasRows)
+            {
+                //Password Match
+                //Update New Password to database
+                string strUpdate2 = "UPDATE " + Session["role"] + " SET Password = '" + newPw + "' " +
+                                    "WHERE Email = '" + Session["user"] + "'";
+                SqlCommand command2 = new SqlCommand(strUpdate2, con2);
+                command2.ExecuteNonQuery();
+                con2.Close();
+                lblChange.ForeColor = System.Drawing.Color.Black;
+                lblChange.Text = "Updated successfully!";
+
+            }
+            else
+            {
+                lblChange.ForeColor = System.Drawing.Color.Red;
+                lblChange.Text = "Current Password is incorrect";
+            }
+            drPassword.Close();
+            con.Close();
         }
     }
 

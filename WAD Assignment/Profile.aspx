@@ -1,10 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="WAD_Assignment.Profile" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="WAD_Assignment.Profile" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+
     <style type="text/css">
         .auto-style1 {
             width: 154px;
@@ -49,11 +47,9 @@
             width: 225px;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+
         <div>
-            <table style="width:100%;">
+            <table class="auto-style6">
                 <tr>
                     <td>My Profile<br />
                         <br />
@@ -73,19 +69,20 @@
                                 </td>
                                 <td class="auto-style11">Current Password</td>
                                 <td class="auto-style5">:
-                                    <asp:TextBox ID="txtPw" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPw" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style1">Email:</td>
                                 <td class="auto-style2">:
-                                    <asp:TextBox ID="txtEmail" runat="server" Width="176px"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmail" runat="server" Width="176px" type="email"></asp:TextBox>
                                     <br />
                                     <asp:Label ID="lblEmail" runat="server" ForeColor="Red"></asp:Label>
                                 </td>
                                 <td class="auto-style12">New Password</td>
                                 <td>:
-                                    <asp:TextBox ID="txtNewPw" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtNewPw" runat="server" TextMode="Password"></asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtNewPw"  ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -95,7 +92,8 @@
                                 </td>
                                 <td class="auto-style12">Confirm New Password</td>
                                 <td>:
-                                    <asp:TextBox ID="txtConfirmNewPw" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtConfirmNewPw" runat="server" TextMode="Password"></asp:TextBox>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Not Matched" ControlToCompare="txtNewPw" ControlToValidate="txtConfirmNewPw" ForeColor="Red"></asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -357,11 +355,13 @@
                                 <td class="auto-style8">
                                     <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
                                     <br />
-                                    <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+                                    <asp:Label ID="lblUpdate" runat="server"></asp:Label>
                                 </td>
                                 <td class="auto-style10"></td>
                                 <td class="auto-style9">
-                                    <asp:Button ID="btnChange" runat="server" Text="Change" />
+                                    <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" />
+                                    <br />
+                                    <asp:Label ID="lblChange" runat="server"></asp:Label>
                                 </td>
                             </tr>
                         </table>
@@ -370,6 +370,6 @@
                 </tr>
             </table>
         </div>
-    </form>
-</body>
-</html>
+
+
+</asp:Content>
