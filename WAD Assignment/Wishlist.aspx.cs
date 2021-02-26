@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace WAD_Assignment
 {
@@ -13,41 +13,46 @@ namespace WAD_Assignment
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvWishlist.DataBind();
             lblWishCount.Text = gvWishlist.Rows.Count.ToString();
         }
-
-        protected void GridView1_ItemCommand(object source, DataListCommandEventArgs e)
+        protected void CartClick(object sender, ImageClickEventArgs e)
         {
-            if (e.CommandName == "AddToCart")
-            {
 
-                ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('do something here!');</script>");
+            //create database connection
+            con = new SqlConnection(strCon);
+            //open database
+            con.Open();
+            //get from
+            int CustomerId = 123;
+            //To Get Art Id from the of the item from gridview
+            ImageButton ib = sender as ImageButton;
+            object commandArg = ib.CommandArgument;
+            string ArtId = commandArg.ToString();
 
-            }
+            int Quantity = 1;
+            //INSERT database record
+            string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + CustomerId + "," + ArtId + "," + Quantity + ")";
+            //create sqlcommand
+            SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+            //temporary store record retrived by command object
+            SqlDataReader dtrSelect = cmdInsert.ExecuteReader();
+            //display success
+            ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('Wishlist item successfully added to Cart!');</script>");
+            //close connection
+            con.Close();
 
         }
 
+        protected void ArtClick(object sender, ImageClickEventArgs e)
+        {
+            ImageButton ib = sender as ImageButton;
+            object commandArg = ib.CommandArgument;
+            string ArtId = commandArg.ToString();
 
-        //protected void deleteItem(object sender, GridViewCommandEventArgs e)
-        //{
-        //    string commandName = e.CommandName;
-        //    object commandArg = e.CommandArgument;
-
-        //    if (commandName == "deleteItem")
-        //    {
-
-        //        con = new SqlConnection(strCon);
-        //        con.Open();
-
-        //        string query = "DELETE FROM Wishlists WHERE 
-        //        SqlCommand cmdSelect = new SqlCommand(query, con);
-        //        SqlDataReader dtrOrderYear = cmdSelect.ExecuteReader();
-        //        dtrOrderYear.Close();
-        //        con.Close();
-        //    }
-        //}
+            Response.Redirect("ProductDetails.aspx?ArtId=" + ArtId);
+        }
     }
 }

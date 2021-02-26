@@ -1,58 +1,50 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="WAD_Assignment.PurchaseHistory1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="WAD_Assignment.PurchaseHistory1" MasterPageFile="~/Page.Master"%>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            font-family: Bahnschrift;
-            font-weight: bold;
-            font-size: 30px;
-            color: #000000;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
         <div>
-            <div style="text-align: center" class="auto-style1">
-                PURCHASE HISTORY</div>
+            <div style="font-weight: bold; font-size: 30px; font-family: Bahnschrift; color: #000000; text-align: center">
+                PURCHASE HISTORY
+            </div>
             <div style="font-family: Bahnschrift">
                 <br />
-                You have bought
+                You have purchased
             <asp:Label ID="lblPurchaseCount" runat="server" Font-Bold="True"></asp:Label>
                 item(s).</div>
             <br />
             <br />
-            <asp:GridView ID="gvPurchaseHistory" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" BorderStyle="Solid" PageSize="5">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <asp:GridView ID="gvPurchaseHistory" runat="server" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" PageSize="5" AllowSorting="True">
                 <Columns>
-                    <asp:BoundField HeaderText="OrderId" DataField="OrderId" SortExpression="OrderId" >
+                    <asp:BoundField HeaderText="Order ID" DataField="OrderId" SortExpression="OrderId" >
+                    <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="UnitPrice" HeaderText="UnitPrice" SortExpression="UnitPrice" />
-                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                    <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
-                    <asp:BoundField DataField="ArtName" HeaderText="ArtName" SortExpression="ArtName" />
+                    <asp:BoundField DataField="OrderDate" HeaderText="Order Date" SortExpression="OrderDate" DataFormatString="{0:dd-MM-yyyy}" >
+                    <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
+                    </asp:BoundField>
                     <asp:ImageField DataImageUrlField="ArtUrl" HeaderText="Art">
+                        <ControlStyle Height="120px" Width="150px" />
                     </asp:ImageField>
+                    <asp:BoundField DataField="ArtName" HeaderText="Name" SortExpression="ArtName" >
+                    <ControlStyle Font-Names="Bahnschrift" />
+                    <ItemStyle Font-Names="Bahnschrift" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="UnitPrice" HeaderText="Unit Price" SortExpression="UnitPrice" DataFormatString="{0:RM 0.00}" >
+                    <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" >
+                    <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
+                    </asp:BoundField>
                 </Columns>
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" Font-Names="Bahnschrift" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                <HeaderStyle Font-Names="Bahnschrift" />
             </asp:GridView>
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order Details].OrderId, [Order Details].UnitPrice, [Order Details].Quantity, Orders.OrderDate, Arts.ArtName, Arts.ArtUrl FROM Orders INNER JOIN [Order Details] ON Orders.OrderId = [Order Details].OrderId INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId INNER JOIN Arts ON Orders.ArtId = Arts.ArtId AND [Order Details].ArtId = Arts.ArtId"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT OrderDetails.OrderId, OrderDetails.UnitPrice, OrderDetails.Quantity, Orders.OrderDate, Arts.ArtName, Arts.ArtUrl FROM Orders INNER JOIN OrderDetails ON Orders.OrderId = OrderDetails.OrderId INNER JOIN Arts ON Orders.ArtId = Arts.ArtId AND OrderDetails.ArtId = Arts.ArtId WHERE (Orders.CustomerId = @CustomerId)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="CustomerId" SessionField="userID" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             <br />
             </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content2" runat="server" contentplaceholderid="head">
+</asp:Content>
+

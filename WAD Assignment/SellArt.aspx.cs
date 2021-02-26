@@ -271,6 +271,7 @@ namespace WAD_Assignment
             validTxtPrice.Enabled = false;
             validTxtStock.Enabled = false;
             validTxtTitle.Enabled = false;
+            validTxtDescription.Enabled = false;
             Session["edit"] = true;
             con.Close();
             //Server.Transfer("SellArt.aspx", true);
