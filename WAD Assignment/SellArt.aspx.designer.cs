@@ -69,6 +69,15 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.Image uploadedImg;
 
         /// <summary>
+        /// validImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validImage;
+
+        /// <summary>
         /// txtArtTitle control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace WAD_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtArtTitle;
+
+        /// <summary>
+        /// validTxtTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validTxtTitle;
 
         /// <summary>
         /// txtDescription control.
@@ -96,6 +114,15 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.TextBox txtArtCat;
 
         /// <summary>
+        /// validTxtArtCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validTxtArtCat;
+
+        /// <summary>
         /// txtPrice control.
         /// </summary>
         /// <remarks>
@@ -105,6 +132,24 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
 
         /// <summary>
+        /// validTxtPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validTxtPrice;
+
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
         /// txtStock control.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,15 @@ namespace WAD_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStock;
+
+        /// <summary>
+        /// validTxtStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validTxtStock;
 
         /// <summary>
         /// SqlDataSource2 control.
