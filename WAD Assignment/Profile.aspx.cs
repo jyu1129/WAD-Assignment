@@ -18,8 +18,6 @@ namespace WAD_Assignment
         SqlConnection con2;
         string strCon2 = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             con = new SqlConnection(strCon);
@@ -28,13 +26,15 @@ namespace WAD_Assignment
             con2 = new SqlConnection(strCon2);
             con2.Open();
 
+            if (!Page.IsPostBack)
+            {
+                showData();
+            }
 
-            showData();
         }
 
         public void showData()
         {
-
             string firstName="", lastName = "", email = "", phoneNum = "", address = "", country = "", currentPw = "";
 
             string strSelectArt = "SELECT * FROM Artists WHERE Email = '" + Session["user"] + "'";
@@ -88,12 +88,14 @@ namespace WAD_Assignment
                 ddlCountry.SelectedValue = ddlCountry.Items.FindByText(country).Value;
             }
 
+
             txtFirstName.Enabled = false;
             txtLastName.Enabled = false;
             txtEmail.Enabled = false;
             txtPhone.Enabled = false;
             txtAddress.Enabled = false;
             ddlCountry.Enabled = false;
+
 
 
         }
@@ -107,6 +109,12 @@ namespace WAD_Assignment
                     //code
                     saveChanges();
                     btnUpdate.Text = "Update";
+                    txtFirstName.Enabled = false;
+                    txtLastName.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtPhone.Enabled = false;
+                    txtAddress.Enabled = false;
+                    ddlCountry.Enabled = false;
                     break;
 
                 case "Update":
@@ -119,6 +127,8 @@ namespace WAD_Assignment
                     ddlCountry.Enabled = true;
 
                     btnUpdate.Text = "Save";
+                    lblError.Text = "";
+                    lblEmail.Text = "";
                     break;
             }
 
@@ -138,56 +148,57 @@ namespace WAD_Assignment
             country = ddlCountry.SelectedValue.ToString();
 
             //Check Email
-            con.Open();
-            bool emailExist = false;
+            //bool emailExist = false;
             string strSelect = "SELECT * FROM(SELECT Email FROM Artists UNION SELECT Email FROM Customers) AS E WHERE E.Email = '" + email + "' ";
             SqlCommand command = new SqlCommand(strSelect, con);
             SqlDataReader drEmail = command.ExecuteReader();
             if (drEmail.HasRows)
             {
-                emailExist = true;
-                //lblEmailExist.Text = "Email address already exists";
+                if(email == (string)Session["user"])
+                {
+                    //Email Remains Unchanged
+                    email = (string)Session["user"];
+                }
+                else
+                {
+                    //Email Remains Unchanged
+                    email = (string)Session["user"];
+                    lblEmail.Text = "Email not updated as it is already exist";
+                }
+                txtEmail.Text = email;
+
             }
             drEmail.Close();
             con.Close();
 
-            //Check Phone
-            con2.Open();
-            bool phoneExist = false;
-            string strSelect2 = "SELECT * FROM(SELECT Phone FROM Artists UNION SELECT Phone FROM Customers) AS P WHERE P.Phone = '" + phoneNum + "' ";
-            SqlCommand command2 = new SqlCommand(strSelect2, con2);
-            SqlDataReader drPhone = command2.ExecuteReader();
-            if (drPhone.HasRows)
-            {
-                phoneExist = true;
-                //lblEmailExist.Text = "Email address already exists";
-            }
-            drPhone.Close();
-            con2.Close();
 
-            if(emailExist == true && phoneExist == true)
-            {
-                lblError.Text = "Email address and Phone Number already exist";
-            }
-            else if(emailExist == true && phoneExist == false)
-            {
-                lblError.Text = "Email address already exists";
-            }
-            else if(emailExist == false && phoneExist == true)
-            {
-                lblError.Text = "Phone Number already exists";
-            }
-            else
+            string role = Session["role"].ToString(); 
+            if (role == "Artist")
             {
                 con.Open();
                 //Update details into database
                 string strUpdate = "UPDATE Artists SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
-                                   "WHERE Email = '" + Session["user"] + "'";
+                                       "WHERE Email = '" + Session["user"] + "'";
                 SqlCommand command3 = new SqlCommand(strUpdate, con);
                 command3.ExecuteReader();
                 con.Close();
                 lblError.Text = "Updated successfully!";
             }
+            else
+            {
+                con2.Open();
+                //Update details into database
+                string strUpdate2 = "UPDATE Customers SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
+                                    "WHERE Email = '" + Session["user"] + "'";
+                SqlCommand command4 = new SqlCommand(strUpdate2, con2);
+                command4.ExecuteReader();
+                con.Close();
+                lblError.Text = "Updated successfully!";
+             }
+
+            //Update email in Session
+            Session["user"] = email;
+            
 
         }
     }
