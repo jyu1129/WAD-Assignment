@@ -2,17 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
         <div>
-            <div style="font-weight: bold; font-size: 30px; font-family: Bahnschrift; color: #000000; text-align: center">
+            <div style="font-weight: bold; font-size: 40px; font-family: Bahnschrift; color: #000000; text-align: center">
+                <br />
                 PURCHASE HISTORY
             </div>
-            <div style="font-family: Bahnschrift">
+            <div style="font-family: Bahnschrift; text-align: center;">
                 <br />
                 You have purchased
             <asp:Label ID="lblPurchaseCount" runat="server" Font-Bold="True"></asp:Label>
                 item(s).</div>
             <br />
             <br />
-            <asp:GridView ID="gvPurchaseHistory" runat="server" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" PageSize="5" AllowSorting="True">
+            <asp:GridView ID="gvPurchaseHistory" runat="server" AutoGenerateColumns="False" AllowPaging="True" DataSourceID="SqlDataSource1" PageSize="5" AllowSorting="True" HorizontalAlign="Center" Width="879px">
                 <Columns>
                     <asp:BoundField HeaderText="Order ID" DataField="OrderId" SortExpression="OrderId" >
                     <ItemStyle Font-Names="Bahnschrift" HorizontalAlign="Center" />
