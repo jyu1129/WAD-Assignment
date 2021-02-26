@@ -63,57 +63,54 @@
                         <table class="auto-style6">
                             <tr>
                                 <td class="auto-style7">First Name</td>
-                                <td class="auto-style8">:
+                                <td class="auto-style8">
                                     <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
                                 </td>
                                 <td class="auto-style10">Change Password</td>
-                                <td class="auto-style9">&nbsp;</td>
+                                <td class="auto-style9"></td>
                             </tr>
                             <tr>
                                 <td class="auto-style3">Last Name</td>
-                                <td class="auto-style4">:
+                                <td class="auto-style4">
                                     <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
                                 </td>
                                 <td class="auto-style11">Current Password</td>
-                                <td class="auto-style5">:
+                                <td class="auto-style5">
                                     <asp:TextBox ID="txtPw" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style1">Email:</td>
-                                <td class="auto-style2">:
+                                <td class="auto-style2">
                                     <asp:TextBox ID="txtEmail" runat="server" Width="176px" type="email"></asp:TextBox>
                                     <br />
                                     <asp:Label ID="lblEmail" runat="server" ForeColor="Red"></asp:Label>
                                 </td>
                                 <td class="auto-style12">New Password</td>
-                                <td>:
-                                    <asp:TextBox ID="txtNewPw" runat="server" TextMode="Password"></asp:TextBox>
+                                <td>&nbsp;<asp:TextBox ID="txtNewPw" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtNewPw"  ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style1">Phone</td>
-                                <td class="auto-style2">:
-                                    <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+                                <td class="auto-style2">&nbsp;<asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
                                 </td>
                                 <td class="auto-style12">Confirm New Password</td>
-                                <td>:
+                                <td>
                                     <asp:TextBox ID="txtConfirmNewPw" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Not Matched" ControlToCompare="txtNewPw" ControlToValidate="txtConfirmNewPw" ForeColor="Red"></asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style1">Address</td>
-                                <td class="auto-style2">:
-                                    <asp:TextBox ID="txtAddress" runat="server" Height="71px" Width="216px"></asp:TextBox>
+                                <td class="auto-style2">&nbsp;<asp:TextBox ID="txtAddress" runat="server" Height="71px" Width="216px"></asp:TextBox>
                                 </td>
                                 <td class="auto-style12">&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style1">Country</td>
-                                <td class="auto-style2">:
+                                <td class="auto-style2">
                                     <asp:DropDownList ID="ddlCountry" runat="server" Width="158px">
                                             <asp:ListItem Selected="true">Select Country</asp:ListItem>
                                             <asp:ListItem>United States</asp:ListItem>
