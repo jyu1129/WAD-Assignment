@@ -10,6 +10,11 @@
                 args.IsValid = false;
             }
         }
+            document.getElementById("gallery").classList.add("active");
+            document.getElementById("home").classList.remove("active");
+            document.getElementById("products").classList.remove("active");
+            document.getElementById("profile").classList.remove("active");
+            document.getElementById("cart").classList.remove("active");
     </script>
 
     <style type="text/css">
