@@ -15,8 +15,8 @@ namespace WAD_Assignment
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //gvWishlist.DataBind();
-            //lblWishCount.Text = gvWishlist.Rows.Count.ToString();
+            gvWishlist.DataBind();
+            lblWishCount.Text = gvWishlist.Rows.Count.ToString();
         }
 
         protected void GridView1_ItemCommand(object source, DataListCommandEventArgs e)
