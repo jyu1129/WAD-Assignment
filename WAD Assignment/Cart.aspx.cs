@@ -75,7 +75,7 @@ namespace WAD_Assignment
             }
             else //logged
             {
-                Response.Redirect("CheckOut.aspx?");
+                Response.Redirect("CheckOut.aspx");
             }
         }
     }
