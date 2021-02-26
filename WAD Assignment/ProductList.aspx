@@ -44,12 +44,9 @@
                         </tr>      
                         <tr>
                             <td>
-                                <asp:Button ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart"  />
-                            </td>
-                        </tr>  
-                        <tr>
-                            <td>
-                                <asp:Button ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList"  />
+                                <asp:ImageButton ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
+                            
+                                <asp:ImageButton ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList" Height="40px" Width="40px" ImageUrl="https://img.pngio.com/wish-list-best-wish-christmas-icon-png-and-vector-for-free-wish-icon-png-512_455.png" />
                             </td>
                         </tr>  
                     </table>

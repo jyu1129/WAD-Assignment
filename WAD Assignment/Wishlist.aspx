@@ -11,6 +11,7 @@
             There are
             <asp:Label ID="lblWishCount" runat="server" Font-Bold="true"></asp:Label>
             item(s) in your wishlist.
+            <br />
         </div>
         
         <br />
