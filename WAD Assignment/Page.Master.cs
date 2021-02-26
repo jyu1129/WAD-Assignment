@@ -23,7 +23,13 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["user"] == null)
+            con = new SqlConnection(strCon);
+            con.Open();
+
+            con2 = new SqlConnection(strCon2);
+            con2.Open();
+
+            if (Session["user"] == null)
             {
                 lblName.Text = "Guest";
                 btnLog.Text = "Log in";
@@ -32,13 +38,8 @@ namespace WAD_Assignment
                 lbluserId.Visible = false;              
 
             }
-            else
+            else 
             {
-                con = new SqlConnection(strCon);
-                con.Open();
-
-                con2 = new SqlConnection(strCon2);
-                con2.Open();
 
                 showData();
                 btnLog.Text = "Log out";

@@ -2,17 +2,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div>
-        <div style="font-weight: bold; font-size: 30px; font-family: Bahnschrift; color: #000000; text-align: center">
+        <div style="font-weight: bold; font-size: 40px; font-family: Bahnschrift; color: #000000; text-align: center">
+            <br />
             WISHLIST
         </div>
-        <div style="font-family: Bahnschrift">
+        <div style="font-family: Bahnschrift; text-align: center;">
             <br />
             There are
             <asp:Label ID="lblWishCount" runat="server" Font-Bold="true"></asp:Label>
             item(s) in your wishlist.
+            <br />
         </div>
+        
         <br />
-        <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False" DataKeyNames="WishListid" PageSize="5" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" Width="955px">
+        <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False" DataKeyNames="WishListid" PageSize="5" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" Width="955px" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField DataField="ArtId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ArtId">
                     <ItemStyle HorizontalAlign="Center" Font-Names="Bahnschrift" />

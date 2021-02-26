@@ -56,7 +56,7 @@ namespace WAD_Assignment
                     //temporary store record retrived by command object
                     SqlDataReader dtrSelect = cmdInsert.ExecuteReader();
                     //display success
-                    ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('CART ADDED!');</script>");
+                    ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('Item successfully added to cart!');</script>");
                     //close connection
                     con.Close();
 
@@ -80,7 +80,7 @@ namespace WAD_Assignment
                     //temporary store record retrived by command object
                     SqlDataReader dtrSelect = cmdInsert2.ExecuteReader();
                     //display success
-                    ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('WISHLIST ADDED!');</script>");
+                    ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('Item successfully added to wishlist!');</script>");
                     //close connection
                     con.Close();
                 }
