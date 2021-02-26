@@ -18,6 +18,10 @@
         </asp:DataList>
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [ArtUrl], [ArtId] FROM [Arts]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT ArtUrl, ArtId, ArtistId FROM Arts WHERE (ArtistId = @ArtistId)" OnSelecting="SqlDataSource1_Selecting">
+            <SelectParameters>
+                <asp:SessionParameter Name="ArtistId" SessionField="userID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
 </asp:Content>

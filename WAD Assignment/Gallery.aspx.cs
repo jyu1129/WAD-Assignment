@@ -45,5 +45,10 @@ namespace WAD_Assignment
             Session["create"] = true;
             Server.Transfer("SellArt.aspx", true);
         }
+
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }
