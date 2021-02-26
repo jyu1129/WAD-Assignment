@@ -65,7 +65,8 @@ namespace WAD_Assignment
                     firstName = dr["FirstName"].ToString();
                     lastName = dr["lastName"].ToString();
                     Session["userID"] = int.Parse(dr["ArtistId"].ToString());
-                    Session["role"] = "Artist";
+                    Session["role"] = "Artists";
+                    Session["password"] = dr["Password"].ToString();
                 }
             }
             dr.Close();
@@ -81,7 +82,8 @@ namespace WAD_Assignment
                     firstName = dr2["FirstName"].ToString();
                     lastName = dr2["lastName"].ToString();
                     Session["userID"] = int.Parse(dr2["CustomerId"].ToString());
-                    Session["role"] = "Customer";
+                    Session["role"] = "Customers";
+                    Session["password"] = dr2["Password"].ToString();
                 }
             }
             dr2.Close();
