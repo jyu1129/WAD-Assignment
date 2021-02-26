@@ -18,9 +18,6 @@
     </script>
 
     <style type="text/css">
-        .auto-style6 {
-            height: 23px;
-        }
         .auto-style7 {
             height: 21px;
         }
@@ -38,13 +35,13 @@
         .auto-style29 {
             height: 50px;
         }
-        .auto-style30 {
-            width: 522px;
-            height: 50px;
-        }
         .auto-style31 {
             width: 662px;
             height: 50px;
+        }
+        .auto-style32 {
+            height: 50px;
+            width: 421px;
         }
     </style>
 
@@ -62,7 +59,7 @@
                         <tr>
                             <td class="auto-style31"></td>
                             <td class="auto-style26">First Name</td>
-                            <td class="auto-style30">
+                            <td class="auto-style32">
                     <asp:TextBox ID="txtFirstName" runat="server" required="required" Width="200px"></asp:TextBox>
                             </td>
                             <td class="auto-style27"></td>
@@ -70,7 +67,7 @@
                         <tr>
                             <td class="auto-style31"></td>
                             <td class="auto-style26">Last Name</td>
-                            <td class="auto-style30">
+                            <td class="auto-style32">
                     <asp:TextBox ID="txtLastName" runat="server" required="required" Width="200px"></asp:TextBox>
                             </td>
                             <td class="auto-style27"></td>
@@ -78,7 +75,7 @@
                         <tr>
                             <td class="auto-style31"></td>
                             <td class="auto-style26">Email</td>
-                            <td class="auto-style30"> <asp:TextBox ID="txtEmail" runat="server" Width="200px" required="required" type="email"></asp:TextBox>
+                            <td class="auto-style32"> <asp:TextBox ID="txtEmail" runat="server" Width="200px" required="required" type="email"></asp:TextBox>
                             &nbsp;<asp:Label ID="lblEmailExist" runat="server" ForeColor="Red"></asp:Label>
                             </td>
                             <td class="auto-style27"></td>
@@ -86,7 +83,7 @@
                         <tr>
                             <td class="auto-style31"></td>
                             <td class="auto-style26">Password</td>
-                            <td class="auto-style30"> <asp:TextBox ID="txtPw" runat="server" required="required" TextMode="Password" Width="200px"></asp:TextBox>
+                            <td class="auto-style32"> <asp:TextBox ID="txtPw" runat="server" required="required" TextMode="Password" Width="200px"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtPw"  ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
                             <td class="auto-style27"></td>
@@ -94,7 +91,7 @@
                         <tr>
                             <td class="auto-style31"></td>
                             <td class="auto-style26">Confirm Password</td>
-                            <td class="auto-style30">
+                            <td class="auto-style32">
                     <asp:TextBox ID="txtConfirmPw" runat="server" required="required" TextMode="Password" Width="200px" ></asp:TextBox>
                             &nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPw" ControlToValidate="txtConfirmPw" ErrorMessage="Not Matched" ForeColor="Red"></asp:CompareValidator>
                             </td>
@@ -103,7 +100,7 @@
                         <tr>
                             <td class="auto-style31"></td>
                             <td class="auto-style26">User Type</td>
-                            <td class="auto-style30">
+                            <td class="auto-style32">
                     <asp:DropDownList ID="ddlUserType" runat="server" Height="18px" Width="200px">
                         <asp:ListItem Text="Please Select" Selected="True"></asp:ListItem>
                         <asp:ListItem>Artist</asp:ListItem>
