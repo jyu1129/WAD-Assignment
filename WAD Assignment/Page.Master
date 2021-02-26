@@ -28,9 +28,14 @@
                                 if (roleSession == "Artists") {
                                     document.getElementById("navbarlink").innerHTML +=
                                         '<li class="nav-item" id="gallery"><a class="nav-link" href="Gallery.aspx">My Gallery</a> </li>';
+
+                                    document.getElementById("cart").remove();
                                 }
                                 else {
                                     document.getElementById("gallery").remove();
+
+                                    document.getElementById("navbarlink").innerHTML +=
+                                        '<li class="nav-item" id="cart"><a class="nav-link" href="Cart.aspx">Cart</a> </li>';
                                 }
 
                                 var userIDSession = '<%= Session["user"] %>';
@@ -43,7 +48,7 @@
                                         '<li class="nav-item" id="profile"><a class="nav-link" href="Profile.aspx">Profile</a> </li>';
 
                                     document.getElementById("navbarlink").innerHTML +=
-                                        '<li class="nav-item" id="cart"><a class="nav-link" href="Cart.aspx">Profile</a> </li>';
+                                        '<li class="nav-item" id="cart"><a class="nav-link" href="Cart.aspx">Cart</a> </li>';
                                 }
                             </script>
                         </ul>
@@ -59,6 +64,10 @@
                 </nav>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
+
+                <nav class="navbar fixed-bottom justify-content-center">
+                    <div class="p-2">© 2021 Mochi Art Gallery. All Rights Reserved.</div>
+                </nav>
             </asp:ContentPlaceHolder>
         </div>
     </form>

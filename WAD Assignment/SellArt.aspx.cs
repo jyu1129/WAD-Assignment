@@ -46,10 +46,7 @@ namespace WAD_Assignment
                 txtArtCat.Attributes.Add("readonly", "readonly");
                 txtStock.Attributes.Add("readonly", "readonly");
                 Button1.Enabled = false;
-                if (Session["role"].Equals("Artists"))
-                {
-                    btnEdit.Visible = true;
-                }
+                btnEdit.Visible = true;
             }
             else
             {
