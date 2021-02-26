@@ -12,9 +12,15 @@ namespace WAD_Assignment
 {
     public partial class Gallery : System.Web.UI.Page
     {
+        SqlConnection con;
+        string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblGalleryTotal.Text = DataList1.Items.Count.ToString();
 
+            string userId = Session["userID"].ToString();
+            string strSelect = "SELECT * FROM Arts WHERE ArtId = " + artId;
+            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
         }
 
         protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,7 +37,7 @@ namespace WAD_Assignment
         {
             ImageButton ib = sender as ImageButton;
             object commandArg = ib.CommandArgument;
-
+            
             Session["artId"] = int.Parse(commandArg.ToString());
             Session["edit"] = false;
             Session["create"] = false;
