@@ -28,13 +28,13 @@
                     <asp:BoundField DataField="ArtName" HeaderText="" SortExpression="ArtName" ItemStyle-Wrap="False" >
 <ItemStyle Wrap="False"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="Price" HeaderText="Unit Price" SortExpression="Price" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" >
+                    <asp:BoundField DataField="Price" HeaderText="Unit Price" SortExpression="Price" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" DataFormatString="{0:RM 0.00}" >
 <HeaderStyle Wrap="False"></HeaderStyle>
 
 <ItemStyle Wrap="False"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                    <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" SortExpression="TotalPrice" ItemStyle-Wrap="False" FooterStyle-Wrap="False" HeaderStyle-Wrap="False" >
+                    <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" SortExpression="TotalPrice" ItemStyle-Wrap="False" FooterStyle-Wrap="False" HeaderStyle-Wrap="False" DataFormatString="{0:RM 0.00}" >
 <FooterStyle Wrap="False"></FooterStyle>
 
 <HeaderStyle Wrap="False"></HeaderStyle>
@@ -63,9 +63,12 @@
 
         
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" DeleteCommand="DELETE FROM Cart WHERE CartId = @CartId
-" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT A.ArtId, A.ArtName, A.ArtUrl, A.Price, C.Quantity, C.Quantity * A.Price AS TotalPrice, C.CustomerId, C.CartId FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId">
+" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT A.ArtId, A.ArtName, A.ArtUrl, A.Price, C.Quantity, C.Quantity * A.Price AS TotalPrice, C.CustomerId, C.CartId FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE (C.CustomerId = @CustomerId)">
                 <DeleteParameters>
                     <asp:Parameter Name="CartId" />
                 </DeleteParameters>
+                <SelectParameters>
+                    <asp:SessionParameter Name="CustomerId" SessionField="userID" />
+                </SelectParameters>
             </asp:SqlDataSource>
  </asp:Content>
