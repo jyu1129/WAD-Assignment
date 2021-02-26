@@ -86,7 +86,6 @@
     <Content Include="fonts\Bahnschrift.css" />
     <Content Include="Gallery.aspx" />
     <Content Include="Homepage.aspx" />
-    <Content Include="imgur.js" />
     <Content Include="Login.aspx" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />

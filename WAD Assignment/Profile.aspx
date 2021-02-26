@@ -11,23 +11,6 @@
     </script>
 
     <style type="text/css">
-        .auto-style1 {
-            width: 154px;
-        }
-        .auto-style2 {
-            width: 226px;
-        }
-        .auto-style3 {
-            width: 154px;
-            height: 23px;
-        }
-        .auto-style4 {
-            width: 226px;
-            height: 23px;
-        }
-        .auto-style5 {
-            height: 23px;
-        }
         .auto-style6 {
             width: 100%;
         }
@@ -36,7 +19,7 @@
             height: 30px;
         }
         .auto-style8 {
-            width: 226px;
+            width: 343px;
             height: 30px;
         }
         .auto-style9 {
@@ -46,71 +29,112 @@
             width: 225px;
             height: 30px;
         }
-        .auto-style11 {
-            width: 225px;
-            height: 23px;
+        .auto-style13 {
+            width: 154px;
+            height: 50px;
         }
-        .auto-style12 {
+        .auto-style14 {
+            width: 343px;
+            height: 50px;
+        }
+        .auto-style15 {
             width: 225px;
+            height: 50px;
+        }
+        .auto-style16 {
+            height: 50px;
+        }
+        .auto-style17 {
+            width: 154px;
+            height: 100px;
+        }
+        .auto-style18 {
+            width: 343px;
+            height: 100px;
+        }
+        .auto-style19 {
+            width: 225px;
+            height: 100px;
+        }
+        .auto-style20 {
+            height: 100px;
+        }
+        .auto-style21 {
+            width: 300px;
+            height: 50px;
+        }
+        .auto-style22 {
+            width: 300px;
+            height: 100px;
+        }
+        .auto-style23 {
+            width: 300px;
+            height: 30px;
         }
     </style>
 
         <div>
             <table class="auto-style6">
                 <tr>
-                    <td>My Profile<br />
+                    <td><div style="text-align:center; font-size:20px;">My Profile</div><br />
                         <br />
                         <table class="auto-style6">
                             <tr>
-                                <td class="auto-style7">First Name</td>
-                                <td class="auto-style8">
-                                    <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                                <td class="auto-style21">&nbsp;</td>
+                                <td class="auto-style13">First Name</td>
+                                <td class="auto-style14">
+                                    <asp:TextBox ID="txtFirstName" runat="server" Width="200px"></asp:TextBox>
                                 </td>
-                                <td class="auto-style10">Change Password</td>
-                                <td class="auto-style9"></td>
+                                <td class="auto-style15">Change Password</td>
+                                <td class="auto-style16"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style3">Last Name</td>
-                                <td class="auto-style4">
-                                    <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                                <td class="auto-style21">&nbsp;</td>
+                                <td class="auto-style13">Last Name</td>
+                                <td class="auto-style14">
+                                    <asp:TextBox ID="txtLastName" runat="server" Width="200px"></asp:TextBox>
                                 </td>
-                                <td class="auto-style11">Current Password</td>
-                                <td class="auto-style5">
+                                <td class="auto-style15">Current Password</td>
+                                <td class="auto-style16">
                                     <asp:TextBox ID="txtPw" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1">Email:</td>
-                                <td class="auto-style2">
-                                    <asp:TextBox ID="txtEmail" runat="server" Width="176px" type="email"></asp:TextBox>
+                                <td class="auto-style21">&nbsp;</td>
+                                <td class="auto-style13">Email:</td>
+                                <td class="auto-style14">
+                                    <asp:TextBox ID="txtEmail" runat="server" Width="200px" type="email"></asp:TextBox>
                                     <br />
                                     <asp:Label ID="lblEmail" runat="server" ForeColor="Red"></asp:Label>
                                 </td>
-                                <td class="auto-style12">New Password</td>
-                                <td>&nbsp;<asp:TextBox ID="txtNewPw" runat="server" TextMode="Password"></asp:TextBox>
+                                <td class="auto-style15">New Password</td>
+                                <td class="auto-style16"><asp:TextBox ID="txtNewPw" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtNewPw"  ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1">Phone</td>
-                                <td class="auto-style2">&nbsp;<asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+                                <td class="auto-style21">&nbsp;</td>
+                                <td class="auto-style13">Phone</td>
+                                <td class="auto-style14"><asp:TextBox ID="txtPhone" runat="server" Width="200px"></asp:TextBox>
                                 </td>
-                                <td class="auto-style12">Confirm New Password</td>
-                                <td>
+                                <td class="auto-style15">Confirm New Password</td>
+                                <td class="auto-style16">
                                     <asp:TextBox ID="txtConfirmNewPw" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Not Matched" ControlToCompare="txtNewPw" ControlToValidate="txtConfirmNewPw" ForeColor="Red"></asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1">Address</td>
-                                <td class="auto-style2">&nbsp;<asp:TextBox ID="txtAddress" runat="server" Height="71px" Width="216px"></asp:TextBox>
+                                <td class="auto-style22">&nbsp;</td>
+                                <td class="auto-style17">Address</td>
+                                <td class="auto-style18"><asp:TextBox ID="txtAddress" runat="server" Height="71px" Width="216px" TextMode="MultiLine"></asp:TextBox>
                                 </td>
-                                <td class="auto-style12">&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style19"></td>
+                                <td class="auto-style20"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style1">Country</td>
-                                <td class="auto-style2">
+                                <td class="auto-style21">&nbsp;</td>
+                                <td class="auto-style13">Country</td>
+                                <td class="auto-style14">
                                     <asp:DropDownList ID="ddlCountry" runat="server" Width="158px">
                                             <asp:ListItem Selected="true">Select Country</asp:ListItem>
                                             <asp:ListItem>United States</asp:ListItem>
@@ -351,19 +375,20 @@
                                             <asp:ListItem>Zimbabwe</asp:ListItem> 
                                     </asp:DropDownList>
                                 </td>
-                                <td class="auto-style12">&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style15"></td>
+                                <td class="auto-style16"></td>
                             </tr>
                             <tr>
+                                <td class="auto-style23">&nbsp;</td>
                                 <td class="auto-style7"></td>
                                 <td class="auto-style8">
-                                    <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+                                    <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" Width="100px" />
                                     <br />
                                     <asp:Label ID="lblUpdate" runat="server"></asp:Label>
                                 </td>
                                 <td class="auto-style10"></td>
                                 <td class="auto-style9">
-                                    <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" />
+                                    <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Width="101px" />
                                     <br />
                                     <asp:Label ID="lblChange" runat="server"></asp:Label>
                                 </td>
