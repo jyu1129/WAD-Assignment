@@ -2,7 +2,15 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
+    <script>
+        document.getElementById("gallery").classList.add("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.remove("active");
+        document.getElementById("profile").classList.remove("active");
+        document.getElementById("cart").classList.remove("active");
+    </script>
     <div>
+        <br />
         <asp:Button ID="Button1" runat="server" BackColor="White" BorderStyle="Dotted" Font-Bold="True" Height="250px" OnClick="Button1_Click" Text="Publish your art!" Width="250px" />
         <br />
         <hr />

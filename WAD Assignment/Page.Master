@@ -7,55 +7,58 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style2 {
-            height: 23px;
-        }
-        .auto-style4 {
-            height: 27px;
-            width: 687px;
-        }
-        .auto-style6 {
-            height: 31px;
-        }
-        .auto-style7 {
-            width: 100%;
-        }
-        .auto-style8 {
-            height: 27px;
-        }
-    </style>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="fonts/Bahnschrift.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <table class="auto-style7">
-                    <tr>
-                        <td class="auto-style2" colspan="2">SHOP NAME</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4"></td>
-                        <td class="auto-style8">Welcome,
-                            <asp:Label ID="lblName" runat="server"></asp:Label>
-&nbsp;
-                            <asp:Label ID="lblRole" runat="server"></asp:Label>
-                            &nbsp;<asp:Label ID="lblId" runat="server" Text="ID:"></asp:Label>
-&nbsp;<asp:Label ID="lbluserId" runat="server"></asp:Label>
-                            &nbsp;<asp:Button ID="btnProfile" runat="server" OnClick="btnProfile_Click" Text="My Profile" />
-                            <asp:Button ID="btnLog" runat="server" OnClick="btnLog_Click" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style6" colspan="2">
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-                            </asp:ContentPlaceHolder>
-                        </td>
-                    </tr>
-                </table>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand">Mochi Art Gallery</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto" id="navbarlink">
+                            <li class="nav-item" id="home"><a class="nav-link" href="#">Home</a> </li>
+                            <li class="nav-item" id="products"><a class="nav-link" href="#">Products</a> </li>
+                            <script>
+                                var roleSession = '<%= Session["role"] %>';
+                                if (roleSession == "Artists") {
+                                    document.getElementById("navbarlink").innerHTML +=
+                                        '<li class="nav-item" id="gallery"><a class="nav-link" href="Gallery.aspx">My Gallery</a> </li>';
+                                }
+                                else {
+                                    document.getElementById("gallery").remove();
+                                }
+
+                                var userIDSession = '<%= Session["user"] %>';
+                                if (userIDSession == null) {
+                                    document.getElementById("profile").remove();
+                                    document.getElementById("cart").remove();
+                                }
+                                else {
+                                    document.getElementById("navbarlink").innerHTML +=
+                                        '<li class="nav-item" id="profile"><a class="nav-link" href="Profile.aspx">Profile</a> </li>';
+
+                                    document.getElementById("navbarlink").innerHTML +=
+                                        '<li class="nav-item" id="cart"><a class="nav-link" href="Cart.aspx">Profile</a> </li>';
+                                }
+                            </script>
+                        </ul>
+                    </div>
+                    <span class="navbar-text my-2 my-lg-0">
+                        Welcome,
+                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                    <asp:Label ID="lblRole" runat="server"></asp:Label>
+                    <asp:Label ID="lblId" runat="server" Text="ID:"></asp:Label>
+                    <asp:Label ID="lbluserId" runat="server"></asp:Label>
+                    <asp:Button class="btn-outline-secondary" ID="btnLog" runat="server" OnClick="btnLog_Click" />
+                    </span>
+                </nav>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
             </asp:ContentPlaceHolder>
         </div>
     </form>
