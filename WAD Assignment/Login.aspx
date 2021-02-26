@@ -5,7 +5,7 @@
 
     <script>
         document.getElementById("gallery").classList.add("active");
-        document.getElementById("home").classList.add("active");
+        document.getElementById("home").classList.remove("active");
         document.getElementById("products").classList.remove("active");
         document.getElementById("profile").classList.remove("active");
         document.getElementById("cart").classList.remove("active");
@@ -40,7 +40,7 @@
         <div>
             <table style="width:100%; text-align:center;">
                 <tr>
-                    <td class="auto-style9">LOG IN</td>
+                    <td class="auto-style9" style="font-size:20px;">LOG IN</td>
                 </tr>
                 <tr>
                     <td class="auto-style10">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
