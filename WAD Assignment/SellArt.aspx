@@ -55,6 +55,7 @@
         <br />
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" ValidationGroup="AllValidators" />
             &nbsp;<asp:Button ID="btnCancelArt" runat="server" Text="Cancel" OnClick="btnCancelArt_Click" PostBackUrl="~/Gallery.aspx" />
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="AllValidators" />
         </strong>
     </div>
 </asp:Content>
