@@ -10,6 +10,6 @@
 
         <div>
             HOMEPAGE</div>
-
-
+        
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ProductList.aspx" >Product</asp:HyperLink>
 </asp:Content>

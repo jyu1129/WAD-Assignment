@@ -1,13 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="WAD_Assignment.ProductList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.ProductList" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
     SHOP NAME<br />
             <br />
             <asp:HyperLink ID="hlBuyArt" runat="server" NavigateUrl="~/Shop.aspx">Buy Art</asp:HyperLink>
@@ -16,26 +9,25 @@
             <br />
             <asp:HyperLink ID="hlMyOrders" runat="server">My Orders</asp:HyperLink>
             <br />
-            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>\
+            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
             <br />
             <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
 
-    <form id="form1" runat="server">
         <div>
             <asp:Label ID="lblAddToCartMsg" runat="server"></asp:Label>
-            <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnItemCommand="dtProduct_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
-                <ItemTemplate> 
+            <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnItemCommand="dtProduct_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" SelectedItemStyle-Wrap="False" AlternatingItemStyle-Wrap="False">
+                <ItemTemplate > 
                     <table>
                         <asp:Label ID="ArtIdLabel" runat="server" Text='<%# Eval("ArtId") %>' Visible="false"/>                         
                         <tr>
                             <td>
-                                ArtName:
-                                <asp:Label ID="ArtNameLabel" runat="server" Text='<%# Eval("ArtName") %>' />
+                                <asp:ImageButton ID="ArtUrlLabel" CommandArgument='<% #Eval("ArtId") %>' CommandName="viewdetail" runat="server" height="100" Width="100" ImageUrl='<%# Eval("ArtUrl") %>'/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:Image ID="ArtUrlLabel" runat="server" height="100" Width="100" ImageUrl='<%# Eval("ArtUrl") %>' />
+                                <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<% #Eval("ArtId") %>' CommandName="viewdetail"><%# Eval("ArtName") %></asp:LinkButton>            
+                           
                             </td>
                         </tr>
                         <tr>
@@ -47,7 +39,7 @@
                         <tr>
                             <td>
                                 Price:
-                                <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
+                                <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price","{0:0.00}")%>' />
                             </td>
                         </tr>      
                         <tr>
@@ -76,6 +68,4 @@
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Arts]"></asp:SqlDataSource>
         </div>
-    </form>
-</body>
-</html>
+        </asp:Content>
