@@ -1,15 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.Cart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
         <div>
-            CART<br />
-            <br />
-            <asp:HyperLink ID="hlBuyArt" runat="server" NavigateUrl="~/Shop.aspx">Buy Art</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlMyOrders" runat="server">My Orders</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Gallery.aspx">Gallery</asp:HyperLink>
-            <br />
-            <asp:HyperLink ID="hlCart" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
+            <div style="font-size: 40px; font-weight: bold; text-align: center">
+                CART
+            </div>
             <br />
             <br />
 

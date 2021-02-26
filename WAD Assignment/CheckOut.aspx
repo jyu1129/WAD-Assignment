@@ -4,6 +4,10 @@
 
     <title></title>
 
+    <div style="font-size: 40px; font-weight: bold; text-align: center">
+                CHECK OUT
+            </div>
+    </br>
         <div>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" GridLines="None" Height="72px" Width="1008px">
                 <Columns>

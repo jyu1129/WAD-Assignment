@@ -78,7 +78,7 @@
         <div>
             <table class="auto-style6">
                 <tr>
-                    <td><div style="text-align:center; font-size:20px;">My Profile</div><br />
+                    <td><div style="text-align:center; font-size:40px; font-weight: bold;">MY PROFILE</div><br />
                         <br />
                         <table class="auto-style6">
                             <tr>
