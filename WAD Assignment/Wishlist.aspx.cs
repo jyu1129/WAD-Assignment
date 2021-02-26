@@ -15,7 +15,7 @@ namespace WAD_Assignment
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             lblWishCount.Text = gvWishlist.Rows.Count.ToString();
         }
         protected void CartClick(object sender, ImageClickEventArgs e)
@@ -44,6 +44,15 @@ namespace WAD_Assignment
             //close connection
             con.Close();
 
+        }
+
+        protected void ArtClick(object sender, ImageClickEventArgs e)
+        {
+            ImageButton ib = sender as ImageButton;
+            object commandArg = ib.CommandArgument;
+            string ArtId = commandArg.ToString();
+
+            Response.Redirect("ProductDetails.aspx?ArtId=" + ArtId);
         }
     }
 }
