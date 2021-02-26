@@ -36,7 +36,12 @@ namespace WAD_Assignment
             //not logged
             if (Session["user"] == null)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please Log In !');window.location ='Login.aspx';", true);                
+                if (e.CommandName == "viewdetail")
+                {
+                    Response.Redirect("ProductDetails.aspx?ArtId=" + e.CommandArgument.ToString());
+                }
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please Log In !');window.location ='Login.aspx';", true);               
             
             }
             else //logged
@@ -46,20 +51,18 @@ namespace WAD_Assignment
                     Response.Redirect("ProductDetails.aspx?ArtId=" + e.CommandArgument.ToString());
                 }
 
-                if (e.CommandName == "AddToCart")
+                else if (e.CommandName == "AddToCart")
                 {
 
                     //create database connection
                     con = new SqlConnection(strCon);
                     //open database
                     con.Open();
-                    //get from
-                    int CustomerId = 123;
                     //To Get Art Id from the of the item from datalist
                     Label ArtId = e.Item.FindControl("ArtIdLabel") as Label;
                     int Quantity = 1;
                     //INSERT database record
-                    string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + CustomerId + "," + ArtId.Text.ToString() + "," + Quantity + ")";
+                    string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + Session["userID"] + "," + ArtId.Text.ToString() + "," + Quantity + ")";
                     //create sqlcommand
                     SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                     //temporary store record retrived by command object
