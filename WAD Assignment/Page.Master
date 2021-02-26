@@ -9,6 +9,12 @@
     </asp:ContentPlaceHolder>
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="fonts/Bahnschrift.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            padding-bottom: 70px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
