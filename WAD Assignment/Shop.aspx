@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            SHOP NAME<br />
             <br />
             <asp:HyperLink ID="hlBuyArt" runat="server" NavigateUrl="~/Shop.aspx">Buy Art</asp:HyperLink>
             <br />
