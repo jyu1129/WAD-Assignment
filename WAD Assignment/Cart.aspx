@@ -1,18 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="WAD_Assignment.Cart" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            margin-right: 0px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.Cart" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
         <div>
             CART<br />
             <br />
@@ -69,9 +56,8 @@
         <div>
             Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
             <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
-        &nbsp;<br />
-            <br />
-            <asp:Button ID="Button1" runat="server" BackColor="#FF6666" BorderColor="#000000" BorderWidth="0px" CausesValidation="False" Font-Bold="True" Font-Names="Bahnschrift" ForeColor="White" Height="29px" Text="Check Out" Width="111px" />
+        &nbsp;&nbsp;
+            <asp:Button ID="Button1" runat="server"  BackColor="#FF6666" BorderColor="#000000" BorderWidth="0px" CausesValidation="False" Font-Bold="True" Font-Names="Bahnschrift" ForeColor="White" Height="29px" Text="Check Out" Width="111px" OnClick="Button1_Click" />
             <br />
         </div>
 
@@ -82,8 +68,4 @@
                     <asp:Parameter Name="CartId" />
                 </DeleteParameters>
             </asp:SqlDataSource>
-        <br />
-        <br />
-    </form>
-</body>
-</html>
+ </asp:Content>

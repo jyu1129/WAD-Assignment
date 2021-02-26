@@ -1,23 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="WAD_Assignment.ProductDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" MasterPageFile="~/Page.Master"  Inherits="WAD_Assignment.ProductDetails" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
         <div>
             <strong>Product Details</strong>
             <br />
             <br />
-            <asp:DataList ID="DataList1" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1">
+            <asp:DataList ID="dtProductDetail" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" OnItemCommand="dtProductDetail_ItemCommand" OnSelectedIndexChanged="dtProductDetail_SelectedIndexChanged">
                 <ItemTemplate>
                     ArtId:
                     <asp:Label ID="ArtIdLabel" runat="server" Text='<%# Eval("ArtId") %>' />
                     <br />                 
-                    <asp:Image ID="ArtUrlLabel" runat="server" height="100" Width="100" ImageUrl='<%# Eval("ArtUrl") %>' />
+                    ArtUrl:
+                    <asp:Label ID="ArtUrlLabel" runat="server" Text='<%# Eval("ArtUrl") %>' />
                     <br />
                     Category:
                     <asp:Label ID="CategoryLabel" runat="server" Text='<%# Eval("Category") %>' />
@@ -37,16 +31,25 @@
                     ArtistId:
                     <asp:Label ID="ArtistIdLabel" runat="server" Text='<%# Eval("ArtistId") %>' />
                     <br />
-<br />
+                    By:
+                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' /><asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
+                    <br />                                              
+                    Email:
+                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                    <br />
+                    <asp:Button ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart"  />
+                    <asp:Button ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList"  />
+                                              
+                    <br />
+                    <br />
                 </ItemTemplate>
             </asp:DataList>
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Arts] WHERE ([ArtId] = @ArtId)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Arts.ArtId, Arts.ArtUrl, Arts.Category, Arts.ArtName, Arts.Price, Arts.Stock, Arts.Description, Arts.ArtistId, Artists.LastName, Artists.FirstName, Artists.Email FROM Arts INNER JOIN Artists ON Arts.ArtistId = Artists.ArtistId WHERE (Arts.ArtId = @ArtId)">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="ArtId" QueryStringField="ArtId" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
-    </form>
-</body>
-</html>
+     
+</asp:Content>
