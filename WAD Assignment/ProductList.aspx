@@ -14,7 +14,11 @@
         <div style="font-size: 40px; font-weight: bold; text-align: center">
             PRODUCT LIST
         </div>
+<<<<<<< HEAD
         <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnItemCommand="dtProduct_ItemCommand" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" SelectedItemStyle-Wrap="False" AlternatingItemStyle-Wrap="False">
+=======
+        <asp:DataList ID="dtProduct" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" CellPadding="15" CellSpacing="15" OnItemCommand="dtProduct_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" ItemStyle-Wrap="False" HeaderStyle-Wrap="False" SelectedItemStyle-Wrap="False" AlternatingItemStyle-Wrap="False" HorizontalAlign="Center" RepeatColumns="5">
+>>>>>>> 12d1f2667ca95181edc533ece017f2a1d3b76f83
             <AlternatingItemStyle Wrap="False"></AlternatingItemStyle>
 
             <HeaderStyle Wrap="False"></HeaderStyle>
@@ -68,5 +72,7 @@
         <br />
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Arts]"></asp:SqlDataSource>
+    </div>
+</div>
     </div>
 </asp:Content>
