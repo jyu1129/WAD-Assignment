@@ -142,7 +142,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style3">Total Payment:</td>
+                    <td class="auto-style3">Total Payment (RM) :</td>
                     <td>
                         <asp:Label ID="lblTotalPayment" runat="server"></asp:Label>
                     </td>
