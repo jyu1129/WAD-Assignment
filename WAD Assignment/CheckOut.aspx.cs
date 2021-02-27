@@ -113,12 +113,17 @@ namespace WAD_Assignment
                         SqlDataReader dtrDeleteCart = cmdDeleteCart.ExecuteReader();
                         dtrDeleteCart.Close();
 
+                        //Update stock
+                        string UpdateStock = "UPDATE Arts SET Stock = Stock - " + quantity + " WHERE(ArtId = " + artId + ")";
+                        SqlCommand cmdUpdateStock = new SqlCommand(UpdateStock, con);
+                        SqlDataReader dtrUpdateStock = cmdUpdateStock.ExecuteReader();
+                        dtrUpdateStock.Close();
+
                         //reopen connection until no row
                         dtrSelect3 = cmdSelect3.ExecuteReader();
+                       
                     }
-                }
-                // while cart has row
-                
+                }                
 
                 dtrSelect3.Close();
                 ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('Order Succesfully Placed!');</script>");
@@ -127,15 +132,4 @@ namespace WAD_Assignment
             }
         }
     }
-
-    //String strSelect = "SELECT SUM(C.Quantity * A.Price) AS SubTotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE C.CustomerId = " + Session["userID"];
-
-    //create set command
-    //SqlCommand cmdSelect2 = new SqlCommand(strSelect, con);
-
-    //because OrderIDSales is double
-    //subTotal = Convert.ToDouble(cmdSelect2.ExecuteScalar());
-
-    //lblSubTotal.Text = subTotal.ToString();
-    //            lblTotalItem.Text = gvCart.Rows.Count.ToString();
 }
