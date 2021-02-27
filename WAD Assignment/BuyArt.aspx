@@ -36,7 +36,7 @@
             <br />
             <br />
             <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" />
-&nbsp;<br />
+            &nbsp;<br />
             <asp:HyperLink ID="hlAddtoWishlist" runat="server" NavigateUrl="wishlist.aspx">Add To Wishlist</asp:HyperLink>
         </div>
     </form>
