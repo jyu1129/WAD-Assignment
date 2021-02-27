@@ -1,12 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckOut.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.CheckOut" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
-
-    <title></title>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
 
     <div style="font-size: 40px; font-weight: bold; text-align: center">
-                CHECK OUT
-            </div>
+        CHECK OUT
+    </div>
     </br>
         <div>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" GridLines="None" Height="72px" Width="1008px">
@@ -137,7 +135,7 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">Merchandise Subtotal:</td>
                     <td>
-            <asp:Label ID="lblSubTotal2" runat="server"></asp:Label>
+                        <asp:Label ID="lblSubTotal2" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -180,32 +178,39 @@
         </div>
 
 </asp:Content>
-<asp:Content ID="Content2" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="head">
     <style type="text/css">
         .auto-style1 {
             width: 422px;
         }
+
         .auto-style2 {
             width: 209px;
         }
+
         .auto-style3 {
             width: 173px;
         }
+
         .auto-style4 {
             width: 209px;
             height: 27px;
         }
+
         .auto-style5 {
             width: 422px;
             height: 27px;
         }
+
         .auto-style6 {
             width: 173px;
             height: 27px;
         }
+
         .auto-style7 {
             height: 27px;
         }
+
         .auto-style8 {
             width: 100%;
             height: 366px;

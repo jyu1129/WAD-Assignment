@@ -110,17 +110,17 @@ namespace WAD_Assignment
                 int orderId = (int)cmdSelect2.ExecuteScalar();
 
 
-                //SAVE RECORDS INTO ORDER DETAIL
-                for (int i =0; i< GridView2.Rows.Count; i++)
-                {
+                ////SAVE RECORDS INTO ORDER DETAIL
+                //for (int i = 0; i < GridView2.Rows.Count; i++)
+                //{
 
-                    //int artId = 
+                //    int artId = 
 
-                  /*  string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
-                    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";*/
-                }
+                //    string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
+                //    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";
+                //}
 
-                
+
 
 
 
