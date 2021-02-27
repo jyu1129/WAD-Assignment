@@ -59,8 +59,6 @@ namespace WAD_Assignment
                 con = new SqlConnection(strCon);
                 //open database
                 con.Open();
-                //To Get Art Id from the of the item from datalist
-                ib = sender as ImageButton;
                 int Quantity = 1;
                 //INSERT database record
                 string strInsert = "INSERT INTO Cart(CustomerId, ArtId, Quantity) VALUES(" + Session["userID"] + "," + ArtId + "," + Quantity + ")";
@@ -79,16 +77,11 @@ namespace WAD_Assignment
 
                 con = new SqlConnection(strCon);
                 con.Open();
-                string strSelect2 = "SELECT * FROM Cart WHERE CustomerId=" + Session["userID"];
+                string strSelect2 = "SELECT Quantity FROM Cart WHERE CustomerId = " + Session["userID"] + " AND ArtId = " + ArtId;
                 SqlCommand cmdInsert5 = new SqlCommand(strSelect2, con);
-                SqlDataReader drQty = cmdInsert5.ExecuteReader();
-                while (drQty.Read())
-                {
-                    if (int.Parse(drQty["Quantity"].ToString()) >= 1)
-                    {
-                        Quantity = int.Parse(drQty["Quantity"].ToString()) + 1;
-                    }
-                }
+
+                Quantity = int.Parse(cmdInsert5.ExecuteScalar().ToString()) + 1;
+                
 
                 con.Close();
 
@@ -96,9 +89,7 @@ namespace WAD_Assignment
                 con = new SqlConnection(strCon);
                 //open database
                 con.Open();
-                //To Get Art Id from the of the item from datalist
-                ib = sender as ImageButton;
-
+                
                 //INSERT database record
                 string strInsert = "UPDATE Cart SET Quantity = " + Quantity + " WHERE CustomerId = " + Session["userID"] + "AND ArtId = " + ArtId;
                 //create sqlcommand
