@@ -119,7 +119,7 @@
     </div>
 
     <h1>
-        <table style="width: 100%;">
+        <table style="width: 80%; margin:auto;">
             <tr>
                 <td class="auto-style4" style="border: thin dotted #C0C0C0;">Peace of Mind</td>
                 <td class="auto-style5" style="border: thin dotted #C0C0C0;">Quality Artwork</td>
