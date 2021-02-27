@@ -86,7 +86,7 @@
                         Price<br />
                     </label>
                     RM
-                    <asp:TextBox class="form-control" ID="txtPrice" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtPrice" runat="server" Width="500px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validTxtPrice" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Price is required" ForeColor="#CC0000" ValidationGroup="AllValidators">* Price is required</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Price must be in the format of $.$ ($ = 0 - 9)" ForeColor="Red" ValidationExpression="^\d{0,8}(\.\d{1,2})?$" ValidationGroup="AllValidators">Invalid format!</asp:RegularExpressionValidator>
                 </div>

@@ -114,10 +114,10 @@ namespace WAD_Assignment
                 for (int i =0; i< GridView2.Rows.Count; i++)
                 {
 
-                    int artId = 
+                    //int artId = 
 
-                    string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
-                    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";
+                  /*  string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
+                    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";*/
                 }
 
                 
