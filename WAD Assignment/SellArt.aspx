@@ -74,7 +74,17 @@
                     <label for="txtArtCat">
                         Category<br />
                     </label>
-                    <asp:TextBox class="form-control" ID="txtArtCat" runat="server" Width="500px"></asp:TextBox>
+                    <asp:DropDownList class="form-control" ID="txtArtCat" runat="server" Width="500px">
+                        <asp:ListItem>Self portrait</asp:ListItem>
+                        <asp:ListItem>Renaissance</asp:ListItem>
+                        <asp:ListItem>Contemporary</asp:ListItem>
+                        <asp:ListItem>Drawings</asp:ListItem>
+                        <asp:ListItem>Realism</asp:ListItem>
+                        <asp:ListItem>Wildstyle</asp:ListItem>
+                        <asp:ListItem>Digital Art</asp:ListItem>
+                        <asp:ListItem>Photography</asp:ListItem>
+                        <asp:ListItem Selected="True"></asp:ListItem>
+                    </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="validTxtArtCat" runat="server" ControlToValidate="txtArtCat" Display="Dynamic" ErrorMessage="Category is required" ForeColor="Red" ValidationGroup="AllValidators">* Category is required</asp:RequiredFieldValidator>
                 </div>
             </div>

@@ -33,7 +33,7 @@ namespace WAD_Assignment
                         txtArtTitle.Text = dtr["ArtName"].ToString();
                         txtDescription.Text = dtr["Description"].ToString();
                         txtPrice.Text = dtr["Price"].ToString();
-                        txtArtCat.Text = dtr["Category"].ToString();
+                        txtArtCat.SelectedValue = dtr["Category"].ToString();
                         txtStock.Text = dtr["Stock"].ToString();
                     }
                 }
@@ -43,7 +43,7 @@ namespace WAD_Assignment
                 txtArtTitle.Attributes.Add("readonly", "readonly");
                 txtDescription.Attributes.Add("readonly", "readonly");
                 txtPrice.Attributes.Add("readonly", "readonly");
-                txtArtCat.Attributes.Add("readonly", "readonly");
+                txtArtCat.Enabled = false;
                 txtStock.Attributes.Add("readonly", "readonly");
                 Button1.Enabled = false;
                 btnEdit.Visible = true;
@@ -92,8 +92,7 @@ namespace WAD_Assignment
             txtArtTitle.Attributes.Remove("placeholder");
             txtDescription.Text = "";
             txtDescription.Attributes.Remove("placeholder");
-            txtArtCat.Text = "";
-            txtArtCat.Attributes.Remove("placeholder");
+            txtArtCat.SelectedIndex = 8;
             txtPrice.Text = "";
             txtPrice.Attributes.Remove("placeholder");
             txtStock.Text = "";
@@ -131,14 +130,7 @@ namespace WAD_Assignment
                     artDescription = txtDescription.Text.ToString();
                 }
 
-                if (string.IsNullOrEmpty(txtArtCat.Text.ToString()))
-                {
-                    artCategory = txtArtCat.Attributes["placeholder"];
-                }
-                else
-                {
-                    artCategory = txtArtCat.Text.ToString();
-                }
+                artCategory = txtArtCat.SelectedItem.Text;
 
                 if (string.IsNullOrEmpty(txtPrice.Text.ToString()))
                 {
@@ -194,8 +186,7 @@ namespace WAD_Assignment
                         txtArtTitle.Attributes.Remove("placeholder");
                         txtDescription.Text = "";
                         txtDescription.Attributes.Remove("placeholder");
-                        txtArtCat.Text = "";
-                        txtArtCat.Attributes.Remove("placeholder");
+                        txtArtCat.SelectedIndex = 8;
                         txtPrice.Text = "";
                         txtPrice.Attributes.Remove("placeholder");
                         txtStock.Text = "";
@@ -250,8 +241,7 @@ namespace WAD_Assignment
                     txtDescription.Attributes.Add("placeholder", dtr["Description"].ToString());
                     txtPrice.Text = "";
                     txtPrice.Attributes.Add("placeholder", dtr["Price"].ToString());
-                    txtArtCat.Text = "";
-                    txtArtCat.Attributes.Add("placeholder", dtr["Category"].ToString());
+                    txtArtCat.SelectedValue = dtr["Category"].ToString();
                     txtStock.Text = "";
                     txtStock.Attributes.Add("placeholder", dtr["Stock"].ToString());
                 }
@@ -262,7 +252,7 @@ namespace WAD_Assignment
             txtArtTitle.Attributes.Remove("readonly");
             txtDescription.Attributes.Remove("readonly");
             txtPrice.Attributes.Remove("readonly");
-            txtArtCat.Attributes.Remove("readonly");
+            txtArtCat.Enabled = true;
             txtStock.Attributes.Remove("readonly");
             Button1.Enabled = true;
             validImage.Enabled = false;

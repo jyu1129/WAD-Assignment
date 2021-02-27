@@ -30,11 +30,24 @@
                             <li class="nav-item" id="home"><a class="nav-link" href="Homepage.aspx">Home</a> </li>
                             <li class="nav-item" id="products"><a class="nav-link" href="ProductList.aspx">Products</a> </li>
                             <li class="nav-item" id="profile"><a class="nav-link" href="Profile.aspx">Profile</a> </li> 
-                            <li class="nav-item" id="wishlist"><a class="nav-link" href="Wishlist.aspx">Wishlist</a> </li> 
                             <li class="nav-item" id="cart"><a class="nav-link" href="Cart.aspx">Cart</a> </li> 
-                            <li class="nav-item" id="purchasehistory"><a class="nav-link" href="PurchaseHistory.aspx">Purchase history</a> </li> 
                             <li class="nav-item" id="gallery"><a class="nav-link" href="Gallery.aspx">My Gallery</a> </li>
                         </ul>
+                        <script>
+                            var session = '<%= Session["role"]%>';
+                            if (!session) {
+                                document.getElementById("profile").remove();
+                                document.getElementById("cart").remove();
+                                document.getElementById("gallery").remove();
+                            }
+                            else if (session == "Customers") {
+                                document.getElementById("gallery").remove();
+                            }
+                            else {
+                                document.getElementById("cart").remove();
+                                document.getElementById("products").remove();
+                            }
+                        </script>
                     </div>
                     <span class="navbar-text my-2 my-lg-0">
                         Welcome,
