@@ -17,40 +17,16 @@ namespace WAD_Assignment
 
         protected void getTotalPayment()
         {
-            double subTotal = 0;
-            double shippingFees = 0;
             double totalPayment = 0;
 
             for (int i = 0; i < GridView2.Rows.Count; i++)
             {
-                subTotal += Convert.ToDouble(GridView2.Rows[i].Cells[5].Text);
+                totalPayment += Convert.ToDouble(GridView2.Rows[i].Cells[5].Text);
             }
 
-            switch (ddlCourier.SelectedIndex)
-            {
-                //J&T
-                case 0:
-                    shippingFees = 5.66;
-                    break;
 
-                //Pos
-                case 1:
-                    shippingFees = 4.85;
-                    break;
-
-                //DHL
-                case 2:
-                    shippingFees = 3.59;
-                    break;
-
-            }
-
-            totalPayment = subTotal + shippingFees;
-
-            lblSubTotal.Text = subTotal.ToString();
-            lblSubTotal2.Text = subTotal.ToString();
+            lblSubTotal.Text = totalPayment.ToString();
             lblTotalItem.Text = GridView2.Rows.Count.ToString();
-            lblShippingTotal.Text = shippingFees.ToString();
             lblTotalPayment.Text = totalPayment.ToString();
 
         }
@@ -81,20 +57,13 @@ namespace WAD_Assignment
                 con = new SqlConnection(strCon);
                 con.Open();
 
-                ////GET CURRENT DATETIME
-                //string strSelectDate = "GETDATE()";
-                //SqlCommand cmdGetDate = new SqlCommand(strSelectDate, con);
-                //string dateTimeNow = (string)cmdGetDate.ExecuteScalar();
-                //To Place an order
-
                 int userID = Convert.ToInt32(Session["userID"]);
 
-                string strInsertOrders = "INSERT INTO Orders(CustomerId, OrderDate, Courier, ShipName, ShipAddress, ShipCity, ShipState, ShipPostalCode, ShipCountry)" +
-                    "VALUES(@CustomerId,@OrderDate,@Courier,@ShipName,@ShipAddress,@ShipCity,@ShipState,@ShipPostalCode,@ShipCountry)";
+                string strInsertOrders = "INSERT INTO Orders(CustomerId, OrderDate, ShipName, ShipAddress, ShipCity, ShipState, ShipPostalCode, ShipCountry)" +
+                    "VALUES(@CustomerId,@OrderDate,@ShipName,@ShipAddress,@ShipCity,@ShipState,@ShipPostalCode,@ShipCountry)";
                 SqlCommand cmdSelect1 = new SqlCommand(strInsertOrders, con);
                 cmdSelect1.Parameters.AddWithValue("@CustomerId", userID.ToString());
                 cmdSelect1.Parameters.AddWithValue("@OrderDate", dateTime.ToString());
-                cmdSelect1.Parameters.AddWithValue("@Courier", ddlCourier.SelectedItem.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipName", txtName.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipAddress", txtAddress.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipCity",txtCity.Text);
@@ -109,21 +78,51 @@ namespace WAD_Assignment
                 SqlCommand cmdSelect2 = new SqlCommand(strSelectOrderId, con);
                 int orderId = (int)cmdSelect2.ExecuteScalar();
 
+                //GET ART ID, QUANTITY FROM CART & ART PRICE (current date of purchase)
+                string strSelectCart = "SELECT ArtId, Quantity, CartId FROM Cart WHERE(CustomerId = " + userID.ToString() + ")";
+                SqlCommand cmdSelect3 = new SqlCommand(strSelectCart, con);
+                SqlDataReader dtrSelect3 = cmdSelect3.ExecuteReader();
 
-                ////SAVE RECORDS INTO ORDER DETAIL
-                //for (int i = 0; i < GridView2.Rows.Count; i++)
-                //{
+                if (dtrSelect3.HasRows)
+                {
+                    while (dtrSelect3.Read())
+                    {
+                        string cartId = dtrSelect3["CartId"].ToString();
+                        string artId = dtrSelect3["ArtId"].ToString();
+                        string quantity = dtrSelect3["Quantity"].ToString();
+                        dtrSelect3.Close();
 
-                //    int artId = 
+                        //reason why price needs to be searched again from art is becuz prices are not constant <-- means can be chg by artist
+                        string strSelectArt = "SELECT Price FROM Arts WHERE ArtId = " + artId;
+                        SqlCommand cmdSelectArt = new SqlCommand(strSelectArt, con);
+                        SqlDataReader dtrSelectArt = cmdSelectArt.ExecuteReader();
+                        dtrSelectArt.Read();
+                        string price = dtrSelectArt["Price"].ToString();
+                        dtrSelectArt.Close();
 
-                //    string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
-                //    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";
-                //}
+                        //insert cart row into order detail
+                        string strInsertOD = "INSERT INTO OrderDetails (OrderId, ArtId, UnitPrice, Quantity) " +
+                        "VALUES(" + orderId.ToString() + "," + artId + "," + price + "," + quantity + ")";
+                        SqlCommand cmdInsertOD = new SqlCommand(strInsertOD, con);
+                        SqlDataReader dtrInsertOD = cmdInsertOD.ExecuteReader();
+                        dtrInsertOD.Close();
 
+                        //Delete cart row after the insert
+                        string strDeleteCart = "DELETE FROM Cart WHERE CartId = " + cartId;
+                        SqlCommand cmdDeleteCart = new SqlCommand(strDeleteCart, con);
+                        SqlDataReader dtrDeleteCart = cmdDeleteCart.ExecuteReader();
+                        dtrDeleteCart.Close();
 
+                        //reopen connection until no row
+                        dtrSelect3 = cmdSelect3.ExecuteReader();
+                    }
+                }
+                // while cart has row
+                
 
-
-
+                dtrSelect3.Close();
+                ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('Order Succesfully Placed!');</script>");
+                
                 con.Close();                
             }
         }

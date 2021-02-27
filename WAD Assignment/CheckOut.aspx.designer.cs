@@ -123,15 +123,6 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.TextBox txtState;
 
         /// <summary>
-        /// ddlCourier control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCourier;
-
-        /// <summary>
         /// ddlPaymentMethod control.
         /// </summary>
         /// <remarks>
@@ -139,24 +130,6 @@ namespace WAD_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPaymentMethod;
-
-        /// <summary>
-        /// lblSubTotal2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSubTotal2;
-
-        /// <summary>
-        /// lblShippingTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShippingTotal;
 
         /// <summary>
         /// lblTotalPayment control.

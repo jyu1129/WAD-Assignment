@@ -17,8 +17,8 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             getSubTotal();
+
         }
 
         protected void gvCart_RowDeleting(Object sender, GridViewDeleteEventArgs e)
@@ -54,9 +54,15 @@ namespace WAD_Assignment
 
                 lblSubTotal.Text = subTotal.ToString();
                 lblTotalItem.Text = gvCart.Rows.Count.ToString();
+
+                btnCheckOut.Visible = true;
+
             }
             else
             {
+                //checkout button unavailable if no cart
+                btnCheckOut.Visible = false;
+
                 subTotal = 0;
                 lblSubTotal.Text = subTotal.ToString();
                 lblTotalItem.Text = gvCart.Rows.Count.ToString();
@@ -75,6 +81,7 @@ namespace WAD_Assignment
             }
             else //logged
             {
+
                 Response.Redirect("CheckOut.aspx");
             }
         }

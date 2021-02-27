@@ -33,11 +33,11 @@
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="ArtUrl" HeaderText="ArtUrl" SortExpression="ArtUrl" />
-                    <asp:BoundField DataField="ArtName" HeaderText="ArtName" SortExpression="ArtName" />
+                    <asp:ImageField DataImageUrlField="ArtUrl" SortExpression="ArtUrl" ControlStyle-Width="100" ControlStyle-Height="100" ></asp:ImageField>
+                    <asp:BoundField DataField="ArtName" HeaderText="Art Name" SortExpression="ArtName" />
                     <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                    <asp:BoundField DataField="ItemSubtotal" HeaderText="ItemSubtotal" ReadOnly="True" SortExpression="ItemSubtotal" />
+                    <asp:BoundField DataField="ItemSubtotal" HeaderText="Item Subtotal" ReadOnly="True" SortExpression="ItemSubtotal" />
                 </Columns>
             </asp:GridView>
             Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
@@ -106,18 +106,13 @@
                     <td class="auto-style5">
                         <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style6"></td>
+                    <td class="auto-style7"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">Courier:</td>
+                    <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style5">
-                        <asp:DropDownList ID="ddlCourier" runat="server" Width="187px" AutoPostBack="True">
-                            <asp:ListItem>JNT</asp:ListItem>
-                            <asp:ListItem>PosLaju</asp:ListItem>
-                            <asp:ListItem>DHL </asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6">Payment Method:</td>
@@ -133,18 +128,16 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style3">Merchandise Subtotal:</td>
+                    <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:Label ID="lblSubTotal2" runat="server"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style3">Shipping Total:</td>
+                    <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:Label ID="lblShippingTotal" runat="server"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>

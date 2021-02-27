@@ -42,13 +42,13 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.Label lblSubTotal;
 
         /// <summary>
-        /// Button1 control.
+        /// btnCheckOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnCheckOut;
 
         /// <summary>
         /// SqlDataSource1 control.

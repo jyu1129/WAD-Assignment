@@ -57,7 +57,7 @@
         Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
             <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
         &nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" BackColor="#FF6666" BorderColor="#000000" BorderWidth="0px" CausesValidation="False" Font-Bold="True" Font-Names="Bahnschrift" ForeColor="White" Height="29px" Text="Check Out" Width="111px" OnClick="Button1_Click" />
+            <asp:Button ID="btnCheckOut" runat="server" BackColor="#FF6666" BorderColor="#000000" BorderWidth="0px" CausesValidation="False" Font-Bold="True" Font-Names="Bahnschrift" ForeColor="White" Height="29px" Text="Check Out" Width="111px" OnClick="Button1_Click" />
         <br />
     </div>
 

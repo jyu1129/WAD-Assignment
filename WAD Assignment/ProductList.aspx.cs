@@ -188,6 +188,5 @@ namespace WAD_Assignment
 
 }
 
-        // NavigateUrl='<%#"ProductDetails.aspx?ArtId="+Eval("ArtId").ToString()%>'
 
     
