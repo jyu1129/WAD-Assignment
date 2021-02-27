@@ -17,40 +17,39 @@
         #slideshow {
             overflow: hidden;
             height: 510px;
-            width: 679px;
-            margin: 4px auto;
+            width: 620px;
+            margin: 20px auto;
         }
 
         .slide-wrapper {
-            width: 2912px;
+            width: 3000px;
             -webkit-animation: slide 18s ease infinite;
         }
 
         .slide {
             float: left;
             height: 510px;
-            width: 679px;
+            width:700px;
         }
 
             .slide:nth-child(1) {
-                background-image: url(/arts/home1.jpg)
+                background-image: url(/arts/artexpo.jpg)
             }
 
             .slide:nth-child(2) {
-                background-image: url(/arts/home2.jpg)
+                background-image: url(/arts/artwork2.jpg)
             }
 
             .slide:nth-child(3) {
-                background-image: url(/arts/home3.jpg)
+                background-image: url(/arts/artwork1.jpg)
             }
 
 
+            .slide:nth-child(4) {
+                background-image: url(/arts/artwork3.jpg)
+            }
 
-        .slide-number {
-            color: #000;
-            text-align: center;
-            font-size: 10em;
-        }
+
 
         @-webkit-keyframes slide {
             20% {
@@ -99,26 +98,24 @@
     <div id="slideshow">
         <div class="slide-wrapper">
             <div class="slide">
-                <h1 class="slide-number"></h1>
-                <p class="slide-number"></p>
-                <p class="slide-number"></p>
+
             </div>
             <div class="slide">
-                <h1 class="slide-number"></h1>
+
             </div>
             <div class="slide">
-                <h1 class="slide-number"></h1>
+
             </div>
+            <div class="slide">
 
-            <br />
-            <br />
-
+            </div>
         </div>
     </div>
 
-    <div style="font-family:'Lucida Handwriting'; font-size:30px;">
+    <div style="font-family: 'Lucida Handwriting'; font-size: 30px;">
         Why Buy Art From Mochi?
-        <p></p><p></p>
+        <p></p>
+        <p></p>
     </div>
 
     <h1>
