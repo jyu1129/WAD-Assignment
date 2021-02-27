@@ -20,11 +20,6 @@ namespace WAD_Assignment
 
         }
 
-        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void OnClick_AddToCard(object sender, EventArgs e)
         {
 
