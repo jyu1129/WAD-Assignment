@@ -40,7 +40,7 @@
                     <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
                 <br />
                 <asp:ImageButton ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
-                <asp:ImageButton ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList" Height="40px" Width="40px" ImageUrl="https://lh3.googleusercontent.com/proxy/wXaYDKheDDeoD9STg69ZBWbf5mXPFjHMzn-bv_es4OmNwRRCcymquD-Y33L5V42WQ0JxZ88AhEHnQLTm5f_1tDMnrrdEGlQyCvt71RwSW7xg8RMIPoHQEwBheuIRzmfxxGyQ0lxirKhF8HGvw1hOJxu_9chDv8V_fAdPmfS6t16vje1xBw" />
+                <asp:ImageButton ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
 
                 <br />
                 <br />
