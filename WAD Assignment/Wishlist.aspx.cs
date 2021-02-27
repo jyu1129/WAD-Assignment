@@ -18,7 +18,7 @@ namespace WAD_Assignment
         {
             lblWishCount.Text = gvWishlist.Rows.Count.ToString();
 
-            if (Session["role"] == "Artists")
+            if (Session["role"].Equals("Artists"))
             {
                 //Hide Wishlist & Purchase History 
                 btnWishlist.Visible = false;
