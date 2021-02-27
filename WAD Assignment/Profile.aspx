@@ -79,15 +79,15 @@
             height: 30px;
         }
 
-        .button{
-            display:inline-block;
-            padding:0.5em 3em;
-            background-color:transparent;
-            border:0.1em solid #000000;
+        .button {
+            display: inline-block;
+            padding: 0.5em 3em;
+            background-color: transparent;
+            border: 0.1em solid #000000;
             border-radius: 3px;
             margin: 0 0.3em 0.3em 0;
-            box-sizing:border-box;
-            text-decoration:none;
+            box-sizing: border-box;
+            text-decoration: none;
             color: grey;
             text-align: center;
             transition: all 0.15s;
@@ -95,11 +95,10 @@
             margin-top: 10px;
         }
 
-        .button:hover{
-            background-color: rgb(108,117,125);
-            color:white;
-        }
-
+            .button:hover {
+                background-color: rgb(108,117,125);
+                color: white;
+            }
     </style>
     <script>
         document.getElementById("gallery").classList.remove("active");
@@ -111,9 +110,9 @@
 
     <div>
         <div>
-            <asp:Button ID="btnProfile" runat="server" Text="My Profile" CssClass="button" PostBackUrl="~/Profile.aspx" />
-            <asp:Button ID="btnWishlist" runat="server" Text="Wishlist" CssClass="button" PostBackUrl="~/Wishlist.aspx"/>
-            <asp:Button ID="btnPurchaseHistory" runat="server" Text="Purchase History" Width="232px" CssClass="button" PostBackUrl="~/PurchaseHistory.aspx"/>
+            <asp:Button ID="btnProfile" runat="server" Text="My Profile" CssClass="button" Style="margin-left: 20px" PostBackUrl="~/Profile.aspx" />
+            <asp:Button ID="btnWishlist" runat="server" Text="Wishlist" CssClass="button" PostBackUrl="~/Wishlist.aspx" />
+            <asp:Button ID="btnPurchaseHistory" runat="server" Text="Purchase History" Width="232px" CssClass="button" PostBackUrl="~/PurchaseHistory.aspx" />
         </div>
         <table class="auto-style6">
             <tr>

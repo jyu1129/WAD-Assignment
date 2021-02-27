@@ -17,6 +17,20 @@ namespace WAD_Assignment
         protected void Page_Load(object sender, EventArgs e)
         {
             lblWishCount.Text = gvWishlist.Rows.Count.ToString();
+
+            if (Session["role"] == "Artists")
+            {
+                //Hide Wishlist & Purchase History 
+                btnWishlist.Visible = false;
+                btnPurchaseHistory.Visible = false;
+
+            }
+            else
+            {
+                btnWishlist.Visible = true;
+                btnPurchaseHistory.Visible = true;
+            }
+
         }
         protected void CartClick(object sender, ImageClickEventArgs e)
         {

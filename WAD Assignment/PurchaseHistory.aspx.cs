@@ -13,6 +13,19 @@ namespace WAD_Assignment
         {
             //gvPurchaseHistory.DataBind();
             //lblPurchaseCount.Text = gvPurchaseHistory.Rows.Count.ToString();
+
+            if (Session["role"] == "Artists")
+            {
+                //Hide Wishlist & Purchase History 
+                btnWishlist.Visible = false;
+                btnPurchaseHistory.Visible = false;
+
+            }
+            else
+            {
+                btnWishlist.Visible = true;
+                btnPurchaseHistory.Visible = true;
+            }
         }
     }
 }

@@ -11,7 +11,35 @@
         document.getElementById("wishlist").classList.add("active");
     </script>
 
+    <style>
+        .button {
+            display: inline-block;
+            padding: 0.5em 3em;
+            background-color: transparent;
+            border: 0.1em solid #000000;
+            border-radius: 3px;
+            margin: 0 0.3em 0.3em 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: grey;
+            text-align: center;
+            transition: all 0.15s;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+            .button:hover {
+                background-color: rgb(108,117,125);
+                color: white;
+            }
+    </style>
+
     <div>
+        <div>
+            <asp:Button ID="btnProfile" runat="server" Text="My Profile" CssClass="button" Style="margin-left: 20px" PostBackUrl="~/Profile.aspx" />
+            <asp:Button ID="btnWishlist" runat="server" Text="Wishlist" CssClass="button" PostBackUrl="~/Wishlist.aspx" />
+            <asp:Button ID="btnPurchaseHistory" runat="server" Text="Purchase History" Width="232px" CssClass="button" PostBackUrl="~/PurchaseHistory.aspx" />
+        </div>
         <div style="font-weight: bold; font-size: 40px; font-family: Bahnschrift; color: #000000; text-align: center">
             <br />
             WISHLIST
@@ -23,7 +51,7 @@
             item(s) in your wishlist.
             <br />
         </div>
-        
+
         <br />
         <asp:GridView ID="gvWishlist" runat="server" AutoGenerateColumns="False" DataKeyNames="WishListid" PageSize="5" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" Width="955px" HorizontalAlign="Center" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
             <Columns>
