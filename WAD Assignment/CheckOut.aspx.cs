@@ -111,7 +111,7 @@ namespace WAD_Assignment
 
 
                 ////SAVE RECORDS INTO ORDER DETAIL
-                //for (int i =0; i< GridView2.Rows.Count; i++)
+                //for (int i = 0; i < GridView2.Rows.Count; i++)
                 //{
 
                 //    int artId = 
@@ -120,7 +120,7 @@ namespace WAD_Assignment
                 //    "VALUES(" + orderId.ToString() + "," + "," + "," + ")";
                 //}
 
-                
+
 
 
 
