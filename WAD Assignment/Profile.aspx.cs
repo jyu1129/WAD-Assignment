@@ -33,6 +33,19 @@ namespace WAD_Assignment
                 showData();
             }
 
+            if (Session["role"] == "Artists")
+            {
+                //Hide Wishlist & Purchase History 
+                btnWishlist.Visible = false;
+                btnPurchaseHistory.Visible = false;
+
+            }
+            else
+            {
+                btnWishlist.Visible = true;
+                btnPurchaseHistory.Visible = true;
+            }
+
         }
 
         public void showData()

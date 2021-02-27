@@ -116,8 +116,9 @@
         </div>
     </div>
 
-    <div>
+    <div style="font-family:'Lucida Handwriting'; font-size:30px;">
         Why Buy Art From Mochi?
+        <p></p><p></p>
     </div>
 
     <h1>

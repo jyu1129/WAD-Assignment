@@ -107,7 +107,7 @@
                         </tr>
                         </table>
                     <div  style="align-items:center; text-align:center;">
-                    <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+                    <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" OnClientClick="javascript:alert('Your account has successfully registered!')"/>
                             </div>
                     <br />
                 </td>
