@@ -7,13 +7,10 @@
         document.getElementById("products").classList.remove("active");
         document.getElementById("profile").classList.remove("active");
         document.getElementById("cart").classList.remove("active");
-        document.getElementById("purchasehistory").classList.remove("active");
-        document.getElementById("wishlist").classList.remove("active");
     </script>
 
     <style>
         body {
-            font-family: Helvetica, sans-serif;
             text-align: center;
         }
 

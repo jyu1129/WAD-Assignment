@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="WAD_Assignment.Gallery" MasterPageFile="Page.Master" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <script>
         document.getElementById("gallery").classList.add("active");
         document.getElementById("home").classList.remove("active");
@@ -18,7 +18,7 @@
         art(s) in your gallery.<br />
         &nbsp;You&#39;ve sold
         <asp:Label ID="lblTotalArtSold" runat="server"></asp:Label>
-&nbsp;art(s).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;art(s).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <hr />
         &nbsp;
@@ -30,7 +30,7 @@
             <ItemTemplate>
                 <div class="card">
                     <asp:ImageButton class="card-img-top" ID="ImageButton1" runat="server" CommandArgument='<%# Eval("ArtId") %>' Height="250px" ImageUrl='<%# Eval("ArtUrl") %>' OnClick="ImageButton1_Click" Width="300px" />
-                    <div class="card-body"> <%# Eval("ArtName") %> </div>
+                    <div class="card-body"><%# Eval("ArtName") %> </div>
                 </div>
                 <br />
             </ItemTemplate>

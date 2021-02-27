@@ -2,16 +2,6 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
-    <script>
-        document.getElementById("gallery").classList.remove("active");
-        document.getElementById("home").classList.remove("active");
-        document.getElementById("products").classList.remove("active");
-        document.getElementById("profile").classList.add("active");
-        document.getElementById("cart").classList.remove("active");
-        document.getElementById("purchasehistory").classList.remove("active");
-        document.getElementById("wishlist").classList.remove("active");
-    </script>
-
     <style type="text/css">
         .auto-style6 {
             width: 100%;
@@ -74,6 +64,13 @@
             height: 30px;
         }
     </style>
+    <script>
+        document.getElementById("gallery").classList.remove("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.remove("active");
+        document.getElementById("profile").classList.add("active");
+        document.getElementById("cart").classList.remove("active");
+    </script>
 
         <div>
             <table class="auto-style6">

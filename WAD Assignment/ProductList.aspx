@@ -1,6 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.ProductList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
+    <script>
+        document.getElementById("gallery").classList.remove("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.add("active");
+        document.getElementById("profile").classList.remove("active");
+        document.getElementById("cart").classList.remove("active");
+    </script>
 
         <div>
             <asp:Label ID="lblAddToCartMsg" runat="server"></asp:Label>
