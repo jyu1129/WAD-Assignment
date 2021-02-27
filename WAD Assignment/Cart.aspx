@@ -1,5 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.Cart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" Runat="Server"> 
+    <script>
+        document.getElementById("gallery").classList.remove("active");
+        document.getElementById("home").classList.remove("active");
+        document.getElementById("products").classList.remove("active");
+        document.getElementById("profile").classList.remove("active");
+        document.getElementById("cart").classList.add("active");
+    </script>
         <div>
             <div style="font-size: 40px; font-weight: bold; text-align: center">
                 CART

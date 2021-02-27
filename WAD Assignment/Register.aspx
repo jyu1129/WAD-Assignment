@@ -10,11 +10,6 @@
                 args.IsValid = false;
             }
         }
-            document.getElementById("gallery").classList.add("active");
-            document.getElementById("home").classList.remove("active");
-            document.getElementById("products").classList.remove("active");
-            document.getElementById("profile").classList.remove("active");
-            document.getElementById("cart").classList.remove("active");
     </script>
 
     <style type="text/css">
@@ -112,7 +107,7 @@
                         </tr>
                         </table>
                     <div  style="align-items:center; text-align:center;">
-                    <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+                    <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" OnClientClick="javascript:alert('Your account has successfully registered!')"/>
                             </div>
                     <br />
                 </td>

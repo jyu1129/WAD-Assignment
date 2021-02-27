@@ -194,8 +194,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="SellArt.aspx" />
-    <Content Include="Shop.aspx" />
-    <Content Include="test.html" />
     <Content Include="Web.config" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
@@ -296,13 +294,6 @@
     </Compile>
     <Compile Include="SellArt.aspx.designer.cs">
       <DependentUpon>SellArt.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Shop.aspx.cs">
-      <DependentUpon>Shop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shop.aspx.designer.cs">
-      <DependentUpon>Shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
