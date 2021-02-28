@@ -85,5 +85,56 @@ namespace WAD_Assignment
                 Response.Redirect("CheckOut.aspx");
             }
         }
+
+        protected void gvCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        protected void gvCart_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            gvCart.DataBind();
+            con = new SqlConnection(strCon);
+            con.Open();
+
+            int index = Convert.ToInt32(e.CommandArgument.ToString());
+            int qty = Convert.ToInt32(gvCart.Rows[index].Cells[6].Text.ToString());
+            int cartId = Convert.ToInt32(gvCart.DataKeys[index].Value.ToString());
+
+            if (e.CommandName.Equals("MinusQty"))
+            {            
+                //qty will never be -1
+                if(qty > 0)
+                {
+                    string strUpdateCartQty = "UPDATE Cart SET Quantity = Quantity - 1 WHERE CartId = " + cartId.ToString();
+                    SqlCommand cmdUpdateCartQty = new SqlCommand(strUpdateCartQty, con);
+                    SqlDataReader dtrUpdateCartQty = cmdUpdateCartQty.ExecuteReader();
+                    dtrUpdateCartQty.Close();
+                }
+                   
+            }
+            if (e.CommandName.Equals("AddQty"))
+            {
+                //qty will never be >5 (means one user can only buy maximum 5 qty)
+                if (qty < 5)
+                {
+                    string strUpdateCartQty = "UPDATE Cart SET Quantity = Quantity + 1 WHERE CartId = " + cartId.ToString();
+                    SqlCommand cmdUpdateCartQty = new SqlCommand(strUpdateCartQty, con);
+                    SqlDataReader dtrUpdateCartQty = cmdUpdateCartQty.ExecuteReader();
+                    dtrUpdateCartQty.Close();
+                }
+
+            }
+
+
+            con.Close();
+            gvCart.DataBind();
+        }
+
+        protected void gvCart_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+           
+        }
     }
 }

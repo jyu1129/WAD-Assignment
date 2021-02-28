@@ -15,13 +15,14 @@
         <br />
         <br />
 
-        <asp:GridView ID="gvCart" OnRowDeleted="gvCart_RowDeleted" OnRowDeleting="gvCart_RowDeleting" DataSourceID="SqlDataSource1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="CartId" Height="133px" Width="407px" GridLines="None" CellPadding="20" HorizontalAlign="Center">
+        <asp:GridView ID="gvCart" OnRowDataBound="gvCart_RowDataBound" OnRowDeleted="gvCart_RowDeleted" OnRowCommand="gvCart_RowCommand"  OnRowDeleting="gvCart_RowDeleting" DataSourceID="SqlDataSource1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataKeyNames="CartId" Height="133px" Width="407px" GridLines="None" CellPadding="20" HorizontalAlign="Center" OnSelectedIndexChanged="gvCart_SelectedIndexChanged">
             <Columns>
                 <asp:TemplateField HeaderText="No.">
                     <ItemTemplate>
                         <%# Container.DataItemIndex + 1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
+
                 <asp:ImageField DataImageUrlField="ArtUrl" HeaderText="Product" SortExpression="ArtUrl" ControlStyle-Height="100" ControlStyle-Width="100">
                     <ControlStyle Height="100px" Width="100px"></ControlStyle>
                 </asp:ImageField>
@@ -33,8 +34,25 @@
 
                     <ItemStyle Wrap="False"></ItemStyle>
                 </asp:BoundField>
-                <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                <asp:BoundField DataField="Stock" HeaderText="Stock" SortExpression="Quantity" />
+                <asp:BoundField />
+
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton2" runat="server" CommandName="MinusQty" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="XX-Large" >-</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" ControlStyle-Width="10" />
+     
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton  ID="LinkButton1" runat="server" CommandName="AddQty" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="XX-Large" >+</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:BoundField />
+
+                <asp:BoundField ItemStyle-HorizontalAlign="right" DataField="Stock" HeaderText="Stock" SortExpression="Quantity" />
                 <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" SortExpression="TotalPrice" ItemStyle-Wrap="False" FooterStyle-Wrap="False" HeaderStyle-Wrap="False" DataFormatString="{0:RM 0.00}">
                     <FooterStyle Wrap="False"></FooterStyle>
 
@@ -54,21 +72,26 @@
 
     </div>
 
-    <div>
+    <div class="d-flex justify-content-center">
+
+    
+
+    <div >
         &nbsp;
-        <table aria-selected="undefined" style="width:100%;">
+        <table aria-selected="undefined" class="w-100">
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style2">Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
+                <td >&nbsp;</td>
+                <td >Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :&nbsp;&nbsp;
+                    RM
             <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
                     &nbsp;&nbsp;</td>
-                <td>&nbsp;<asp:Button ID="btnCheckOut" runat="server" BackColor="#FF6666" BorderColor="#000000" BorderWidth="0px" CausesValidation="False" Font-Bold="True" Font-Names="Bahnschrift" ForeColor="White" Height="29px" Text="Check Out" Width="111px" OnClick="Button1_Click" />
+                <td>&nbsp;<asp:Button ID="btnCheckOut" runat="server" BackColor="#FF6666" BorderColor="#000000" BorderWidth="0px" CausesValidation="False" Font-Bold="True" Font-Names="Bahnschrift" ForeColor="White" Height="36px" Text="Check Out" Width="143px" OnClick="Button1_Click" />
                 </td>
             </tr>
         </table>
         <br />
     </div>
-
+    </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" DeleteCommand="DELETE FROM Cart WHERE CartId = @CartId
 "
@@ -86,12 +109,6 @@
         .auto-style1 {
             width: 1059px;
         }
-        .auto-style2 {
-            width: 491px;
-        }
-        .auto-style3 {
-            width: 758px;
-        }
-    </style>
+        </style>
 </asp:Content>
 

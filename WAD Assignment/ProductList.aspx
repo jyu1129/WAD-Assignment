@@ -58,7 +58,7 @@
                 <br />
             </ItemTemplate>
 
-            <SelectedItemStyle Wrap="False"></SelectedItemStyle>
+            <SelectedItemStyle Wrap="True"></SelectedItemStyle>
         </asp:DataList>
 
 

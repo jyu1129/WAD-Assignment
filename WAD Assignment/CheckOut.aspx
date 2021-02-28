@@ -7,7 +7,7 @@
     </div>
     </br>
         <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" GridLines="None" Height="72px" Width="1008px">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" GridLines="None" Height="72px" Width="1008px" HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="FirstName" HeaderText="Name" SortExpression="FirstName" />
                     <asp:BoundField DataField="LastName" HeaderText="" SortExpression="LastName" />
@@ -26,7 +26,7 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="CartId" DataSourceID="SqlDataSource2" GridLines="None" Height="181px" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="1009px">
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="CartId" DataSourceID="SqlDataSource2" GridLines="None" Height="181px" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="1009px" HorizontalAlign="Center">
                 <Columns>
                     <asp:TemplateField HeaderText="No.">
                         <ItemTemplate>
@@ -40,8 +40,13 @@
                     <asp:BoundField DataField="ItemSubtotal" HeaderText="Item Subtotal" ReadOnly="True" SortExpression="ItemSubtotal" />
                 </Columns>
             </asp:GridView>
-            Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
-            <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
+            <div class="d-flex justify-content-center">
+                <div>
+                    Merchandise Subtotal (<asp:Label ID="lblTotalItem" runat="server"></asp:Label>&nbsp;items) :
+                <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
+                </div>                
+            </div>
+            
             <br />
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT C.CartId, A.ArtUrl, A.ArtName, A.Price, C.Quantity, A.Price * C.Quantity AS ItemSubtotal FROM Cart AS C INNER JOIN Arts AS A ON C.ArtId = A.ArtId WHERE (C.CustomerId = @CustomerId)">
                 <SelectParameters>
@@ -51,18 +56,21 @@
             <br />
             <table class="auto-style8">
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">Fill in delivery details:</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style4">Name:</td>
                     <td class="auto-style5">
                         <asp:TextBox ID="txtName" runat="server" Width="442px"></asp:TextBox>
@@ -71,6 +79,7 @@
                     <td class="auto-style7"></td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">Address:</td>
                     <td colspan="2">
                         <asp:TextBox ID="txtAddress" runat="server" Height="58px" Width="445px"></asp:TextBox>
@@ -78,6 +87,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style4">City:</td>
                     <td class="auto-style5">
                         <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
@@ -86,6 +96,7 @@
                     <td class="auto-style7">&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">Postal:</td>
                     <td class="auto-style1">
                         <asp:TextBox ID="txtPostal" runat="server"></asp:TextBox>
@@ -94,6 +105,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style3">Country:</td>
                     <td class="auto-style1">
                         <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
@@ -102,6 +114,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style6">State:</td>
                     <td class="auto-style5">
                         <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
@@ -110,11 +123,13 @@
                     <td class="auto-style7"></td>
                 </tr>
                 <tr>
+                    <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style5">
                         &nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style6">Payment Method:</td>
                     <td class="auto-style5">
                         <asp:DropDownList ID="ddlPaymentMethod" runat="server" Width="188px">
@@ -126,6 +141,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
@@ -133,6 +149,7 @@
                         &nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
@@ -140,6 +157,7 @@
                         &nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">Total Payment (RM) :</td>
@@ -148,12 +166,14 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
@@ -207,6 +227,13 @@
         .auto-style8 {
             width: 100%;
             height: 366px;
+        }
+        .auto-style9 {
+            width: 171px;
+        }
+        .auto-style10 {
+            width: 171px;
+            height: 27px;
         }
     </style>
 </asp:Content>
