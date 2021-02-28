@@ -81,8 +81,48 @@ namespace WAD_Assignment
             }
             else //logged
             {
+                bool enoughStock = true;
+                int i = 0;
+                
+                con = new SqlConnection(strCon);
+                con.Open();
+                string strSelect = "SELECT * FROM Cart Where CustomerId = " + Session["userID"];
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                SqlDataReader drSelect = cmdSelect.ExecuteReader();
+                List<String> quantity = new List<String>();
+                List<String> artId = new List<String>();
+                while (drSelect.Read())
+                {
+                    quantity.Add(drSelect["Quantity"].ToString());
+                    artId.Add(drSelect["ArtId"].ToString());
+                    i++;
+                }
+                drSelect.Close();
+                con.Close();
 
-                Response.Redirect("CheckOut.aspx");
+                string neStock = "";
+                while (i > 0)
+                {
+                    con.Open();
+                    strSelect = "SELECT Stock FROM Arts Where ArtId = " + artId[i - 1];
+                    cmdSelect = new SqlCommand(strSelect, con);
+
+                    if (int.Parse(cmdSelect.ExecuteScalar().ToString()) < int.Parse(quantity[i - 1]))
+                    {
+                        neStock += "\\nArt ID: " + artId[i - 1] + " has not enough stock!";
+                        enoughStock = false;
+                    }
+                    i--;
+                    con.Close();
+                }
+                if (enoughStock)
+                {
+                    Response.Redirect("CheckOut.aspx");
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + neStock + "');", true);
+                }
             }
         }
 
