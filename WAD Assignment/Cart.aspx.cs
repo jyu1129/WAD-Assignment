@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -80,7 +78,7 @@ namespace WAD_Assignment
             {
                 bool enoughStock = true;
                 int i = 0;
-                
+
                 con = new SqlConnection(strCon);
                 con.Open();
                 string strSelect = "SELECT * FROM Cart Where CustomerId = " + Session["userID"];
@@ -128,7 +126,7 @@ namespace WAD_Assignment
 
         }
 
-        
+
         protected void gvCart_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             gvCart.DataBind();
@@ -139,13 +137,13 @@ namespace WAD_Assignment
             int qty = Convert.ToInt32(gvCart.Rows[index].Cells[6].Text.ToString());
             int cartId = Convert.ToInt32(gvCart.DataKeys[index].Value.ToString());
 
-           
+
 
             if (e.CommandName.Equals("MinusQty"))
-            {            
+            {
 
                 //qty will never be -1
-                if(qty > 1)
+                if (qty > 1)
                 {
                     string strUpdateCartQty = "UPDATE Cart SET Quantity = Quantity - 1 WHERE CartId = " + cartId.ToString();
                     SqlCommand cmdUpdateCartQty = new SqlCommand(strUpdateCartQty, con);
@@ -159,7 +157,7 @@ namespace WAD_Assignment
                     SqlDataReader dtrDeleteCart = cmdDeleteCart.ExecuteReader();
                     dtrDeleteCart.Close();
                 }
-                   
+
             }
             if (e.CommandName.Equals("AddQty"))
             {
@@ -182,10 +180,10 @@ namespace WAD_Assignment
 
         protected void gvCart_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            
+
         }
 
-        
+
 
     }
 }

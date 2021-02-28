@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WAD_Assignment
 {
@@ -35,10 +29,10 @@ namespace WAD_Assignment
                 btnLog.Text = "Log in";
                 lblRole.Visible = false;
                 lblId.Visible = false;
-                lbluserId.Visible = false;              
+                lbluserId.Visible = false;
 
             }
-            else 
+            else
             {
 
                 showData();
@@ -52,7 +46,7 @@ namespace WAD_Assignment
 
         public void showData()
         {
-            string firstName="", lastName="";
+            string firstName = "", lastName = "";
             string strSelectArt = "SELECT * FROM Artists WHERE Email = '" + Session["user"] + "'";
             string strSelectCust = "SELECT * FROM Customers WHERE Email = '" + Session["user"] + "'";
             SqlCommand command = new SqlCommand(strSelectArt, con);

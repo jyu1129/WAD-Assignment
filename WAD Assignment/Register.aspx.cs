@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WAD_Assignment
 {
@@ -35,7 +31,7 @@ namespace WAD_Assignment
             string strSelect = "SELECT * FROM(SELECT Email FROM Artists UNION SELECT Email FROM Customers) AS E WHERE E.Email = '" + selectedEmail + "' ";
             SqlCommand command = new SqlCommand(strSelect, con);
             SqlDataReader drEmail = command.ExecuteReader();
-            if(drEmail.HasRows)
+            if (drEmail.HasRows)
             {
                 emailExist = true;
                 lblEmailExist.Text = "Email address already exists";
@@ -66,9 +62,9 @@ namespace WAD_Assignment
             }
 
 
-            
+
         }
 
-        
+
     }
 }

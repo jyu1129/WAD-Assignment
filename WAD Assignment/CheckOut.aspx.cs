@@ -12,7 +12,7 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             getTotalPayment();
         }
 
@@ -39,11 +39,11 @@ namespace WAD_Assignment
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            
+
 
             if (String.IsNullOrEmpty(txtAddress.Text) || String.IsNullOrEmpty(txtCity.Text) || String.IsNullOrEmpty(txtCountry.Text) || String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtPostal.Text) || String.IsNullOrEmpty(txtState.Text))
             {
-                Response.Write("Please fill in all the details"); 
+                Response.Write("Please fill in all the details");
             }
             else
             {
@@ -67,8 +67,8 @@ namespace WAD_Assignment
                 cmdSelect1.Parameters.AddWithValue("@OrderDate", dateTime.ToString());
                 cmdSelect1.Parameters.AddWithValue("@ShipName", txtName.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipAddress", txtAddress.Text);
-                cmdSelect1.Parameters.AddWithValue("@ShipCity",txtCity.Text);
-                cmdSelect1.Parameters.AddWithValue("@ShipState",txtState.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipCity", txtCity.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipState", txtState.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipPostalCode", txtPostal.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipCountry", txtCountry.Text);
 
@@ -122,13 +122,13 @@ namespace WAD_Assignment
 
                         //reopen connection until no row
                         dtrSelect3 = cmdSelect3.ExecuteReader();
-                       
+
                     }
-                }                
+                }
 
                 dtrSelect3.Close();
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Order Succesfully Placed! Your item will be shipped to you soon!');window.location ='Homepage.aspx';", true);
-                con.Close();                
+                con.Close();
             }
         }
     }

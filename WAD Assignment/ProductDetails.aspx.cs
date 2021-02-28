@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +13,7 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             //if (Session["user"] != null && (bool)Session["show"] == true)
             //{
             //    //wishlist heart
@@ -29,21 +26,21 @@ namespace WAD_Assignment
             //    {
             //       if (drSelect["ArtId"].ToString().Equals(Request.QueryString["ArtId"].ToString()))
             //       {
-                            
+
             //          ((ImageButton)dtProductDetail.Items[0].FindControl("Button2")).ImageUrl = "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/red_webpict35_1484337167-1.png";
-                   
+
             //       }
             //    }
-                
+
             //    drSelect.Close();
             //    con.Close();
             //    Session["show"] = false;
             //    Response.Redirect("ProductDetails.aspx?ArtId=" + Request.QueryString["ArtId"].ToString());
-                
+
             //}
 
-            
-            
+
+
         }
 
         protected void dtProductDetail_ItemCommand(object source, DataListCommandEventArgs e)

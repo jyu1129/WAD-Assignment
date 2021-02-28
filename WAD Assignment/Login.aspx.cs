@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WAD_Assignment
 {
@@ -32,7 +27,7 @@ namespace WAD_Assignment
             string selectedPw = txtPassword.Text.ToString();
 
             //Check Email & Password
-            string strSelect =  "SELECT count(*) " +
+            string strSelect = "SELECT count(*) " +
                                 "FROM(SELECT Email, Password FROM Artists " +
                                 "UNION SELECT Email, Password FROM Customers) AS E " +
                                 "WHERE E.Email = '" + selectedEmail + "' AND E.Password = '" + selectedPw + "'";
@@ -40,7 +35,7 @@ namespace WAD_Assignment
             int temp = Convert.ToInt32(command.ExecuteScalar().ToString());
             con.Close();
 
-            if(temp == 1)
+            if (temp == 1)
             {
                 Session["user"] = selectedEmail;
                 Response.Redirect("Homepage.aspx");

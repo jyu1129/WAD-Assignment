@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
-using System.Net;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 namespace WAD_Assignment
 {

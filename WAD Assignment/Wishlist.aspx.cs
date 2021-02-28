@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace WAD_Assignment
 {
@@ -81,7 +78,7 @@ namespace WAD_Assignment
                 SqlCommand cmdInsert5 = new SqlCommand(strSelect2, con);
 
                 Quantity = int.Parse(cmdInsert5.ExecuteScalar().ToString()) + 1;
-                
+
 
                 con.Close();
 
@@ -89,7 +86,7 @@ namespace WAD_Assignment
                 con = new SqlConnection(strCon);
                 //open database
                 con.Open();
-                
+
                 //INSERT database record
                 string strInsert = "UPDATE Cart SET Quantity = " + Quantity + " WHERE CustomerId = " + Session["userID"] + "AND ArtId = " + ArtId;
                 //create sqlcommand

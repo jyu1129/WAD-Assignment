@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -50,7 +47,7 @@ namespace WAD_Assignment
 
         public void showData()
         {
-            string firstName="", lastName = "", email = "", phoneNum = "", address = "", country = "", currentPw = "";
+            string firstName = "", lastName = "", email = "", phoneNum = "", address = "", country = "", currentPw = "";
 
             string strSelectArt = "SELECT * FROM Artists WHERE Email = '" + Session["user"] + "'";
             string strSelectCust = "SELECT * FROM Customers WHERE Email = '" + Session["user"] + "'";
@@ -171,7 +168,7 @@ namespace WAD_Assignment
             SqlDataReader drEmail = command.ExecuteReader();
             if (drEmail.HasRows)
             {
-                if(email == (string)Session["user"])
+                if (email == (string)Session["user"])
                 {
                     //Email Remains Unchanged
                     email = (string)Session["user"];
@@ -191,7 +188,7 @@ namespace WAD_Assignment
 
             con.Open();
             //Update details into database
-            string strUpdate = "UPDATE "+ Session["role"] + " SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
+            string strUpdate = "UPDATE " + Session["role"] + " SET FirstName = '" + firstName + "', LastName = '" + lastName + "', Email = '" + email + "', Phone = '" + phoneNum + "', Address = '" + address + "', Country = '" + country + "' " +
                                "WHERE Email = '" + Session["user"] + "'";
             SqlCommand command3 = new SqlCommand(strUpdate, con);
             command3.ExecuteNonQuery();
@@ -201,7 +198,7 @@ namespace WAD_Assignment
 
             //Update email in Session
             Session["user"] = email;
-            
+
 
         }
 

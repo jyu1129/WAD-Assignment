@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Net;
-using System.Text;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +12,7 @@ namespace WAD_Assignment
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Session["role"].Equals("Artists"))
+            if (!Session["role"].Equals("Artists"))
             {
                 Response.Redirect("Homepage.aspx");
             }
@@ -46,7 +42,7 @@ namespace WAD_Assignment
         {
             ImageButton ib = sender as ImageButton;
             object commandArg = ib.CommandArgument;
-            
+
             Session["artId"] = int.Parse(commandArg.ToString());
             Session["edit"] = false;
             Session["create"] = false;

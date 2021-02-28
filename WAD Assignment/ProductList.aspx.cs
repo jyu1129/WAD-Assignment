@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -18,7 +14,7 @@ namespace WAD_Assignment
         {
 
             showheart();
-                
+
         }
 
         protected void showheart()
@@ -125,7 +121,7 @@ namespace WAD_Assignment
                         //open database
                         con.Open();
                         //To Get Art Id from the of the item from datalist                  
-                        
+
                         //INSERT database record
                         string strInsert = "UPDATE Cart SET Quantity = " + Quantity + " WHERE CustomerId = " + Session["userID"] + "AND ArtId = " + ArtId.Text.ToString();
                         //create sqlcommand
@@ -137,7 +133,7 @@ namespace WAD_Assignment
                         //close connection
                         con.Close();
                     }
-                        
+
 
                 }
 
@@ -199,4 +195,4 @@ namespace WAD_Assignment
 }
 
 
-    
+
