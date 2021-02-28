@@ -82,7 +82,7 @@
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">Address:</td>
                     <td colspan="2">
-                        <asp:TextBox ID="txtAddress" runat="server" Height="58px" Width="445px"></asp:TextBox>
+                        <asp:TextBox ID="txtAddress" runat="server" Height="58px" Width="442px"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>

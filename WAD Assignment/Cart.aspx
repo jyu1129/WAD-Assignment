@@ -38,7 +38,7 @@
 
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton2" runat="server" CommandName="MinusQty" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="XX-Large" >-</asp:LinkButton>
+                        <asp:LinkButton  ID="LinkButton2" runat="server"  CommandName="MinusQty" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="XX-Large" >-</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -46,7 +46,7 @@
      
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton  ID="LinkButton1" runat="server" CommandName="AddQty" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="XX-Large" >+</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="AddQty" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="XX-Large" >+</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace WAD_Assignment
 {
@@ -126,8 +127,7 @@ namespace WAD_Assignment
                 }                
 
                 dtrSelect3.Close();
-                ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('Order Succesfully Placed!');</script>");
-                
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Order Succesfully Placed! Your item will be shipped to you soon!');window.location ='Homepage.aspx';", true);
                 con.Close();                
             }
         }

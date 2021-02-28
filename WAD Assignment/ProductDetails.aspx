@@ -9,7 +9,7 @@
         <br />
         <asp:DataList ID="dtProductDetail" runat="server" DataKeyField="ArtId" DataSourceID="SqlDataSource1" OnItemCommand="dtProductDetail_ItemCommand" OnSelectedIndexChanged="dtProductDetail_SelectedIndexChanged" HorizontalAlign="Center">
             <ItemTemplate>
-                <table style="width:100%;">
+                <table style="width: 100%;">
                     <tr>
                         <td rowspan="14">
                             <asp:Image ID="Image1" runat="server" Height="563px" ImageUrl='<%# Eval("ArtUrl") %>' weight="500" Width="596px" />
@@ -99,6 +99,7 @@
                 <br />
             </ItemTemplate>
         </asp:DataList>
+        <asp:ImageButton ID="Button3" runat="server" CommandName="AddToWishlist" Text="Add To WishList" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Arts.ArtId, Arts.ArtUrl, Arts.Category, Arts.ArtName, Arts.Price, Arts.Stock, Arts.Description, Arts.ArtistId, Artists.LastName, Artists.FirstName, Artists.Email FROM Arts INNER JOIN Artists ON Arts.ArtistId = Artists.ArtistId WHERE (Arts.ArtId = @ArtId)">
             <SelectParameters>

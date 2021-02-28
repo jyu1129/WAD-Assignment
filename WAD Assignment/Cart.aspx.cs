@@ -51,10 +51,6 @@ namespace WAD_Assignment
 
                 //because OrderIDSales is double
                 subTotal = Convert.ToDouble(cmdSelect2.ExecuteScalar());
-
-                lblSubTotal.Text = subTotal.ToString();
-                lblTotalItem.Text = gvCart.Rows.Count.ToString();
-
                 btnCheckOut.Visible = true;
 
             }
@@ -64,9 +60,10 @@ namespace WAD_Assignment
                 btnCheckOut.Visible = false;
 
                 subTotal = 0;
-                lblSubTotal.Text = subTotal.ToString();
-                lblTotalItem.Text = gvCart.Rows.Count.ToString();
             }
+
+            lblSubTotal.Text = subTotal.ToString();
+            lblTotalItem.Text = gvCart.Rows.Count.ToString();
 
             con.Close();
         }
@@ -142,15 +139,25 @@ namespace WAD_Assignment
             int qty = Convert.ToInt32(gvCart.Rows[index].Cells[6].Text.ToString());
             int cartId = Convert.ToInt32(gvCart.DataKeys[index].Value.ToString());
 
+           
+
             if (e.CommandName.Equals("MinusQty"))
             {            
+
                 //qty will never be -1
-                if(qty > 0)
+                if(qty > 1)
                 {
                     string strUpdateCartQty = "UPDATE Cart SET Quantity = Quantity - 1 WHERE CartId = " + cartId.ToString();
                     SqlCommand cmdUpdateCartQty = new SqlCommand(strUpdateCartQty, con);
                     SqlDataReader dtrUpdateCartQty = cmdUpdateCartQty.ExecuteReader();
                     dtrUpdateCartQty.Close();
+                }
+                else //if qty = 0 , st8 away delete cart
+                {
+                    string strDeleteCart = "DELETE Cart WHERE CartId = " + cartId.ToString();
+                    SqlCommand cmdDeleteCart = new SqlCommand(strDeleteCart, con);
+                    SqlDataReader dtrDeleteCart = cmdDeleteCart.ExecuteReader();
+                    dtrDeleteCart.Close();
                 }
                    
             }
@@ -170,11 +177,15 @@ namespace WAD_Assignment
 
             con.Close();
             gvCart.DataBind();
+            Response.Redirect("Cart.aspx");
         }
 
         protected void gvCart_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-           
+            
         }
+
+        
+
     }
 }

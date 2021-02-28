@@ -14,24 +14,40 @@ namespace WAD_Assignment
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
+        bool show = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(strCon);
-            con.Open();
-            string strSelect = "SELECT * FROM Wishlists WHERE CustomerId = " + Session["userID"];
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-            SqlDataReader drSelect = cmdSelect.ExecuteReader();
-            while (drSelect.Read())
+
+            showheart();
+                
+        }
+
+        protected void showheart()
+        {
+            if (Session["user"] != null && show == true )
             {
-                for (int i = 0; i < dtProduct.Items.Count; i++) {
-                    if (dtProduct.DataKeys[i].ToString().Equals(drSelect["ArtId"].ToString())){
-                        ((ImageButton)dtProduct.Items[i].FindControl("Button2")).ImageUrl = "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/red_webpict35_1484337167-1.png";
+                show = false;
+                //wishlist heart
+                con = new SqlConnection(strCon);
+                con.Open();
+                string strSelect = "SELECT * FROM Wishlists WHERE CustomerId = " + Session["userID"];
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                SqlDataReader drSelect = cmdSelect.ExecuteReader();
+                while (drSelect.Read())
+                {
+                    for (int i = 0; i < dtProduct.Items.Count; i++)
+                    {
+                        if (dtProduct.DataKeys[i].ToString().Equals(drSelect["ArtId"].ToString()))
+                        {
+                            ((ImageButton)dtProduct.Items[i].FindControl("Button2")).ImageUrl = "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/red_webpict35_1484337167-1.png";
+                        }
                     }
                 }
+                drSelect.Close();
+                con.Close();
+                
             }
-            drSelect.Close();
-            con.Close();
+            
         }
 
         protected void dtProduct_ItemCommand(object source, DataListCommandEventArgs e)
@@ -51,6 +67,7 @@ namespace WAD_Assignment
             {
                 if (e.CommandName == "viewdetail")
                 {
+                    Session["show"] = true;
                     Response.Redirect("ProductDetails.aspx?ArtId=" + e.CommandArgument.ToString());
                 }
 
