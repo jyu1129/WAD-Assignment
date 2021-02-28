@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.Cart" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server"><asp:ScriptManager ID="ScriptManager1" runat="server" />
     <script>
         document.getElementById("gallery").classList.remove("active");
         document.getElementById("home").classList.remove("active");

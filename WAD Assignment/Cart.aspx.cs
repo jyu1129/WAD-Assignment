@@ -83,7 +83,7 @@ namespace WAD_Assignment
             {
                 bool enoughStock = true;
                 int i = 0;
-
+                
                 con = new SqlConnection(strCon);
                 con.Open();
                 string strSelect = "SELECT * FROM Cart Where CustomerId = " + Session["userID"];
@@ -109,7 +109,7 @@ namespace WAD_Assignment
 
                     if (int.Parse(cmdSelect.ExecuteScalar().ToString()) < int.Parse(quantity[i - 1]))
                     {
-                        neStock += "\nArt ID: " + artId[i - 1] + "has not enough stock!";
+                        neStock += "\\nArt ID: " + artId[i - 1] + " has not enough stock!";
                         enoughStock = false;
                     }
                     i--;
@@ -121,7 +121,7 @@ namespace WAD_Assignment
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(typeof(Page), "test", "<script>alert('" + neStock + "');</script>");
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + neStock + "');", true);
                 }
             }
         }
