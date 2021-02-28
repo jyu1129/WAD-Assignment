@@ -50,7 +50,7 @@ namespace WAD_Assignment
             Session["artId"] = int.Parse(commandArg.ToString());
             Session["edit"] = false;
             Session["create"] = false;
-            Server.Transfer("SellArt.aspx", true);
+            Response.Redirect("SellArt.aspx");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace WAD_Assignment
             Session["artId"] = -1;
             Session["edit"] = false;
             Session["create"] = true;
-            Server.Transfer("SellArt.aspx", true);
+            Response.Redirect("SellArt.aspx");
         }
 
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

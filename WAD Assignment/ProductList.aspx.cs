@@ -14,7 +14,6 @@ namespace WAD_Assignment
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        bool show = true;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,9 +23,8 @@ namespace WAD_Assignment
 
         protected void showheart()
         {
-            if (Session["user"] != null && show == true )
+            if (Session["user"] != null)
             {
-                show = false;
                 //wishlist heart
                 con = new SqlConnection(strCon);
                 con.Open();
@@ -45,9 +43,9 @@ namespace WAD_Assignment
                 }
                 drSelect.Close();
                 con.Close();
-                
+
             }
-            
+
         }
 
         protected void dtProduct_ItemCommand(object source, DataListCommandEventArgs e)
