@@ -44,6 +44,8 @@ namespace WAD_Assignment
             {
                 lblInvalid.Text = "Your Email & Password is invalid! Please try again.";
             }
+
+            
         }
     }
 }

@@ -129,6 +129,8 @@ namespace WAD_Assignment
                 dtrSelect3.Close();
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Order Succesfully Placed! Your item will be shipped to you soon!');window.location ='Homepage.aspx';", true);
                 con.Close();
+
+                Response.Redirect("TransactionSummary.aspx?OrderId=" + orderId.ToString());
             }
         }
     }

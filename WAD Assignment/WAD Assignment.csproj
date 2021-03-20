@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -194,6 +200,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="SellArt.aspx" />
+    <Content Include="TransactionSummary.aspx" />
     <Content Include="Web.config" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
@@ -233,6 +240,7 @@
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="import.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,6 +302,13 @@
     </Compile>
     <Compile Include="SellArt.aspx.designer.cs">
       <DependentUpon>SellArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionSummary.aspx.cs">
+      <DependentUpon>TransactionSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionSummary.aspx.designer.cs">
+      <DependentUpon>TransactionSummary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
