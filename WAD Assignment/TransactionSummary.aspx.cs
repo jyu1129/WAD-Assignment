@@ -28,6 +28,7 @@ namespace WAD_Assignment
             }
             else
             {
+                lblOrderId.Text = Request.QueryString["OrderId"];
                 getTotalPayment();
                 GeneratePDF();
                 EmailReceipt();
@@ -73,8 +74,9 @@ namespace WAD_Assignment
 
         protected void btnPrintPDF_Click(object sender, EventArgs e)
         {
+            String OrderId = Request.QueryString["OrderId"];
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=GridViewData.pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=MAGInvoice_"+OrderId+".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
 

@@ -85,11 +85,20 @@ WHERE        (OrderId = @OrderId)">
             </asp:SqlDataSource>
 
          <br />
+        <table aria-selected="undefined" class="w-100">
+            <tr>
+                <td >&nbsp;</td>
+                <td>&nbsp;<asp:Button ID="btnPrintPDF" runat="server" Text="Print PDF" OnClick="btnPrintPDF_Click"  />
+            
+                </td>
+            </tr>
+        </table>
+
+         <br />
 
 
          <br />
-                        <asp:Button ID="btnPrintPDF" runat="server" Text="Print PDF" OnClick="btnPrintPDF_Click"  />
-            
+                                    
 </asp:Content>
 
 <asp:Content ID="Content4" runat="server" contentplaceholderid="head">
