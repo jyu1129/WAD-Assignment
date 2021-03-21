@@ -9,7 +9,7 @@ namespace WAD_Assignment
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -47,6 +47,7 @@ namespace WAD_Assignment
             }
             else
             {
+                
                 DateTime dateTime = DateTime.Now;
                 int year = Convert.ToInt32(dateTime.Year.ToString());
                 int month = Convert.ToInt32(dateTime.Month.ToString());
@@ -77,7 +78,8 @@ namespace WAD_Assignment
                 //SELECT OrderId from customerID  --> get order id           
                 string strSelectOrderId = "SELECT O.OrderId FROM Customers AS C INNER JOIN Orders AS O ON C.CustomerId = O.CustomerId WHERE(C.CustomerId = " + userID.ToString() + ") AND(YEAR(O.OrderDate) = " + year.ToString() + ") AND(MONTH(O.OrderDate) = " + month.ToString() + ") AND(DAY(O.OrderDate) = " + day.ToString() + ") AND({ fn HOUR(O.OrderDate) } = " + hour.ToString() + ") AND({ fn MINUTE(O.OrderDate) } = " + min.ToString() + ") AND({fn SECOND(O.OrderDate)} = " + sec.ToString() + ")";
                 SqlCommand cmdSelect2 = new SqlCommand(strSelectOrderId, con);
-                int orderId = (int)cmdSelect2.ExecuteScalar();
+                int orderId = Convert.ToInt32(cmdSelect2.ExecuteScalar());
+                
 
                 //GET ART ID, QUANTITY FROM CART & ART PRICE (current date of purchase)
                 string strSelectCart = "SELECT ArtId, Quantity, CartId FROM Cart WHERE(CustomerId = " + userID.ToString() + ")";
