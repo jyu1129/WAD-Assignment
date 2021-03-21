@@ -12,8 +12,21 @@ namespace WAD_Assignment
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
-            getTotalPayment();
+            if (!IsPostBack)
+            {
+                if (GridView2.Rows.Count == 0)//if no cart
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Empty Cart! Please add products to your cart first!');window.location ='ProductList.aspx';", true);
+
+                }
+                //Default is Visa
+                RegularExpressionValidatorVisa.Visible = true;
+                RegularExpressionValidatorMaster.Visible = false;
+                getTotalPayment();                
+                hideCard();
+            }
         }
 
         protected void getTotalPayment()
@@ -24,6 +37,8 @@ namespace WAD_Assignment
             {
                 totalPayment += Convert.ToDouble(GridView2.Rows[i].Cells[5].Text);
             }
+
+
 
 
             lblSubTotal.Text = totalPayment.ToString();
@@ -39,15 +54,9 @@ namespace WAD_Assignment
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
+                btnPlaceOrder.Text = "Processing...";
+                btnPlaceOrder.Enabled = false;
 
-
-            if (String.IsNullOrEmpty(txtAddress.Text) || String.IsNullOrEmpty(txtCity.Text) || String.IsNullOrEmpty(txtCountry.Text) || String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtPostal.Text) || String.IsNullOrEmpty(txtState.Text))
-            {
-                Response.Write("Please fill in all the details");
-            }
-            else
-            {
-                
                 DateTime dateTime = DateTime.Now;
                 int year = Convert.ToInt32(dateTime.Year.ToString());
                 int month = Convert.ToInt32(dateTime.Month.ToString());
@@ -71,7 +80,7 @@ namespace WAD_Assignment
                 cmdSelect1.Parameters.AddWithValue("@ShipCity", txtCity.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipState", txtState.Text);
                 cmdSelect1.Parameters.AddWithValue("@ShipPostalCode", txtPostal.Text);
-                cmdSelect1.Parameters.AddWithValue("@ShipCountry", txtCountry.Text);
+                cmdSelect1.Parameters.AddWithValue("@ShipCountry", ddlCountryList.SelectedValue.ToString());
 
                 cmdSelect1.ExecuteNonQuery();
 
@@ -132,8 +141,106 @@ namespace WAD_Assignment
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Order Succesfully Placed! Your item will be shipped to you soon!');window.location ='Homepage.aspx';", true);
                 con.Close();
 
+
+                //generate token for purchase summary page
+                Session["PurchaseSummaryToken"] = true;
+
                 Response.Redirect("TransactionSummary.aspx?OrderId=" + orderId.ToString());
+            
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtAddress.Text = "";
+            txtCardNo.Text = "";
+            txtCity.Text = "";
+            txtCVV.Text = "";
+            txtExpiryDate.Text = "";
+            txtName.Text = "";
+            txtPostal.Text = "";
+            txtState.Text = "";
+            radBtnCardType.SelectedIndex = 0; //visa
+            ddlPaymentMethod.SelectedValue = "Cash On Delivery";
+            hideCard();
+            ddlCountryList.SelectedValue = "Malaysia";
+        }
+
+        protected void radBtnCardType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (radBtnCardType.SelectedValue == "Visa")
+            {
+                RegularExpressionValidatorVisa.Visible = true;
+                RegularExpressionValidatorMaster.Visible = false;
             }
+            else
+            {
+                RegularExpressionValidatorMaster.Visible = true;
+                RegularExpressionValidatorVisa.Visible = false;
+            }
+        }
+
+        protected void ddlPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlPaymentMethod.SelectedValue == "Cash On Delivery")
+            {
+                hideCard();
+            }
+            else
+            {
+                showCard();
+            }
+        }
+
+        protected void showCard()
+        {
+            radBtnCardType.Visible = true;
+            txtCardNo.Visible = true;
+            txtCVV.Visible = true;
+            txtExpiryDate.Visible = true;
+
+            lblBtnCardType.Visible = true;
+            lblCardNo.Visible = true;
+            lblCVV.Visible = true;
+            lblExpiryDate.Visible = true;
+
+            //card num
+            RFV6.Enabled = true;
+            RegularExpressionValidatorVisa.Enabled = true;
+            RegularExpressionValidatorMaster.Enabled = true;
+
+            //expirydate
+            RFV7.Enabled = true;
+            RegularExpressionValidatorVisa0.Enabled = true;
+
+            //cvv
+            RFV8.Enabled = true;
+            RegularExpressionValidatorVisa1.Enabled = true;
+        }
+
+        protected void hideCard()
+        {
+            radBtnCardType.Visible = false;
+            txtCardNo.Visible = false;
+            txtCVV.Visible = false;
+            txtExpiryDate.Visible = false;
+
+            lblBtnCardType.Visible = false;
+            lblCardNo.Visible = false;
+            lblCVV.Visible = false;
+            lblExpiryDate.Visible = false;
+
+            //card num
+            RFV6.Enabled = false;
+            RegularExpressionValidatorVisa.Enabled = false;
+            RegularExpressionValidatorMaster.Enabled = false;
+
+            //expirydate
+            RFV7.Enabled = false;
+            RegularExpressionValidatorVisa0.Enabled = false;
+
+            //cvv
+            RFV8.Enabled = false;
+            RegularExpressionValidatorVisa1.Enabled = false;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TransactionSummary.aspx.cs" Inherits="WAD_Assignment.TransactionSummary" MasterPageFile="~/Page.Master"  %>
 
- <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+ <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server" >>
 
          <div style="font-size: 40px; font-weight: bold; text-align: center">
              PURCHASE SUMMARY
@@ -57,12 +57,6 @@ WHERE        (OrderId = @OrderId)">
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <%--<asp:TemplateField  ItemStyle-Height = "100pt" ItemStyle-Width = "100pt">
-                        <ItemTemplate >
-                            <asp:Image ID="Image1" runat="server"   
-                                ImageUrl = '<%# Eval("ArtUrl", GetUrl("{0}")).Replace("~/",String.Empty)%>' Width="100pt" Height="100pt" />
-                            </ItemTemplate>
-                    </asp:TemplateField>--%>
                     <asp:BoundField DataField="ArtName" HeaderText="ArtName" SortExpression="ArtName" />
                     <asp:BoundField DataField="UnitPrice" HeaderText="UnitPrice" SortExpression="UnitPrice" />
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
@@ -87,8 +81,11 @@ WHERE        (OrderId = @OrderId)">
          <br />
         <table aria-selected="undefined" class="w-100">
             <tr>
-                <td >&nbsp;</td>
+                <td class="auto-style1" >&nbsp;</td>
                 <td>&nbsp;<asp:Button ID="btnPrintPDF" runat="server" Text="Print PDF" OnClick="btnPrintPDF_Click"  />
+            
+                &nbsp;&nbsp;
+                    <asp:Button runat="server" Text="Button" />
             
                 </td>
             </tr>
@@ -102,6 +99,11 @@ WHERE        (OrderId = @OrderId)">
 </asp:Content>
 
 <asp:Content ID="Content4" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style1 {
+            width: 311px;
+        }
+    </style>
 </asp:Content>
 
 

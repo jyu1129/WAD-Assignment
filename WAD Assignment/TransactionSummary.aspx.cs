@@ -22,17 +22,26 @@ namespace WAD_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            
+            if (!IsPostBack)
             {
+                if (Session["PurchaseSummaryToken"].Equals(true)) //if has token access
+                {
+                    lblOrderId.Text = Request.QueryString["OrderId"];
+                    getTotalPayment();
+                    GeneratePDF();
+                    EmailReceipt();
+                    Session["PurchaseSummaryToken"] = false; //dont allow user to revisit page again (back button/refresh)
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache); //dont save cache
+                    Response.Cache.SetExpires(DateTime.Now.AddDays(-1));
+                }
+                else {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You have not purchased anything, kindly an place order :)');window.location ='ProductList.aspx';", true);
+                }
+
 
             }
-            else
-            {
-                lblOrderId.Text = Request.QueryString["OrderId"];
-                getTotalPayment();
-                GeneratePDF();
-                EmailReceipt();
-            }
+
         }
 
         protected void EmailReceipt()
@@ -132,13 +141,10 @@ namespace WAD_Assignment
             pdfDoc.Add(new Paragraph("If you have any inquiry please do not hesitate to contact my.mochiartgallery@gmail.com\n"));
             pdfDoc.Add(new Paragraph("© 2021 Mochi Art Gallery.All Rights Reserved.\n"));
 
-
-
-
-
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
+
         }
 
         protected void GeneratePDF()
