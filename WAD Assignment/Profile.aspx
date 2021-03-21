@@ -429,13 +429,13 @@
                             <td class="auto-style23">&nbsp;</td>
                             <td class="auto-style7"></td>
                             <td class="auto-style8">
-                                <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" Width="100px" />
+                                <asp:Button ID="btnUpdate" runat="server" Cssclass="button" Text="Update" OnClick="btnUpdate_Click"  />
                                 <br />
                                 <asp:Label ID="lblUpdate" runat="server"></asp:Label>
                             </td>
                             <td class="auto-style10"></td>
                             <td class="auto-style9">
-                                <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Width="101px" />
+                                <asp:Button ID="btnChange" runat="server" Cssclass="button" Text="Change" OnClick="btnChange_Click" />
                                 <br />
                                 <asp:Label ID="lblChange" runat="server"></asp:Label>
                             </td>

@@ -5,17 +5,6 @@
 
     <style type="text/css">
         
-        .auto-style10 {
-            height: 50px;
-        }
-
-        .auto-style11 {
-            height: 49px;
-        }
-
-        .auto-style12 {
-            height: 30px;
-        }
         .auto-style14 {
             height: 50px;
             width: 378px;
@@ -28,30 +17,56 @@
             height: 49px;
             width: 378px;
         }
-        .auto-style18 {
-            height: 50px;
-            width: 800px;
-        }
-        .auto-style19 {
-            height: 30px;
-            width: 800px;
-        }
-        .auto-style20 {
-            height: 49px;
-            width: 800px;
-        }
         .auto-style21 {
             height: 50px;
-            width: 124px;
-        }
-        .auto-style22 {
-            height: 30px;
-            width: 124px;
+            width: 19px;
         }
         .auto-style23 {
             height: 49px;
-            width: 124px;
+            width: 19px;
         }
+
+        .button {
+            display: inline-block;
+            padding: 0.5em 2em;
+            background-color: transparent;
+            border: 0.1em solid #000000;
+            border-radius: 3px;
+            margin: 0 0.3em 0.3em 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: grey;
+            text-align: center;
+            transition: all 0.15s;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+            .button:hover {
+                background-color: rgb(108,117,125);
+                color: white;
+            }
+
+        .auto-style24 {
+            height: 50px;
+            width: 241px;
+        }
+        .auto-style25 {
+            height: 30px;
+            width: 241px;
+        }
+        .auto-style26 {
+            height: 49px;
+            width: 241px;
+        }
+        .auto-style27 {
+            height: 30px;
+            width: 19px;
+        }
+        .auto-style28 {
+            height: 30px;
+        }
+
     </style>
 
     <table style="width: 100%;">
@@ -70,59 +85,44 @@
         <table style="width: 100%;">
 
             <tr>
-                <td class="auto-style18">&nbsp;</td>
+                <td class="auto-style24">&nbsp;</td>
                 <td class="auto-style21">Email&nbsp;&nbsp;&nbsp;</td>
                 <td class="auto-style14"><asp:TextBox ID="txtEmail" runat="server" required="required" type="email" Width="200px" Height="24px"></asp:TextBox>
                 </td>
-                <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style18">&nbsp;</td>
+                <td class="auto-style24">&nbsp;</td>
                 <td class="auto-style21">Password&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td class="auto-style14"><asp:TextBox ID="txtPassword" runat="server" required="required" TextMode="Password" Height="24px" Width="200px"></asp:TextBox>
                 </td>
-                <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style22">&nbsp;</td>
+                <td class="auto-style25">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
                 <td class="auto-style15">
                     <asp:HyperLink ID="HyperLink2" runat="server" Font-Size="Smaller" NavigateUrl="~/Login.aspx">Forgot your password?</asp:HyperLink>
                 </td>
-                <td class="auto-style12">
-                    &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style20">
+                <td class="auto-style26">
                     &nbsp;</td>
                 <td class="auto-style23">
                     &nbsp;</td>
                 <td class="auto-style16">
-                    <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" Width="70px" />
+                    <asp:Button ID="btnLogIn" runat="server" Cssclass="button" Text="Log In" OnClick="btnLogIn_Click"  />
                 </td>
-                <td class="auto-style11">
-                    &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style19">
+                <td class="auto-style25">
                     &nbsp;</td>
-                <td class="auto-style22">
+                <td class="auto-style27">
                     &nbsp;</td>
                 <td class="auto-style15">
                     <asp:Label ID="lblInvalid" runat="server" ForeColor="Red"></asp:Label>
-                </td>
-                <td class="auto-style12">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style19">
-                    &nbsp;</td>
-                <td class="auto-style12" colspan="2">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Don&#39;t have an account?
+                    <br />
+                    Don&#39;t have an account?<br />
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Register.aspx">Register Now</asp:HyperLink>
                 </td>
-                <td class="auto-style12">
-                    &nbsp;</td>
             </tr>
             </table>
         <br />

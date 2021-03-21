@@ -58,13 +58,13 @@ namespace WAD_Assignment
                     command2.ExecuteNonQuery();
                     con2.Close();
                 }
-                Response.Redirect("Login.aspx");
+                ScriptManager.RegisterStartupScript(this, GetType(), "Success", "alert('Your account has been successfully registered!'); window.location = '" + Page.ResolveUrl("~/Login.aspx") + "';", true);
             }
 
 
 
         }
 
-
+        
     }
 }
