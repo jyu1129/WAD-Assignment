@@ -87,20 +87,22 @@
             <tr>
                 <td class="auto-style24">&nbsp;</td>
                 <td class="auto-style21">Email&nbsp;&nbsp;&nbsp;</td>
-                <td class="auto-style14"><asp:TextBox ID="txtEmail" runat="server" required="required" type="email" Width="200px" Height="24px"></asp:TextBox>
+                <td class="auto-style14"><asp:TextBox ID="txtEmail" runat="server" type="email" Width="200px" Height="24px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style24">&nbsp;</td>
                 <td class="auto-style21">Password&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td class="auto-style14"><asp:TextBox ID="txtPassword" runat="server" required="required" TextMode="Password" Height="24px" Width="200px"></asp:TextBox>
+                <td class="auto-style14"><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Height="24px" Width="200px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style25">&nbsp;</td>
                 <td class="auto-style27">&nbsp;</td>
                 <td class="auto-style15">
-                    <asp:HyperLink ID="HyperLink2" runat="server" Font-Size="Smaller" NavigateUrl="~/Login.aspx">Forgot your password?</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" Font-Size="Smaller" NavigateUrl="~/ForgetPassword.aspx">Forgot your password?</asp:HyperLink>
                 </td>
             </tr>
             <tr>

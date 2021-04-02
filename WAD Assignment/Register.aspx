@@ -95,18 +95,24 @@
                 <table class="auto-style22">
                     <tr>
                         <td class="auto-style31"></td>
-                        <td class="auto-style26">First Name</td>
+                        <td class="auto-style26">First Name<br />
+                        </td>
                         <td class="auto-style32">
                             <asp:TextBox ID="txtFirstName" runat="server" Width="200px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="No special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="[a-zA-Z0-9]*[^!@%~?:#$%^&amp;*()0']"></asp:RegularExpressionValidator>
+                            <br />
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style31"></td>
-                        <td class="auto-style26">Last Name</td>
+                        <td class="auto-style26">Last Name<br />
+                        </td>
                         <td class="auto-style32">
                             <asp:TextBox ID="txtLastName" runat="server" Width="200px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="No special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="[a-zA-Z0-9]*[^!@%~?:#$%^&amp;*()0']"></asp:RegularExpressionValidator>
+                            <br />
                         </td>
                     </tr>
                     <tr>
@@ -142,7 +148,7 @@
                                 <asp:ListItem>Artist</asp:ListItem>
                                 <asp:ListItem>Customer</asp:ListItem>
                             </asp:DropDownList>
-                            &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required" ControlToValidate="ddlUserType" InitialValue="Please Select" ForeColor="Red"></asp:RequiredFieldValidator>
+                            &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="ddlUserType" InitialValue="Please Select" ForeColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
