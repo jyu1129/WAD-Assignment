@@ -169,7 +169,16 @@ namespace WAD_Assignment
                     SqlDataReader dtrUpdateCartQty = cmdUpdateCartQty.ExecuteReader();
                     dtrUpdateCartQty.Close();
                 }
+                
 
+            }
+            if (e.CommandName.Equals("DeleteProduct"))
+            {
+                //delete the product from cart
+                string strDeleteCart = "DELETE Cart WHERE CartId = " + cartId.ToString();
+                SqlCommand cmdDeleteCart = new SqlCommand(strDeleteCart, con);
+                SqlDataReader dtrDeleteCart = cmdDeleteCart.ExecuteReader();
+                dtrDeleteCart.Close();            
             }
 
 

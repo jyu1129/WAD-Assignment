@@ -59,13 +59,19 @@
                     <HeaderStyle Wrap="False"></HeaderStyle>
 
                     <ItemStyle Wrap="False"></ItemStyle>
+
                 </asp:BoundField>
                 <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" HeaderStyle-Wrap="False" ItemStyle-Wrap="False" Visible="False">
                     <HeaderStyle Wrap="False"></HeaderStyle>
 
                     <ItemStyle Wrap="False"></ItemStyle>
                 </asp:BoundField>
-                <asp:CommandField HeaderText="Action" ShowDeleteButton="True" />
+
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton3" runat="server" CommandName="DeleteProduct" CommandArgument='<%# Container.DataItemIndex %>' Font-Size="Medium" >Delete</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />
