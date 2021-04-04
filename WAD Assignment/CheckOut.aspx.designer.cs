@@ -87,6 +87,15 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV1;
 
         /// <summary>
+        /// regex_txtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_txtName;
+
+        /// <summary>
         /// txtAddress control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace WAD_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV2;
+
+        /// <summary>
+        /// regex_txtAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_txtAddress;
 
         /// <summary>
         /// txtCity control.
@@ -123,6 +141,15 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV3;
 
         /// <summary>
+        /// regex_txtCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_txtCity;
+
+        /// <summary>
         /// txtPostal control.
         /// </summary>
         /// <remarks>
@@ -141,13 +168,13 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV4;
 
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// regex_txtPostal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_txtPostal;
 
         /// <summary>
         /// ddlCountryList control.
@@ -159,6 +186,24 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.DropDownList ddlCountryList;
 
         /// <summary>
+        /// RFV5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV5;
+
+        /// <summary>
+        /// regex_txtState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_txtState;
+
+        /// <summary>
         /// txtState control.
         /// </summary>
         /// <remarks>
@@ -168,13 +213,22 @@ namespace WAD_Assignment
         protected global::System.Web.UI.WebControls.TextBox txtState;
 
         /// <summary>
-        /// RFV5 control.
+        /// RFV9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV9;
+
+        /// <summary>
+        /// regex_txtState0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_txtState0;
 
         /// <summary>
         /// ddlPaymentMethod control.

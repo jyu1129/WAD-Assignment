@@ -72,48 +72,51 @@
                     <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style4">Name:</td>
                     <td class="auto-style7" colspan="2">
-                        <asp:TextBox ID="txtName" runat="server" Width="583px"></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" Width="581px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RFV1" runat="server" ControlToValidate="txtName" ErrorMessage="Name is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regex_txtName" runat="server" ControlToValidate="txtName" ErrorMessage="Invalid Name, Please enter 1 to 50 letter(s) only" ForeColor="Red" ValidationExpression="^[A-Za-z\s]{1,50}$">*</asp:RegularExpressionValidator>
                     </td>
                     <td class="auto-style7">
-                        <asp:RequiredFieldValidator ID="RFV1" runat="server" ControlToValidate="txtName" ErrorMessage="Name is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">Address:</td>
                     <td colspan="2">
-                        <asp:TextBox ID="txtAddress" runat="server" Height="58px" Width="583px" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtAddress" runat="server" Height="58px" Width="582px" TextMode="MultiLine"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RFV2" runat="server" ControlToValidate="txtAddress" ErrorMessage="Address is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regex_txtAddress" runat="server" ControlToValidate="txtAddress" ErrorMessage="Invalid Address, Please enter 15 to 100 characters only" ForeColor="Red" ValidationExpression="^[A-Za-z\s\d\W]{15,150}$">*</asp:RegularExpressionValidator>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RFV2" runat="server" ControlToValidate="txtAddress" ErrorMessage="Address is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style10"></td>
                     <td class="auto-style4">City:</td>
-                    <td class="auto-style5">
-                        <asp:TextBox ID="txtCity" runat="server" Width="245px"></asp:TextBox>
-                    &nbsp;<asp:RequiredFieldValidator ID="RFV3" runat="server" ControlToValidate="txtCity" ErrorMessage="City is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                    <td class="auto-style7" colspan="2">
+                        <asp:TextBox ID="txtCity" runat="server" Width="581px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RFV3" runat="server" ControlToValidate="txtCity" ErrorMessage="City is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regex_txtCity" runat="server" ControlToValidate="txtCity" ErrorMessage="Invalid City, Please enter 5 to 50 characters only" ForeColor="Red" ValidationExpression="^[A-Za-z\s\d\W]{5,50}$">*</asp:RegularExpressionValidator>
+
                     </td>
-                    <td class="auto-style6"></td>
-                    <td class="auto-style7"></td>
+                    <td class="auto-style7">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">Postal:</td>
-                    <td class="auto-style1">
-                        <asp:TextBox ID="txtPostal" runat="server" Width="245px"></asp:TextBox>
-                    &nbsp;<asp:RequiredFieldValidator ID="RFV4" runat="server" ControlToValidate="txtPostal" ErrorMessage="Postal is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPostal" ErrorMessage="Invalid Postal Code" ForeColor="Red" ValidationExpression="^\d{5,10}">*</asp:RegularExpressionValidator>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtPostal" runat="server" Width="581px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RFV4" runat="server" ControlToValidate="txtPostal" ErrorMessage="Postal is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regex_txtPostal" runat="server" ControlToValidate="txtPostal" ErrorMessage="Invalid Postal Code, Please enter 5 to 10 digits only" ForeColor="Red" ValidationExpression="^\d{5,10}$">*</asp:RegularExpressionValidator>
+
                     </td>
-                    <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style3">Country:</td>
                     <td class="auto-style1">
-                        <asp:DropDownList ID="ddlCountryList" runat="server">
+                        <asp:DropDownList ID="ddlCountryList" runat="server" Width="582px">
                             <asp:ListItem Value="-1">Select Country</asp:ListItem>
                             <asp:ListItem Value="Afghanistan">Afghanistan</asp:ListItem>
                             <asp:ListItem Value="Albania">Albania</asp:ListItem>
@@ -355,18 +358,22 @@
                             <asp:ListItem Value="Zimbabwe">Zimbabwe</asp:ListItem>
 </asp:DropDownList>
                     </td>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3"><asp:RequiredFieldValidator ID="RFV5" runat="server" ControlToValidate="txtState" ErrorMessage="State is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regex_txtState" runat="server" ControlToValidate="txtState" ErrorMessage="Invalid State, Please enter 5 to 50 characters only" ForeColor="Red" ValidationExpression="^[A-Za-z\s\d\W]{5,50}$">*</asp:RegularExpressionValidator>
+
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style10"></td>
                     <td class="auto-style6">State:</td>
-                    <td class="auto-style5">
-                        <asp:TextBox ID="txtState" runat="server" Width="245px"></asp:TextBox>
-                    &nbsp;<asp:RequiredFieldValidator ID="RFV5" runat="server" ControlToValidate="txtState" ErrorMessage="State is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                    <td class="auto-style7" colspan="2">
+                        <asp:TextBox ID="txtState" runat="server" Width="581px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RFV9" runat="server" ControlToValidate="txtState" ErrorMessage="State is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regex_txtState0" runat="server" ControlToValidate="txtState" ErrorMessage="Invalid State, Please enter 5 to 50 characters only" ForeColor="Red" ValidationExpression="^[A-Za-z\s\d\W]{5,50}$">*</asp:RegularExpressionValidator>
+
                     </td>
-                    <td class="auto-style6"></td>
-                    <td class="auto-style7"></td>
+                    <td class="auto-style7">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style10">&nbsp;</td>
@@ -417,8 +424,8 @@
                     <td class="auto-style13">
                         <asp:TextBox ID="txtCardNo" runat="server" TextMode="Number" Width="245px"></asp:TextBox>
                     &nbsp;<asp:RequiredFieldValidator ID="RFV6" runat="server" ControlToValidate="txtCardNo" ErrorMessage="Card Number is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorVisa" runat="server" ControlToValidate="txtCardNo" ErrorMessage="Invalid Credit Card Number" ForeColor="Red" ValidationExpression="^4\d{13}">*</asp:RegularExpressionValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorMaster" runat="server" ControlToValidate="txtCardNo" ErrorMessage="Invalid Credit Card Number" ForeColor="Red" ValidationExpression="^5\d{13}">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorVisa" runat="server" ControlToValidate="txtCardNo" ErrorMessage="Invalid Credit Card Number, Enter 13-16 digits without dash(-) or space" ForeColor="Red" ValidationExpression="^4(\d{12}|\d{15})$">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorMaster" runat="server" ControlToValidate="txtCardNo" ErrorMessage="Invalid Credit Card Number, Enter 16 digits without dash(-) or space" ForeColor="Red" ValidationExpression="^5\d{15}$">*</asp:RegularExpressionValidator>
                     </td>
                     <td class="auto-style14"></td>
                     <td class="auto-style15">
@@ -432,7 +439,7 @@
                     <td class="auto-style13">
                         <asp:TextBox ID="txtExpiryDate" runat="server" Width="245px"></asp:TextBox>
                     &nbsp;<asp:RequiredFieldValidator ID="RFV7" runat="server" ControlToValidate="txtExpiryDate" ErrorMessage="Expiry Date is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorVisa0" runat="server" ControlToValidate="txtExpiryDate" ErrorMessage="Invalid Expiry Date" ForeColor="Red" ValidationExpression="^(0[1-9]|1[0-2])(2[1-9]|[3456789][0-9])$">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorVisa0" runat="server" ControlToValidate="txtExpiryDate" ErrorMessage="Invalid Expiry Date, Enter date in MMYY format" ForeColor="Red" ValidationExpression="^(0[1-9]|1[0-2])(2[1-9]|[3456789][0-9])$">*</asp:RegularExpressionValidator>
                     &nbsp;</td>
                     <td class="auto-style14"></td>
                     <td class="auto-style15">
@@ -446,7 +453,7 @@
                     <td class="auto-style13">
                         <asp:TextBox ID="txtCVV" runat="server" TextMode="Number" Width="245px"></asp:TextBox>
                     &nbsp;<asp:RequiredFieldValidator ID="RFV8" runat="server" ControlToValidate="txtCVV" ErrorMessage="CVV is required" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorVisa1" runat="server" ControlToValidate="txtCVV" ErrorMessage="Invalid CVV" ForeColor="Red" ValidationExpression="^\d{3,4}$">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorVisa1" runat="server" ControlToValidate="txtCVV" ErrorMessage="Invalid CVV, Enter 3-4 digits without special character" ForeColor="Red" ValidationExpression="^\d{3,4}$">*</asp:RegularExpressionValidator>
                     </td>
                     <td class="auto-style14"></td>
                     <td class="auto-style15">
