@@ -231,7 +231,11 @@ namespace WAD_Assignment
 
         }
 
-        
+        protected void btnMoreProducts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ProductList.aspx");
+
+        }
     }
 
 

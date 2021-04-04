@@ -85,7 +85,7 @@ WHERE        (OrderId = @OrderId)">
                 <td>&nbsp;<asp:Button ID="btnPrintPDF" runat="server" Text="Print PDF" OnClick="btnPrintPDF_Click"  />
             
                 &nbsp;&nbsp;
-                    <asp:Button runat="server" Text="Button" />
+                    <asp:Button runat="server" Text="More Products" ID="btnMoreProducts" CausesValidation="False" OnClick="btnMoreProducts_Click" />
             
                 </td>
             </tr>
