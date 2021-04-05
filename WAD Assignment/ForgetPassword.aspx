@@ -80,7 +80,8 @@
             <tr>
                 <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style4">Email&nbsp;&nbsp;&nbsp;</td>
-                <td class="auto-style14"><asp:TextBox ID="txtEmail" runat="server" required="required" type="email" Width="290px" Height="24px"></asp:TextBox>
+                <td class="auto-style14"><asp:TextBox ID="txtEmail" runat="server" type="email" Width="290px" Height="24px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

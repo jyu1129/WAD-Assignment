@@ -100,7 +100,7 @@
                         <td class="auto-style32">
                             <asp:TextBox ID="txtFirstName" runat="server" Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
+                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="^[a-zA-Z\s]+$"></asp:RegularExpressionValidator>
                             <br />
                         </td>
                     </tr>
@@ -111,7 +111,7 @@
                         <td class="auto-style32">
                             <asp:TextBox ID="txtLastName" runat="server" Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
+                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="^[a-zA-Z\s]+$"></asp:RegularExpressionValidator>
                             <br />
                         </td>
                     </tr>
@@ -119,24 +119,27 @@
                         <td class="auto-style31"></td>
                         <td class="auto-style26">Email</td>
                         <td class="auto-style32">
-                            <asp:TextBox ID="txtEmail" runat="server" Width="200px" required="required" type="email" ></asp:TextBox>
-                            &nbsp;<asp:Label ID="lblEmailExist" runat="server" ForeColor="Red"></asp:Label>
+                            <asp:TextBox ID="txtEmail" runat="server" Width="200px" type="email" ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:Label ID="lblEmailExist" runat="server" ForeColor="Red"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style31"></td>
                         <td class="auto-style26">Password</td>
                         <td class="auto-style32">
-                            <asp:TextBox ID="txtPw" runat="server" required="required" TextMode="Password" Width="200px"></asp:TextBox>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtPw" ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtPw" runat="server" TextMode="Password" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPw" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum password length is 8" ControlToValidate="txtPw" ValidationExpression=".{8}.*" ForeColor="Red"></asp:RegularExpressionValidator>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style31"></td>
                         <td class="auto-style26">Confirm Password</td>
                         <td class="auto-style32">
-                            <asp:TextBox ID="txtConfirmPw" runat="server" required="required" TextMode="Password" Width="200px"></asp:TextBox>
-                            &nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPw" ControlToValidate="txtConfirmPw" ErrorMessage="Not Matched" ForeColor="Red"></asp:CompareValidator>
+                            <asp:TextBox ID="txtConfirmPw" runat="server" TextMode="Password" Width="200px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtConfirmPw" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+&nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPw" ControlToValidate="txtConfirmPw" ErrorMessage="Not Matched" ForeColor="Red"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>

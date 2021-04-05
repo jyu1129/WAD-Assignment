@@ -28,6 +28,8 @@ namespace WAD_Assignment
             //Disable validation first
             RegularExpressionValidator2.Enabled = false;
             RegularExpressionValidator3.Enabled = false;
+            RequiredFieldValidator1.Enabled = false;
+            RequiredFieldValidator2.Enabled = false;
 
             if (!Page.IsPostBack)
             {
@@ -126,7 +128,6 @@ namespace WAD_Assignment
             switch (btnName.Text)
             {
                 case "Save":
-
                     saveChanges();
                     btnUpdate.Text = "Update";
                     txtFirstName.Enabled = false;
@@ -235,12 +236,18 @@ namespace WAD_Assignment
                     break;
 
                 case "Change":
-                    //code
+                    //Disable validation first
+                    RequiredFieldValidator1.Enabled = false;
+                    RequiredFieldValidator2.Enabled = false;
                     txtPw.Enabled = true;
                     txtNewPw.Enabled = true;
                     txtConfirmNewPw.Enabled = true;
                     btnChange.Text = "Save";
                     lblChange.Text = "";
+
+                    //Enable validation
+                    RequiredFieldValidator1.Enabled = true;
+                    RequiredFieldValidator2.Enabled = true;
                     break;
             }
         }
