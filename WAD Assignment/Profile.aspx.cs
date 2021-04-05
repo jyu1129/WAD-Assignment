@@ -25,6 +25,10 @@ namespace WAD_Assignment
             con2 = new SqlConnection(strCon2);
             con2.Open();
 
+            //Disable validation first
+            RegularExpressionValidator2.Enabled = false;
+            RegularExpressionValidator3.Enabled = false;
+
             if (!Page.IsPostBack)
             {
                 showData();
@@ -42,6 +46,7 @@ namespace WAD_Assignment
                 btnWishlist.Visible = true;
                 btnPurchaseHistory.Visible = true;
             }
+
 
         }
 
@@ -121,7 +126,7 @@ namespace WAD_Assignment
             switch (btnName.Text)
             {
                 case "Save":
-                    //code
+
                     saveChanges();
                     btnUpdate.Text = "Update";
                     txtFirstName.Enabled = false;
@@ -130,10 +135,14 @@ namespace WAD_Assignment
                     txtPhone.Enabled = false;
                     txtAddress.Enabled = false;
                     ddlCountry.Enabled = false;
+                    btnUpdate.UseSubmitBehavior = true;
                     break;
 
                 case "Update":
-                    //code
+                    //Disable validation first
+                    RegularExpressionValidator2.Enabled = false;
+                    RegularExpressionValidator3.Enabled = false;
+
                     txtFirstName.Enabled = true;
                     txtLastName.Enabled = true;
                     txtEmail.Enabled = true;
@@ -141,9 +150,15 @@ namespace WAD_Assignment
                     txtAddress.Enabled = true;
                     ddlCountry.Enabled = true;
 
+
                     btnUpdate.Text = "Save";
                     lblUpdate.Text = "";
                     lblEmail.Text = "";
+
+                    //Enable validation 
+                    RegularExpressionValidator2.Enabled = true;
+                    RegularExpressionValidator3.Enabled = true;
+
                     break;
             }
 
@@ -266,6 +281,8 @@ namespace WAD_Assignment
             drPassword.Close();
             con.Close();
         }
+
+  
     }
 
 

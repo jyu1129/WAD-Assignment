@@ -100,7 +100,7 @@
                         <td class="auto-style32">
                             <asp:TextBox ID="txtFirstName" runat="server" Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="No special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="[a-zA-Z0-9]*[^!@%~?:#$%^&amp;*()0']"></asp:RegularExpressionValidator>
+                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
                             <br />
                         </td>
                     </tr>
@@ -111,7 +111,7 @@
                         <td class="auto-style32">
                             <asp:TextBox ID="txtLastName" runat="server" Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="No special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="[a-zA-Z0-9]*[^!@%~?:#$%^&amp;*()0']"></asp:RegularExpressionValidator>
+                            &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.&quot;" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
                             <br />
                         </td>
                     </tr>
@@ -119,7 +119,7 @@
                         <td class="auto-style31"></td>
                         <td class="auto-style26">Email</td>
                         <td class="auto-style32">
-                            <asp:TextBox ID="txtEmail" runat="server" Width="200px" required="required" type="email"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" runat="server" Width="200px" required="required" type="email" ></asp:TextBox>
                             &nbsp;<asp:Label ID="lblEmailExist" runat="server" ForeColor="Red"></asp:Label>
                         </td>
                     </tr>
@@ -143,7 +143,7 @@
                         <td class="auto-style31"></td>
                         <td class="auto-style26">User Type</td>
                         <td class="auto-style32">
-                            <asp:DropDownList ID="ddlUserType" runat="server" Height="18px" Width="200px">
+                            <asp:DropDownList ID="ddlUserType" runat="server" Height="18px" Width="200px" >
                                 <asp:ListItem Text="Please Select" Selected="True"></asp:ListItem>
                                 <asp:ListItem>Artist</asp:ListItem>
                                 <asp:ListItem>Customer</asp:ListItem>

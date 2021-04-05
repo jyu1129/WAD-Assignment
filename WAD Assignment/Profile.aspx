@@ -128,15 +128,19 @@
                             <td class="auto-style13">First Name</td>
                             <td class="auto-style14">
                                 <asp:TextBox ID="txtFirstName" runat="server" Width="200px"></asp:TextBox>
+                                <br />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFirstName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.”" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
                             </td>
                             <td class="auto-style15">Change Password</td>
-                            <td class="auto-style16"></td>
+                            <td class="auto-style16">&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="auto-style21">&nbsp;</td>
                             <td class="auto-style13">Last Name</td>
                             <td class="auto-style14">
                                 <asp:TextBox ID="txtLastName" runat="server" Width="200px"></asp:TextBox>
+                                <br />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="No numeric &amp; special characters e.g. @!#%.”" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$"></asp:RegularExpressionValidator>
                             </td>
                             <td class="auto-style15">Current Password</td>
                             <td class="auto-style16">
@@ -162,6 +166,7 @@
                             <td class="auto-style13">Phone</td>
                             <td class="auto-style14">
                                 <asp:TextBox ID="txtPhone" runat="server" Width="200px"></asp:TextBox>
+                                <br />
                             </td>
                             <td class="auto-style15">Confirm New Password</td>
                             <td class="auto-style16">
@@ -170,12 +175,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style22">&nbsp;</td>
+                            <td class="auto-style22"></td>
                             <td class="auto-style17">Address</td>
                             <td class="auto-style18">
                                 <asp:TextBox ID="txtAddress" runat="server" Height="71px" Width="216px" TextMode="MultiLine"></asp:TextBox>
+                                <br />
                             </td>
-                            <td class="auto-style19"></td>
+                            <td class="auto-style19">&nbsp;</td>
                             <td class="auto-style20"></td>
                         </tr>
                         <tr>

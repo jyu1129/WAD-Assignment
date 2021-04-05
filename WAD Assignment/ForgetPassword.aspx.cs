@@ -68,7 +68,7 @@ namespace WAD_Assignment
             }
             else
             {
-                lblMessage.Text = "The email is not exists!";
+                lblMessage.Text = "The email does not exist!";
                 lblMessage.ForeColor = Color.Red;
             }
             dr.Close();
