@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="WAD_Assignment.Homepage" %>
 
+<%@ Register TagName="NEWS" TagPrefix="UC1" Src="~/Newsletter.ascx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <script>
         document.getElementById("gallery").classList.remove("active");
@@ -92,6 +94,12 @@
         .auto-style6 {
             width: 365px;
         }
+        .auto-style7 {
+            width: 522px;
+        }
+        .auto-style8 {
+            width: 281px;
+        }
     </style>
 
 
@@ -114,9 +122,15 @@
 
     <div style="font-family: 'Lucida Handwriting'; font-size: 30px;">
         Why Buy Art From Mochi?
-        <p></p>
-        <p></p>
-    </div>
+            </div>
+           <table class="w-100">
+               <tr>
+                   <td align="center">
+           <UC1:NEWS ID="Newsletter" runat="server" />
+                   </td>
+               </tr>
+        </table>
+
 
     <h1>
         <table style="width: 80%; margin:auto;">
@@ -132,7 +146,7 @@
                 <td class="auto-style6" style="border: thin dotted #C0C0C0"><span style="color: rgb(102, 102, 102); font-family: &quot; hind vadodara&quot; , sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Express yourself with a unique piece created by the hands of one of our talented artists. Transform your home with the impact of one-of-a-kind original art.</span></td>
                 <td style="border: thin dotted #C0C0C0"><span style="color: rgb(102, 102, 102); font-family: &quot; hind vadodara&quot; , sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Your personal art concierge is here to help. Mochi’s friendly and transparent experience is a refreshing way to buy art. We’re only an e-mail or phone call away.</span></td>
             </tr>
-        </table>
+            </table>
     </h1>
 
 </asp:Content>
