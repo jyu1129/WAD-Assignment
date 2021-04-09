@@ -12,10 +12,6 @@ namespace WAD_Assignment
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Session["role"].Equals("Artists"))
-            {
-                Response.Redirect("Homepage.aspx");
-            }
             lblGalleryTotal.Text = DataList1.Items.Count.ToString();
             string userId = Session["userID"].ToString();
             con = new SqlConnection(strCon);
