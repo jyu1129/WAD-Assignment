@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" MasterPageFile="~/Page.Master" Inherits="WAD_Assignment.ProductList" %>
 
+<%@ Register Src="~/Newsletter.ascx" TagPrefix="uc1" TagName="Newsletter" %>
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <script>
@@ -72,6 +75,9 @@
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Arts]"></asp:SqlDataSource>
         <br />
+        <div align="center">
+            <uc1:Newsletter runat="server" ID="Newsletter" />
+        </div>
 
     </div>
 </asp:Content>
