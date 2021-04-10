@@ -108,7 +108,7 @@
                     <label for="txtStock">
                         Stock<br />
                     </label>
-                    <asp:TextBox class="form-control" ID="txtStock" runat="server" Width="100px" type="number"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtStock" runat="server" Width="100px" type="number" min="0"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validTxtStock" runat="server" ControlToValidate="txtStock" Display="Dynamic" ErrorMessage="Stock is required" ForeColor="Red" ValidationGroup="AllValidators">* Stock is required</asp:RequiredFieldValidator>
                 </div>
             </div>
