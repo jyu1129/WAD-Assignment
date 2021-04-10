@@ -96,6 +96,7 @@
     <Content Include="Gallery.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Newsletter.ascx" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="Profile.aspx" />
@@ -250,6 +251,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Newsletter.ascx.cs">
+      <DependentUpon>Newsletter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Newsletter.ascx.designer.cs">
+      <DependentUpon>Newsletter.ascx</DependentUpon>
     </Compile>
     <Compile Include="Page.Master.cs">
       <DependentUpon>Page.Master</DependentUpon>
