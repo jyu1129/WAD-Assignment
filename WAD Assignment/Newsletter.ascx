@@ -40,7 +40,6 @@
     <tr>
         <td class="auto-style3" style="text-align: center">Email&nbsp;&nbsp;
             <asp:TextBox ID="txtEmail" runat="server" type="email" Height="22px" Width="250px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
             <asp:Label ID="lblMessage" runat="server"></asp:Label>
         </td>

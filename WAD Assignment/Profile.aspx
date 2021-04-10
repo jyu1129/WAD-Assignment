@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="WAD_Assignment.Profile" %>
 
 
+<%@ Register src="Newsletter.ascx" tagname="Newsletter" tagprefix="uc1" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <style type="text/css">
         .auto-style6 {
@@ -446,6 +449,11 @@
                                 <asp:Button ID="btnChange" runat="server" Cssclass="button" Text="Change" OnClick="btnChange_Click" />
                                 <br />
                                 <asp:Label ID="lblChange" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style9" colspan="5" align="center">
+                                <uc1:Newsletter ID="Newsletter1" runat="server" />
                             </td>
                         </tr>
                     </table>
